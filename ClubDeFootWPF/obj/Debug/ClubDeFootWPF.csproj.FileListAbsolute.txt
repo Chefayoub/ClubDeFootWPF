@@ -1,0 +1,34 @@
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\ClubDeFootWPF.exe.config
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\ClubDeFootWPF.exe
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\ClubDeFootWPF.pdb
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.csproj.AssemblyReference.cache
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\MainWindow.g.cs
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\App.g.cs
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF_MarkupCompile.cache
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF_MarkupCompile.lref
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\MainWindow.baml
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.g.resources
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.Properties.Resources.resources
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.csproj.GenerateResource.cache
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.csproj.CoreCompileInputs.cache
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.exe
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.pdb
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Equipe.g.cs
+C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Equipe.baml
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\ClubDeFootWPF.exe.config
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\ClubDeFootWPF.exe
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\ClubDeFootWPF.pdb
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.csproj.AssemblyReference.cache
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\MainWindow.g.cs
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Equipe.g.cs
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\App.g.cs
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF_MarkupCompile.cache
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF_MarkupCompile.lref
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\MainWindow.baml
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Equipe.baml
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.g.resources
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.Properties.Resources.resources
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.csproj.GenerateResource.cache
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.csproj.CoreCompileInputs.cache
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.exe
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.pdb
