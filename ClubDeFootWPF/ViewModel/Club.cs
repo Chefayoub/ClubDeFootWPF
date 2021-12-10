@@ -85,6 +85,7 @@ namespace ClubDeFootWPF.ViewModel
             cSupprimer = new BaseCommande(Supprimer);
             cEssaiSelMult = new BaseCommande(EssaiSelMult);
         }
+
         private ObservableCollection<C_T_Club> ChargerClubs(string chConn)
         {
             ObservableCollection<C_T_Club> rep = new ObservableCollection<C_T_Club>();
@@ -93,6 +94,7 @@ namespace ClubDeFootWPF.ViewModel
                 rep.Add(Tmp);
             return rep;
         }
+
         public void Confirmer()
         {
             if (nAjout == -1)
@@ -107,14 +109,19 @@ namespace ClubDeFootWPF.ViewModel
             }
             ActiverUneFiche = false;
         }
+
         public void Annuler()
-        { ActiverUneFiche = false; }
+        { 
+            ActiverUneFiche = false;
+        }
+
         public void Ajouter()
         {
             UneClub = new VM_UneClub();
             nAjout = -1;
             ActiverUneFiche = true;
         }
+
         public void Modifier()
         {
             if (ClubSelectionnee != null)
@@ -132,6 +139,7 @@ namespace ClubDeFootWPF.ViewModel
                 ActiverUneFiche = true;
             }
         }
+
         public void Supprimer()
         {
             if (ClubSelectionnee != null)
@@ -140,6 +148,7 @@ namespace ClubDeFootWPF.ViewModel
                 BcpClubs.Remove(ClubSelectionnee);
             }
         }
+
         public void EssaiSelMult(object lListe)
         {
             System.Collections.IList lTmp = (System.Collections.IList)lListe;
@@ -147,6 +156,7 @@ namespace ClubDeFootWPF.ViewModel
             { string s = p.Nom; }
             int nTmp = lTmp.Count;
         }
+
         public void ClubSelectionnee2UneClub()
         {
             UneClub.ID = ClubSelectionnee.ID_Club;

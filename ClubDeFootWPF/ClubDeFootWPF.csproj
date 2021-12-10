@@ -77,9 +77,25 @@
     <Compile Include="Model\G_T_Membre.cs" />
     <Compile Include="Model\G_T_Terrain.cs" />
     <Compile Include="ViewModel\Base.cs" />
-    <Compile Include="ViewModel\Equipe.cs" />
+    <Compile Include="ViewModel\Club.cs" />
+    <Compile Include="ViewModel\Entrainement.cs" />
+    <Compile Include="View\Club.xaml.cs">
+      <DependentUpon>Club.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Entrainement.xaml.cs">
+      <DependentUpon>Entrainement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Equipe.xaml.cs">
       <DependentUpon>Equipe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Match.xaml.cs">
+      <DependentUpon>Match.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Membre.xaml.cs">
+      <DependentUpon>Membre.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Terrain.xaml.cs">
+      <DependentUpon>Terrain.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -93,7 +109,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Club.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Entrainement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Equipe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Match.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Membre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Terrain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

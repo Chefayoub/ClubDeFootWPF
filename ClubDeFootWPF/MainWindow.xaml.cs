@@ -24,15 +24,47 @@ namespace ClubDeFootWPF
         {
             InitializeComponent();
         }
-        private void btnPersonne_Click(object sender, RoutedEventArgs e)
+
+
+        private void btnMembre_Click(object sender, RoutedEventArgs e)
+        {
+            View.Membre f = new View.Membre();
+            f.ShowDialog();
+        }
+
+        private void btnClub_Click(object sender, RoutedEventArgs e)
+        {
+            View.Club f = new View.Club();
+            f.ShowDialog();
+        }
+
+        private void btnEquipe_Click(object sender, RoutedEventArgs e)
         {
             View.Equipe f = new View.Equipe();
             f.ShowDialog();
         }
 
+        private void btnMatch_Click(object sender, RoutedEventArgs e)
+        {
+            View.Match f = new View.Match();
+            f.ShowDialog();
+        }
+
+        private void btnEntrainement_Click(object sender, RoutedEventArgs e)
+        {
+            View.Entrainement f = new View.Entrainement();
+            f.ShowDialog();
+        }
+
+        private void btnTerrain_Click(object sender, RoutedEventArgs e)
+        {
+            View.Terrain f = new View.Terrain();
+            f.ShowDialog();
+        }
+
         private void btnQuitter_Click(object sender, RoutedEventArgs e)
         {
-            Close(); 
+            Close();
         }
     }
 }

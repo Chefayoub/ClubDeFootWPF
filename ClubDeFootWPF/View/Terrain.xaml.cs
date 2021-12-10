@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace ClubDeFootWPF.View
 {
     /// <summary>
-    /// Logique d'interaction pour Equipe.xaml
+    /// Logique d'interaction pour Terrain.xaml
     /// </summary>
-    public partial class Equipe : Window
+    public partial class Terrain : Window
     {
-        public Equipe()
+        public Terrain()
         {
             InitializeComponent();
         }

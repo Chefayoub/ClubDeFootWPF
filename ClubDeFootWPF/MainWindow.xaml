@@ -15,8 +15,13 @@
             <Setter Property="DisplayMode" Value="Decade"/>
         </Style>
     </Window.Resources>
-    <StackPanel VerticalAlignment="Center">
-        <Button Name="btnPersonne" Content="Personne" Margin="5" Click="btnPersonne_Click"/>
-        <Button Name="btnQuitter" Content="Quitter" Margin="5" Click="btnQuitter_Click"/>
+    <StackPanel VerticalAlignment="Center" Margin="0,96,617.6,115" Height="209">
+        <Button Name="btnMembre" Content="Membre" Margin="5" Click="btnMembre_Click"/>
+        <Button Name="btnClub" Content="Club" Margin="5" Click="btnClub_Click"/>
+        <Button Name="btnEquipe" Content="Equipe" Margin="5" Click="btnEquipe_Click"/>
+        <Button Name="btnMatch" Content="Match" Margin="5" Click="btnMatch_Click"/>
+        <Button Name="btnEntrainement" Content="Entrainement" Margin="5" Click="btnEntrainement_Click"/>
+        <Button Name="btnTerrain" Content="Terrain" Margin="5" Click="btnTerrain_Click"/>
+        <Button x:Name="btnQuitter" Content="Quitter" Margin="5,5,4.6,5" Click="btnQuitter_Click"/>
     </StackPanel>
 </Window>
