@@ -41,3 +41,4 @@ D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\V
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Entrainement.baml
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Match.baml
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Terrain.baml
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.csproj.AssemblyReference.cache

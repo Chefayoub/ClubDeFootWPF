@@ -73,9 +73,9 @@ namespace ClubDeFootWPF.ViewModel
         public VM_Entrainement()
         {
             UneEntrainement = new VM_UneEntrainement();
-            UneEntrainement.ID_Entrainement = 1;
-            UneEntrainement.ID_Terrain = 2;
-            UneEntrainement.ID_Equipe = 3;
+            //UneEntrainement.ID_Entrainement = 1;
+            //UneEntrainement.ID_Terrain = 2;
+            //UneEntrainement.ID_Equipe = 3;
             //UneEntrainement.Date = ;
             BcpEntrainements = ChargerEntrainements(chConnexion);
             ActiverUneFiche = false;

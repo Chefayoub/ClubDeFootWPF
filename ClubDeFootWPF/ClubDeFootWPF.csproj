@@ -79,6 +79,7 @@
     <Compile Include="ViewModel\Base.cs" />
     <Compile Include="ViewModel\Club.cs" />
     <Compile Include="ViewModel\Entrainement.cs" />
+    <Compile Include="ViewModel\Equipe.cs" />
     <Compile Include="View\Club.xaml.cs">
       <DependentUpon>Club.xaml</DependentUpon>
     </Compile>

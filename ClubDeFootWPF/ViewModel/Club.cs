@@ -69,13 +69,6 @@ namespace ClubDeFootWPF.ViewModel
         public VM_Club()
         {
             UneClub = new VM_UneClub();
-            UneClub.ID = 2;
-            UneClub.Nom = "Fc Ougrée";
-            UneClub.Rue = "Rue de ougrée";
-            UneClub.Numero = 24;
-            UneClub.Code_Postal = 4100;
-            UneClub.Localite = "Ougrée";
-            UneClub.Mon_Club = "Non";
             BcpClubs = ChargerClubs(chConnexion);
             ActiverUneFiche = false;
             cConfirmer = new BaseCommande(Confirmer);
@@ -99,13 +92,13 @@ namespace ClubDeFootWPF.ViewModel
         {
             if (nAjout == -1)
             {
-                UneClub.ID = new G_T_Club(chConnexion).Ajouter(UneClub.Nom, UneClub.Rue, UneClub.Numero, UneClub.Code_Postal, UneClub.Localite, UneClub.Mon_Club);
-                BcpClubs.Add(new C_T_Club(UneClub.ID, UneClub.Nom, UneClub.Rue, UneClub.Numero, UneClub.Code_Postal, UneClub.Localite, UneClub.Mon_Club));
+                UneClub.ID_Club = new G_T_Club(chConnexion).Ajouter(UneClub.Nom, UneClub.Rue, UneClub.Numero, UneClub.Code_Postal, UneClub.Localite, UneClub.Mon_Club);
+                BcpClubs.Add(new C_T_Club(UneClub.ID_Club, UneClub.Nom, UneClub.Rue, UneClub.Numero, UneClub.Code_Postal, UneClub.Localite, UneClub.Mon_Club));
             }
             else
             {
-                new G_T_Club(chConnexion).Modifier(UneClub.ID, UneClub.Nom, UneClub.Rue, UneClub.Numero, UneClub.Code_Postal, UneClub.Localite, UneClub.Mon_Club);
-                BcpClubs[nAjout] = new C_T_Club(UneClub.ID, UneClub.Nom, UneClub.Rue, UneClub.Numero, UneClub.Code_Postal, UneClub.Localite, UneClub.Mon_Club);
+                new G_T_Club(chConnexion).Modifier(UneClub.ID_Club, UneClub.Nom, UneClub.Rue, UneClub.Numero, UneClub.Code_Postal, UneClub.Localite, UneClub.Mon_Club);
+                BcpClubs[nAjout] = new C_T_Club(UneClub.ID_Club, UneClub.Nom, UneClub.Rue, UneClub.Numero, UneClub.Code_Postal, UneClub.Localite, UneClub.Mon_Club);
             }
             ActiverUneFiche = false;
         }
@@ -128,7 +121,7 @@ namespace ClubDeFootWPF.ViewModel
             {
                 C_T_Club Tmp = new G_T_Club(chConnexion).Lire_ID(ClubSelectionnee.ID_Club);
                 UneClub = new VM_UneClub();
-                UneClub.ID = Tmp.ID_Club;
+                UneClub.ID_Club = Tmp.ID_Club;
                 UneClub.Nom = Tmp.Nom;
                 UneClub.Rue = Tmp.Rue;
                 UneClub.Numero = Tmp.Numero;
@@ -159,7 +152,7 @@ namespace ClubDeFootWPF.ViewModel
 
         public void ClubSelectionnee2UneClub()
         {
-            UneClub.ID = ClubSelectionnee.ID_Club;
+            UneClub.ID_Club = ClubSelectionnee.ID_Club;
             UneClub.Nom = ClubSelectionnee.Nom;
             UneClub.Rue = ClubSelectionnee.Rue;
             UneClub.Numero = ClubSelectionnee.Numero;
@@ -170,13 +163,13 @@ namespace ClubDeFootWPF.ViewModel
     }
     public class VM_UneClub : BasePropriete
     {
-        private int _ID, _Numero, _Code_Postal;
+        private int _ID_Club, _Numero, _Code_Postal;
         private string _Nom, _Rue, _Localite, _Mon_Club;
 
-        public int ID
+        public int ID_Club
         {
-            get { return _ID; }
-            set { AssignerChamp<int>(ref _ID, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
+            get { return _ID_Club; }
+            set { AssignerChamp<int>(ref _ID_Club, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
         }
         public int Numero
         {

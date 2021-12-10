@@ -28,6 +28,7 @@ namespace ClubDeFootWPF.View
         public Club()
         {
             InitializeComponent();
+
             LocalClub = new ViewModel.VM_Club();
             DataContext = LocalClub;
             FlowDocument fd = new FlowDocument();
