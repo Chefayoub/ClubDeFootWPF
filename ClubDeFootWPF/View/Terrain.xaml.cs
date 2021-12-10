@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Projet_BD_ClubDeSportWPF.Classes;
 
 namespace ClubDeFootWPF.View
 {
@@ -19,9 +23,38 @@ namespace ClubDeFootWPF.View
     /// </summary>
     public partial class Terrain : Window
     {
+        private ViewModel.VM_Terrain LocalTerrain;
+
         public Terrain()
         {
             InitializeComponent();
+
+            LocalTerrain = new ViewModel.VM_Terrain();
+            DataContext = LocalTerrain;
+            FlowDocument fd = new FlowDocument();
+            Paragraph p = new Paragraph();
+            p.Inlines.Add(new Bold(new Run("Titre de document")));
+            p.Inlines.Add(new LineBreak());
+            p.Inlines.Add(new Run("Liste des personnes encodées"));
+            fd.Blocks.Add(p);
+            List l = new List();
+
+            foreach (C_T_Terrain cp in LocalTerrain.BcpTerrains)
+            {
+                Paragraph pl = new Paragraph(new Run(cp.ID_Terrain + " " + cp.Nom));
+                l.ListItems.Add(new ListItem(pl));
+            }
+
+            fd.Blocks.Add(l);
+            rtbDoc.Document = fd;
+            FileStream fs = new FileStream(@"D:\essai.rtf", FileMode.Create);
+            TextRange tr = new TextRange(rtbDoc.Document.ContentStart, rtbDoc.Document.ContentEnd);
+            tr.Save(fs, System.Windows.DataFormats.Rtf);
+        }
+
+        private void dgTerrains_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dgTerrain.SelectedIndex >= 0) LocalTerrain.TerrainSelectionnee2UneTerrain();
         }
     }
 }

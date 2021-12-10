@@ -34,8 +34,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             
-            <TextBlock Name="tID" Text="Identifiant" VerticalAlignment="Center" />
-            <TextBox Name="tbID" Grid.Column="1" Margin="3" Text="{Binding Path=UneClub.ID, Mode=TwoWay}" />
+            <TextBlock Name="tIDClub" Text="ID Club" VerticalAlignment="Center" />
+            <TextBox Name="tbIDClub" Grid.Column="1" Margin="3" Text="{Binding Path=UneClub.ID_Club, Mode=TwoWay}" />
             
             <TextBlock Name="tNom" Text="Nom" Grid.Row="1" VerticalAlignment="Center" />
             <TextBox Name="tbNom" Grid.Row="1" Grid.Column="1" Margin="3" Text="{Binding Path=UneClub.Nom, Mode=TwoWay}" />
