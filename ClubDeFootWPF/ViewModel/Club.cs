@@ -161,6 +161,7 @@ namespace ClubDeFootWPF.ViewModel
             UneClub.Mon_Club = ClubSelectionnee.Mon_Club;
         }
     }
+
     public class VM_UneClub : BasePropriete
     {
         private int _ID_Club, _Numero, _Code_Postal;
