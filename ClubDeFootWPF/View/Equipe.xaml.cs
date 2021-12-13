@@ -45,7 +45,7 @@ namespace ClubDeFootWPF.View
             }
             fd.Blocks.Add(l);
             rtbDoc.Document = fd;
-            FileStream fs = new FileStream(@"D:\essai.rtf", FileMode.Create);
+            FileStream fs = new FileStream(@"D:\BD_ClubDeSportWPF\DocAppWPF\Equipe.doc", FileMode.Create);
             TextRange tr = new TextRange(rtbDoc.Document.ContentStart, rtbDoc.Document.ContentEnd);
             tr.Save(fs, System.Windows.DataFormats.Rtf);
         }
