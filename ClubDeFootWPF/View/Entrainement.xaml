@@ -1,12 +1,11 @@
-﻿
-<Window x:Class="ClubDeFootWPF.View.Entrainement"
+﻿<Window x:Class="ClubDeFootWPF.View.Entrainement"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClubDeFootWPF.View"
         mc:Ignorable="d"
-        Title="Entrainement" Height="400" Width="600">   
+        Title="Entrainement" Height="400" Width="600">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -18,10 +17,11 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
+
         <TextBox AcceptsReturn="True" Grid.ColumnSpan="2" />
         <Grid Name="UneFiche" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}" >
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -42,8 +42,8 @@
             <TextBlock Name="tIDEquipe" Text="ID Equipe" Grid.Row="2" VerticalAlignment="Center" />
             <TextBox Name="tbEquipe" Grid.Row="2" Grid.Column="1" Margin="3" Text="{Binding Path=UneEntrainement.ID_Equipe, Mode=TwoWay}" />
 
-            <TextBlock Name="tDate" Text="Date" Grid.Row="3" VerticalAlignment="Center" />
-            <TextBox Name="tbDate" Grid.Row="3" Grid.Column="1" Margin="3" Text="{Binding Path=UneEntrainement.Date, Mode=TwoWay}" />
+            <TextBlock Name="tDateE" Text="Date" Grid.Row="3" VerticalAlignment="Center" />
+            <DatePicker HorizontalAlignment="Right" Margin="0,1,2.8,0" Grid.Row="3" VerticalAlignment="Top" Text="{Binding Path=UneEntrainement.DateE, Mode=TwoWay}" Grid.Column="1" Grid.RowSpan="2" Width="205"/>
 
         </Grid>
 
@@ -61,10 +61,10 @@
                 <DataGridTextColumn Header="ID Entrainement" Binding="{Binding Path=ID_Entrainement}" Width="*" />
                 <DataGridTextColumn Header="ID Terrain" Binding="{Binding Path=ID_Terrain}" Width="*" />
                 <DataGridTextColumn Header="ID Equipe" Binding="{Binding Path=ID_Equipe}" Width="*" />
-                <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}" Width="*" />
+                <DataGridTextColumn Header="Date" Binding="{Binding Path=DateE}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
-        
+
         <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" Margin="34,3" >
             <Button Name="bAjouter" Content="Ajouter" Margin="3" IsEnabled="{Binding Path=ActiverBcpFiche, Mode=OneWay}"
            Command="{Binding cAjouter}" />
@@ -76,8 +76,6 @@
            Command="{Binding cEssaiSelMult}"
            CommandParameter="{Binding ElementName=dgEntrainements, Path=SelectedItems}" />
         </StackPanel>
-        
         <RichTextBox Name="rtbDoc" Grid.Column="1" Grid.RowSpan="4" />
-        
     </Grid>
 </Window>

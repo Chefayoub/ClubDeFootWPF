@@ -44,7 +44,7 @@
             <TextBox Name="tbIDDeplacement" Grid.Row="2" Grid.Column="1" Margin="3" Text="{Binding Path=UneMatch.ID_Deplacement, Mode=TwoWay}" />
 
             <TextBlock Name="tIDTerrain" Text="ID Terrain" Grid.Row="3" VerticalAlignment="Center" />
-            <TextBox Name="tbTerrain" Grid.Row="3" Grid.Column="1" Margin="3" Text="{Binding Path=UneMatch.Terrain, Mode=TwoWay}" />
+            <TextBox Name="tbTerrain" Grid.Row="3" Grid.Column="1" Margin="3" Text="{Binding Path=UneMatch.ID_Terrain, Mode=TwoWay}" />
 
             <TextBlock Name="tScoreDomicile" Text="Score Domicile" Grid.Row="4" VerticalAlignment="Center" />
             <TextBox Name="tbScoreDomicile" Grid.Row="4" Grid.Column="1" Margin="3" Text="{Binding Path=UneMatch.Score_Domicile, Mode=TwoWay}" />
@@ -52,8 +52,8 @@
             <TextBlock Name="tScoreAdversaire" Text="Score Adversaire" Grid.Row="5" VerticalAlignment="Center" />
             <TextBox Name="tbScoreAdversaire" Grid.Row="5" Grid.Column="1" Margin="3" Text="{Binding Path=UneMatch.Score_Adversaire, Mode=TwoWay}" />
 
-            <TextBlock Name="tDate" Text="Date" Grid.Row="6" VerticalAlignment="Center" />
-            <TextBox Name="tbDate" Grid.Row="6" Grid.Column="1" Margin="3" Text="{Binding Path=UneMatch.Date, Mode=TwoWay}" />
+            <TextBlock Name="tDateM" Text="Date" Grid.Row="6" VerticalAlignment="Center" />
+            <DatePicker HorizontalAlignment="Right" Margin="0,3,2.8,0" Grid.Row="6" VerticalAlignment="Top" Text="{Binding Path=UneMatch.DateM, Mode=TwoWay}" Grid.Column="1" Width="196" Height="24"/>
         </Grid>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="30,3" >
@@ -62,7 +62,7 @@
             <Button Name="bAnnuler" Content="Annuler" Margin="3" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"
            Command="{Binding cAnnuler}" />
         </StackPanel>
-        
+
         <DataGrid Name="dgMatch" ItemsSource="{Binding Path=BcpMatchs}" Grid.Row="2" VerticalScrollBarVisibility="Visible"
             IsReadOnly="True" AutoGenerateColumns="False" IsEnabled="{Binding Path=ActiverBcpFiche, Mode=OneWay}"
             SelectedItem="{Binding MatchSelectionnee, Mode=TwoWay}" SelectionChanged="dgMatchs_SelectionChanged" >
@@ -73,10 +73,10 @@
                 <DataGridTextColumn Header="ID_Terrain" Binding="{Binding Path=ID_Terrain}" Width="*" />
                 <DataGridTextColumn Header="Score_Domicile" Binding="{Binding Path=Score_Domicile}" Width="*" />
                 <DataGridTextColumn Header="Score_Adversaire" Binding="{Binding Path=Score_Adversaire}" Width="*" />
-                <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}" Width="*" />
+                <DataGridTextColumn Header="Date" Binding="{Binding Path=DateM}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
-        
+
         <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" Margin="34,3" >
             <Button Name="bAjouter" Content="Ajouter" Margin="3" IsEnabled="{Binding Path=ActiverBcpFiche, Mode=OneWay}"
            Command="{Binding cAjouter}" />

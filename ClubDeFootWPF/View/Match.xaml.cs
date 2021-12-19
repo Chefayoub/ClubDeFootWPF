@@ -54,5 +54,6 @@ namespace ClubDeFootWPF.View
         {
             if (dgMatch.SelectedIndex >= 0) LocalMatch.MatchSelectionnee2UneMatch();
         }
+
     }
 }

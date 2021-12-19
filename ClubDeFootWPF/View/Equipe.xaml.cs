@@ -54,5 +54,6 @@ namespace ClubDeFootWPF.View
         {
             if (dgEquipe.SelectedIndex >= 0) LocalEquipe.EquipeSelectionnee2UneEquipe();
         }
+
     }
 }

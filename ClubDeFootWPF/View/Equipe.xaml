@@ -33,13 +33,13 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Name="tIDEquipe" Text="ID Equipe" VerticalAlignment="Center" />
-            <TextBox Name="tbIDEntrainement" Grid.Column="1" Margin="3" Text="{Binding Path=UneEquipe.ID_Equipe, Mode=TwoWay}" />
+            <TextBox Name="tbIDEquipe" Grid.Column="1" Margin="3" Text="{Binding Path=UneEquipe.ID_Equipe, Mode=TwoWay}" />
 
             <TextBlock Name="tIDClub" Text="ID Club" Grid.Row="1" VerticalAlignment="Center" />
-            <TextBox Name="tbIDTerrain" Grid.Row="1" Grid.Column="1" Margin="3" Text="{Binding Path=UneEquipe.ID_Terrain, Mode=TwoWay}" />
+            <TextBox Name="tbIDClub" Grid.Row="1" Grid.Column="1" Margin="3" Text="{Binding Path=UneEquipe.ID_Club, Mode=TwoWay}" />
 
             <TextBlock Name="tNom" Text="Nom" Grid.Row="3" VerticalAlignment="Center" />
-            <TextBox Name="tbDate" Grid.Row="3" Grid.Column="1" Margin="3" Text="{Binding Path=UneEquipe.Nom, Mode=TwoWay}" />
+            <TextBox Name="tbNom" Grid.Row="3" Grid.Column="1" Margin="3" Text="{Binding Path=UneEquipe.Nom, Mode=TwoWay}" />
 
         </Grid>
 

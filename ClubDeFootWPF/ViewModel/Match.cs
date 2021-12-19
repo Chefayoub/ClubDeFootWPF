@@ -92,13 +92,13 @@ namespace ClubDeFootWPF.ViewModel
         {
             if (nAjout == -1)
             {
-                UneMatch.ID_Match = new G_T_Match(chConnexion).Ajouter(UneMatch.Score_Domicile, UneMatch.Score_Adversaire, UneMatch.Date, UneMatch.ID_Domicile, UneMatch.ID_Demplacement, UneMatch.ID_Terrain);
-                BcpMatchs.Add(new C_T_Match(UneMatch.ID_Match, UneMatch.Score_Domicile, UneMatch.Score_Adversaire, UneMatch.Date, UneMatch.ID_Domicile, UneMatch.ID_Demplacement, UneMatch.ID_Terrain));
+                UneMatch.ID_Match = new G_T_Match(chConnexion).Ajouter(UneMatch.Score_Domicile, UneMatch.Score_Adversaire, UneMatch.DateM, UneMatch.ID_Domicile, UneMatch.ID_Deplacement, UneMatch.ID_Terrain);
+                BcpMatchs.Add(new C_T_Match(UneMatch.ID_Match, UneMatch.Score_Domicile, UneMatch.Score_Adversaire, UneMatch.DateM, UneMatch.ID_Domicile, UneMatch.ID_Deplacement, UneMatch.ID_Terrain));
             }
             else
             {
-                new G_T_Match(chConnexion).Modifier(UneMatch.ID_Match, UneMatch.Score_Domicile, UneMatch.Score_Adversaire, UneMatch.Date, UneMatch.ID_Domicile, UneMatch.ID_Demplacement, UneMatch.ID_Terrain);
-                BcpMatchs[nAjout] = new C_T_Match(UneMatch.ID_Match, UneMatch.Score_Domicile, UneMatch.Score_Adversaire, UneMatch.Date, UneMatch.ID_Domicile, UneMatch.ID_Demplacement, UneMatch.ID_Terrain);
+                new G_T_Match(chConnexion).Modifier(UneMatch.ID_Match, UneMatch.Score_Domicile, UneMatch.Score_Adversaire, UneMatch.DateM, UneMatch.ID_Domicile, UneMatch.ID_Deplacement, UneMatch.ID_Terrain);
+                BcpMatchs[nAjout] = new C_T_Match(UneMatch.ID_Match, UneMatch.Score_Domicile, UneMatch.Score_Adversaire, UneMatch.DateM, UneMatch.ID_Domicile, UneMatch.ID_Deplacement, UneMatch.ID_Terrain);
             }
             ActiverUneFiche = false;
         }
@@ -123,11 +123,11 @@ namespace ClubDeFootWPF.ViewModel
                 UneMatch = new VM_UneMatch();
                 UneMatch.ID_Match = Tmp.ID_Match;
                 UneMatch.ID_Domicile = Tmp.ID_Domicile;
-                UneMatch.ID_Demplacement = Tmp.ID_Deplacement;
+                UneMatch.ID_Deplacement = Tmp.ID_Deplacement;
                 UneMatch.ID_Terrain = Tmp.ID_Terrain;
                 UneMatch.Score_Domicile = (int)Tmp.Score_Domicile;
                 UneMatch.Score_Adversaire = (int)Tmp.Score_Adversaire;
-                UneMatch.Date = Tmp.DateM;
+                UneMatch.DateM = Tmp.DateM;
                 nAjout = BcpMatchs.IndexOf(MatchSelectionnee);
                 ActiverUneFiche = true;
             }
@@ -154,19 +154,19 @@ namespace ClubDeFootWPF.ViewModel
         {
             UneMatch.ID_Match = MatchSelectionnee.ID_Match;
             UneMatch.ID_Domicile = MatchSelectionnee.ID_Domicile;
-            UneMatch.ID_Demplacement = MatchSelectionnee.ID_Deplacement;
+            UneMatch.ID_Deplacement = MatchSelectionnee.ID_Deplacement;
             UneMatch.ID_Terrain = MatchSelectionnee.ID_Terrain;
             UneMatch.Score_Domicile = (int)MatchSelectionnee.Score_Domicile;
             UneMatch.Score_Adversaire = (int)MatchSelectionnee.Score_Adversaire;
-            UneMatch.Date = MatchSelectionnee.DateM;
+            UneMatch.DateM = MatchSelectionnee.DateM;
         }
     }
 
 
     public class VM_UneMatch : BasePropriete
     {
-        private int _ID_Match, _ID_Domicile, _ID_Demplacement, _ID_Terrain, _Score_Domicile, _Score_Adversaire;
-        private DateTime _Date;
+        private int _ID_Match, _ID_Domicile, _ID_Deplacement, _ID_Terrain, _Score_Domicile, _Score_Adversaire;
+        private DateTime _DateM;
 
         public int ID_Match
         {
@@ -180,10 +180,10 @@ namespace ClubDeFootWPF.ViewModel
             set { AssignerChamp<int>(ref _ID_Domicile, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
         }
 
-        public int ID_Demplacement
+        public int ID_Deplacement
         {
-            get { return _ID_Demplacement; }
-            set { AssignerChamp<int>(ref _ID_Demplacement, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
+            get { return _ID_Deplacement; }
+            set { AssignerChamp<int>(ref _ID_Deplacement, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
         }
 
         public int ID_Terrain
@@ -204,10 +204,10 @@ namespace ClubDeFootWPF.ViewModel
             set { AssignerChamp<int>(ref _Score_Adversaire, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
         }
 
-        public DateTime Date
+        public DateTime DateM
         {
-            get { return _Date; }
-            set { AssignerChamp<DateTime>(ref _Date, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
+            get { return _DateM; }
+            set { AssignerChamp<DateTime>(ref _DateM, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
         }
     }
 }

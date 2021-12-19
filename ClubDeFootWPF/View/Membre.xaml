@@ -19,42 +19,44 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <TextBox AcceptsReturn="True" Grid.ColumnSpan="2" />
-        <Grid Name="UneFiche" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}" >
+        <Grid Name="UneFiche" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}" Grid.ColumnSpan="2" Margin="0,0,296.6,0" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="44*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Name="tIDMembre" Text="ID Membre" VerticalAlignment="Center" />
-            <TextBox Name="tbIDMembre" Grid.Column="1" Margin="3" Text="{Binding Path=UneMembre.ID_Membre, Mode=TwoWay}" />
+            <TextBlock Name="tIDMembre" Text="ID Membre" VerticalAlignment="Center" Margin="0,4" />
+            <TextBox Name="tbIDMembre" Grid.Column="1" Margin="3,3,2.8,3" Text="{Binding Path=UneMembre.ID_Membre, Mode=TwoWay}" Grid.ColumnSpan="2" />
 
-            <TextBlock Name="tIDEquipe" Text="ID Equipe" Grid.Row="1" VerticalAlignment="Center" />
-            <TextBox Name="tbIDEquipe" Grid.Row="1" Grid.Column="1" Margin="3" Text="{Binding Path=UneMembre.ID_Equipe, Mode=TwoWay}" />
+            <TextBlock Name="tIDEquipe" Text="ID Equipe" Grid.Row="1" VerticalAlignment="Center" Margin="0,4" />
+            <TextBox Name="tbIDEquipe" Grid.Row="1" Grid.Column="1" Margin="3,3,2.8,3" Text="{Binding Path=UneMembre.ID_Equipe, Mode=TwoWay}" Grid.ColumnSpan="2" />
 
-            <TextBlock Name="tNom" Text="Nom" Grid.Row="2" VerticalAlignment="Center" />
-            <TextBox Name="tbNom" Grid.Row="2" Grid.Column="1" Margin="3" Text="{Binding Path=UneMembre.Nom, Mode=TwoWay}" />
+            <TextBlock Name="tNom" Text="Nom" Grid.Row="2" VerticalAlignment="Center" Margin="0,4" />
+            <TextBox Name="tbNom" Grid.Row="2" Grid.Column="1" Margin="3,3,2.8,3" Text="{Binding Path=UneMembre.Nom, Mode=TwoWay}" Grid.ColumnSpan="2" />
 
-            <TextBlock Name="tPrenom" Text="Prenom" Grid.Row="3" VerticalAlignment="Center" />
-            <TextBox Name="tbPrenom" Grid.Row="3" Grid.Column="1" Margin="3" Text="{Binding Path=UneMembre.Prenom, Mode=TwoWay}" />
+            <TextBlock Name="tPrenom" Text="Prenom" Grid.Row="3" VerticalAlignment="Center" Margin="0,4" />
+            <TextBox Name="tbPrenom" Grid.Row="3" Grid.Column="1" Margin="3,3,2.8,3" Text="{Binding Path=UneMembre.Prenom, Mode=TwoWay}" Grid.ColumnSpan="2" />
 
-            <TextBlock Name="tEmail" Text="Email" Grid.Row="4" VerticalAlignment="Center" />
-            <TextBox Name="tbEmail" Grid.Row="4" Grid.Column="1" Margin="3" Text="{Binding Path=UneMembre.Email, Mode=TwoWay}" />
+            <TextBlock Name="tEmail" Text="Email" Grid.Row="4" VerticalAlignment="Center" Margin="0,4" />
+            <TextBox Name="tbEmail" Grid.Row="4" Grid.Column="1" Margin="3,3,2.8,3" Text="{Binding Path=UneMembre.Email, Mode=TwoWay}" Grid.ColumnSpan="2" />
 
-            <TextBlock Name="tNumeroTel" Text="Numero téléphone" Grid.Row="5" VerticalAlignment="Center" />
-            <TextBox Name="tbNumeroTel" Grid.Row="5" Grid.Column="1" Margin="3" Text="{Binding Path=UneMembre.NumeroTel, Mode=TwoWay}" />
+            <TextBlock Name="tNumeroTel" Text="Numero téléphone" Grid.Row="5" VerticalAlignment="Center"  />
+            <TextBox Name="tbNumeroTel" Grid.Row="5" Grid.Column="1" Margin="3,3,2.8,3" Text="{Binding Path=UneMembre.NumeroTel, Mode=TwoWay}" Grid.ColumnSpan="2" />
 
             <TextBlock Name="tDateDeNaissance" Text="Date de naissance" Grid.Row="6" VerticalAlignment="Center" />
-            <TextBox Name="tbMonDateDeNaissance" Grid.Row="6" Grid.Column="1" Margin="3" Text="{Binding Path=UneMembre.DateDeNaissance, Mode=TwoWay}" />
+            <DatePicker HorizontalAlignment="Right" Margin="3,3,2.8,3" Grid.Row="6" VerticalAlignment="Top" Text="{Binding Path=UneMembre.DateDeNaissance, Mode=TwoWay}" Grid.Column="1" Width="184" Height="24" Grid.ColumnSpan="2"/>
+
         </Grid>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="30,3" >
