@@ -44,10 +44,10 @@ namespace ClubDeFootWPF.View
                 l.ListItems.Add(new ListItem(pl));
             }
             fd.Blocks.Add(l);
-            rtbDoc.Document = fd;
-            FileStream fs = new FileStream(@"D:\BD_ClubDeSportWPF\DocAppWPF\Match.rtf", FileMode.Create);
-            TextRange tr = new TextRange(rtbDoc.Document.ContentStart, rtbDoc.Document.ContentEnd);
-            tr.Save(fs, System.Windows.DataFormats.Rtf);
+            //rtbDoc.Document = fd;
+            //FileStream fs = new FileStream(@"D:\BD_ClubDeSportWPF\DocAppWPF\Match.rtf", FileMode.Create);
+            //TextRange tr = new TextRange(rtbDoc.Document.ContentStart, rtbDoc.Document.ContentEnd);
+            //tr.Save(fs, System.Windows.DataFormats.Rtf);
         }
 
         private void dgMatchs_SelectionChanged(object sender, SelectionChangedEventArgs e)

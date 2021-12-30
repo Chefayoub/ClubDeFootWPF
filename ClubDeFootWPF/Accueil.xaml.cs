@@ -18,9 +18,9 @@ namespace ClubDeFootWPF
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Accueil : Window
     {
-        public MainWindow()
+        public Accueil()
         {
             InitializeComponent();
         }

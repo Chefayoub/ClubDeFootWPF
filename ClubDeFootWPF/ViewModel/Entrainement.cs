@@ -46,11 +46,11 @@ namespace ClubDeFootWPF.ViewModel
         #endregion
 
         #region Données extérieures
-        private VM_UneEntrainement _UneEntrainement;
-        public VM_UneEntrainement UneEntrainement
+        private VM_UnEntrainement _UnEntrainement;
+        public VM_UnEntrainement UnEntrainement
         {
-            get { return _UneEntrainement; }
-            set { AssignerChamp<VM_UneEntrainement>(ref _UneEntrainement, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
+            get { return _UnEntrainement; }
+            set { AssignerChamp<VM_UnEntrainement>(ref _UnEntrainement, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
         }
 
         private ObservableCollection<C_T_Entrainement> _BcpEntrainements = new ObservableCollection<C_T_Entrainement>();
@@ -72,7 +72,7 @@ namespace ClubDeFootWPF.ViewModel
 
         public VM_Entrainement()
         {
-            UneEntrainement = new VM_UneEntrainement();
+            UnEntrainement = new VM_UnEntrainement();
             //UneEntrainement.ID_Entrainement = 1;
             //UneEntrainement.ID_Terrain = 2;
             //UneEntrainement.ID_Equipe = 3;
@@ -99,13 +99,13 @@ namespace ClubDeFootWPF.ViewModel
         {
             if (nAjout == -1)
             {
-                UneEntrainement.ID_Entrainement = new G_T_Entrainement(chConnexion).Ajouter(UneEntrainement.DateE, UneEntrainement.ID_Terrain, UneEntrainement.ID_Equipe);
-                BcpEntrainements.Add(new C_T_Entrainement(UneEntrainement.ID_Entrainement, UneEntrainement.DateE, UneEntrainement.ID_Terrain, UneEntrainement.ID_Equipe));
+                UnEntrainement.ID_Entrainement = new G_T_Entrainement(chConnexion).Ajouter(UnEntrainement.DateE, UnEntrainement.ID_Terrain, UnEntrainement.ID_Equipe);
+                BcpEntrainements.Add(new C_T_Entrainement(UnEntrainement.ID_Entrainement, UnEntrainement.DateE, UnEntrainement.ID_Terrain, UnEntrainement.ID_Equipe));
             }
             else
             {
-                new G_T_Entrainement(chConnexion).Modifier(UneEntrainement.ID_Entrainement, UneEntrainement.DateE, UneEntrainement.ID_Terrain, UneEntrainement.ID_Equipe);
-                BcpEntrainements[nAjout] = new C_T_Entrainement(UneEntrainement.ID_Entrainement, UneEntrainement.DateE, UneEntrainement.ID_Terrain, UneEntrainement.ID_Equipe);
+                new G_T_Entrainement(chConnexion).Modifier(UnEntrainement.ID_Entrainement, UnEntrainement.DateE, UnEntrainement.ID_Terrain, UnEntrainement.ID_Equipe);
+                BcpEntrainements[nAjout] = new C_T_Entrainement(UnEntrainement.ID_Entrainement, UnEntrainement.DateE, UnEntrainement.ID_Terrain, UnEntrainement.ID_Equipe);
             }
             ActiverUneFiche = false;
         }
@@ -116,7 +116,7 @@ namespace ClubDeFootWPF.ViewModel
 
         public void Ajouter()
         {
-            UneEntrainement = new VM_UneEntrainement();
+            UnEntrainement = new VM_UnEntrainement();
             nAjout = -1;
             ActiverUneFiche = true;
         }
@@ -125,11 +125,11 @@ namespace ClubDeFootWPF.ViewModel
             if (EntrainementSelectionnee != null)
             {
                 C_T_Entrainement Tmp = new G_T_Entrainement(chConnexion).Lire_ID(EntrainementSelectionnee.ID_Entrainement);
-                UneEntrainement = new VM_UneEntrainement();
-                UneEntrainement.ID_Entrainement = Tmp.ID_Entrainement;
-                //UneEntrainement.ID_Terrain = Tmp.ID_Terrain;
-                //UneEntrainement.ID_Equipe = Tmp.ID_Equipe;
-                UneEntrainement.DateE = Tmp.DateE;
+                UnEntrainement = new VM_UnEntrainement();
+                UnEntrainement.ID_Entrainement = Tmp.ID_Entrainement;
+                UnEntrainement.ID_Terrain = (int)Tmp.ID_Terrain;
+                UnEntrainement.ID_Equipe = (int)Tmp.ID_Equipe;
+                UnEntrainement.DateE = Tmp.DateE;
 
                 ActiverUneFiche = true;
             }
@@ -151,13 +151,13 @@ namespace ClubDeFootWPF.ViewModel
         }
         public void EntrainementSelectionnee2UneEntrainement()
         {
-            UneEntrainement.ID_Entrainement = EntrainementSelectionnee.ID_Entrainement;
-            //UneEntrainement.ID_Terrain = EntrainementSelectionnee.ID_Terrain;
-            //UneEntrainement.ID_Equipe = EntrainementSelectionnee.ID_Equipe;
-            UneEntrainement.DateE = EntrainementSelectionnee.DateE;
+            UnEntrainement.ID_Entrainement = EntrainementSelectionnee.ID_Entrainement;
+            UnEntrainement.ID_Terrain = (int)EntrainementSelectionnee.ID_Terrain;
+            UnEntrainement.ID_Equipe = (int)EntrainementSelectionnee.ID_Equipe;
+            UnEntrainement.DateE = EntrainementSelectionnee.DateE;
         }
     }
-    public class VM_UneEntrainement : BasePropriete
+    public class VM_UnEntrainement : BasePropriete
     {
         private int _ID_Entrainement, _ID_Terrain, _ID_Equipe;
         private DateTime _DateE;

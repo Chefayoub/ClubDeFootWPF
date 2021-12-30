@@ -44,15 +44,20 @@ namespace ClubDeFootWPF.View
                 l.ListItems.Add(new ListItem(pl));
             }
             fd.Blocks.Add(l);
-            rtbDoc.Document = fd;
+            //rtbDoc.Document = fd;
             FileStream fs = new FileStream(@"D:\BD_ClubDeSportWPF\DocAppWPF\Club.doc", FileMode.Create);
-            TextRange tr = new TextRange(rtbDoc.Document.ContentStart, rtbDoc.Document.ContentEnd);
-            tr.Save(fs, System.Windows.DataFormats.Rtf);
+            //TextRange tr = new TextRange(rtbDoc.Document.ContentStart, rtbDoc.Document.ContentEnd);
+            //tr.Save(fs, System.Windows.DataFormats.Rtf);
         }
 
         private void dgClubs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dgClub.SelectedIndex >= 0) LocalClub.ClubSelectionnee2UneClub();
+        }
+
+        private void bAjouter_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -28,12 +28,14 @@ namespace ClubDeFootWPF.ViewModel
                 ActiverBcpFiche = !ActiverUneFiche;
             }
         }
+
         private bool _ActiverBcpFiche;
         public bool ActiverBcpFiche
         {
             get { return _ActiverBcpFiche; }
             set { AssignerChamp<bool>(ref _ActiverBcpFiche, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
         }
+
         private C_T_Membre _MembreSelectionnee;
         public C_T_Membre MembreSelectionnee
         {
@@ -43,11 +45,11 @@ namespace ClubDeFootWPF.ViewModel
         #endregion
 
         #region Données extérieures
-        private VM_UneMembre _UneMembre;
-        public VM_UneMembre UneMembre
+        private VM_UnMembre _UnMembre;
+        public VM_UnMembre UnMembre
         {
-            get { return _UneMembre; }
-            set { AssignerChamp<VM_UneMembre>(ref _UneMembre, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
+            get { return _UnMembre; }
+            set { AssignerChamp<VM_UnMembre>(ref _UnMembre, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
         }
         private ObservableCollection<C_T_Membre> _BcpMembres = new ObservableCollection<C_T_Membre>();
         public ObservableCollection<C_T_Membre> BcpMembres
@@ -68,7 +70,7 @@ namespace ClubDeFootWPF.ViewModel
 
         public VM_Membre()
         {
-            UneMembre = new VM_UneMembre();
+            UnMembre = new VM_UnMembre();
             BcpMembres = ChargerMembres(chConnexion);
             ActiverUneFiche = false;
             cConfirmer = new BaseCommande(Confirmer);
@@ -92,13 +94,13 @@ namespace ClubDeFootWPF.ViewModel
         {
             if (nAjout == -1)
             {
-                UneMembre.ID_Membre = new G_T_Membre(chConnexion).Ajouter(UneMembre.Nom, UneMembre.Prenom, UneMembre.Email, UneMembre.NumeroTel, UneMembre.DateDeNaissance, UneMembre.ID_Equipe);
-                BcpMembres.Add(new C_T_Membre(UneMembre.ID_Membre, UneMembre.Nom, UneMembre.Prenom, UneMembre.Email, UneMembre.NumeroTel, UneMembre.DateDeNaissance, UneMembre.ID_Equipe));
+                UnMembre.ID_Membre = new G_T_Membre(chConnexion).Ajouter(UnMembre.Nom, UnMembre.Prenom, UnMembre.Email, UnMembre.NumeroTel, UnMembre.DateDeNaissance, UnMembre.ID_Equipe);
+                BcpMembres.Add(new C_T_Membre(UnMembre.ID_Membre, UnMembre.Nom, UnMembre.Prenom, UnMembre.Email, UnMembre.NumeroTel, UnMembre.DateDeNaissance, UnMembre.ID_Equipe));
             }
             else
             {
-                new G_T_Membre(chConnexion).Modifier(UneMembre.ID_Membre, UneMembre.Nom, UneMembre.Prenom, UneMembre.Email, UneMembre.NumeroTel, UneMembre.DateDeNaissance, UneMembre.ID_Equipe);
-                BcpMembres[nAjout] = new C_T_Membre(UneMembre.ID_Membre, UneMembre.Nom, UneMembre.Prenom, UneMembre.Email, UneMembre.NumeroTel, UneMembre.DateDeNaissance, UneMembre.ID_Equipe);
+                new G_T_Membre(chConnexion).Modifier(UnMembre.ID_Membre, UnMembre.Nom, UnMembre.Prenom, UnMembre.Email, UnMembre.NumeroTel, UnMembre.DateDeNaissance, UnMembre.ID_Equipe);
+                BcpMembres[nAjout] = new C_T_Membre(UnMembre.ID_Membre, UnMembre.Nom, UnMembre.Prenom, UnMembre.Email, UnMembre.NumeroTel, UnMembre.DateDeNaissance, UnMembre.ID_Equipe);
             }
             ActiverUneFiche = false;
         }
@@ -110,7 +112,7 @@ namespace ClubDeFootWPF.ViewModel
 
         public void Ajouter()
         {
-            UneMembre = new VM_UneMembre();
+            UnMembre = new VM_UnMembre();
             nAjout = -1;
             ActiverUneFiche = true;
         }
@@ -120,14 +122,14 @@ namespace ClubDeFootWPF.ViewModel
             if (MembreSelectionnee != null)
             {
                 C_T_Membre Tmp = new G_T_Membre(chConnexion).Lire_ID(MembreSelectionnee.ID_Membre);
-                UneMembre = new VM_UneMembre();
-                UneMembre.ID_Membre = Tmp.ID_Membre;
-                UneMembre.ID_Equipe = Tmp.ID_Equipe;
-                UneMembre.Nom = Tmp.Nom;
-                UneMembre.Prenom = Tmp.Prenom;
-                UneMembre.Email = Tmp.Email;
-                UneMembre.NumeroTel = Tmp.NumeroTel;
-                UneMembre.DateDeNaissance = Tmp.DateDeNaissance;
+                UnMembre = new VM_UnMembre();
+                UnMembre.ID_Membre = Tmp.ID_Membre;
+                UnMembre.ID_Equipe = Tmp.ID_Equipe;
+                UnMembre.Nom = Tmp.Nom;
+                UnMembre.Prenom = Tmp.Prenom;
+                UnMembre.Email = Tmp.Email;
+                UnMembre.NumeroTel = Tmp.NumeroTel;
+                UnMembre.DateDeNaissance = Tmp.DateDeNaissance;
                 nAjout = BcpMembres.IndexOf(MembreSelectionnee);
                 ActiverUneFiche = true;
             }
@@ -152,17 +154,17 @@ namespace ClubDeFootWPF.ViewModel
 
         public void MembreSelectionnee2UneMembre()
         {
-            UneMembre.ID_Membre = MembreSelectionnee.ID_Membre;
-            UneMembre.ID_Equipe = MembreSelectionnee.ID_Equipe;
-            UneMembre.Nom = MembreSelectionnee.Nom;
-            UneMembre.Prenom = MembreSelectionnee.Prenom;
-            UneMembre.Email = MembreSelectionnee.Email;
-            UneMembre.NumeroTel = MembreSelectionnee.NumeroTel;
-            UneMembre.DateDeNaissance = MembreSelectionnee.DateDeNaissance;
+            UnMembre.ID_Membre = MembreSelectionnee.ID_Membre;
+            UnMembre.ID_Equipe = MembreSelectionnee.ID_Equipe;
+            UnMembre.Nom = MembreSelectionnee.Nom;
+            UnMembre.Prenom = MembreSelectionnee.Prenom;
+            UnMembre.Email = MembreSelectionnee.Email;
+            UnMembre.NumeroTel = MembreSelectionnee.NumeroTel;
+            UnMembre.DateDeNaissance = MembreSelectionnee.DateDeNaissance;
         }
     }
 
-    public class VM_UneMembre : BasePropriete
+    public class VM_UnMembre : BasePropriete
     {
         private int _ID_Membre, _ID_Equipe;
         private string _Nom, _Prenom, _Email, _NumeroTel;

@@ -46,10 +46,10 @@ namespace ClubDeFootWPF.View
             }
 
             fd.Blocks.Add(l);
-            rtbDoc.Document = fd;
-            FileStream fs = new FileStream(@"D:\BD_ClubDeSportWPF\DocAppWPF\Terrain.rtf", FileMode.Create);
-            TextRange tr = new TextRange(rtbDoc.Document.ContentStart, rtbDoc.Document.ContentEnd);
-            tr.Save(fs, System.Windows.DataFormats.Rtf);
+            //rtbDoc.Document = fd;
+            //FileStream fs = new FileStream(@"D:\BD_ClubDeSportWPF\DocAppWPF\Terrain.rtf", FileMode.Create);
+            //TextRange tr = new TextRange(rtbDoc.Document.ContentStart, rtbDoc.Document.ContentEnd);
+            //tr.Save(fs, System.Windows.DataFormats.Rtf);
         }
 
         private void dgTerrains_SelectionChanged(object sender, SelectionChangedEventArgs e)

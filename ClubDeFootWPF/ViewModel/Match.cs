@@ -43,11 +43,11 @@ namespace ClubDeFootWPF.ViewModel
         #endregion
 
         #region Données extérieures
-        private VM_UneMatch _UneMatch;
-        public VM_UneMatch UneMatch
+        private VM_UnMatch _UnMatch;
+        public VM_UnMatch UnMatch
         {
-            get { return _UneMatch; }
-            set { AssignerChamp<VM_UneMatch>(ref _UneMatch, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
+            get { return _UnMatch; }
+            set { AssignerChamp<VM_UnMatch>(ref _UnMatch, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
         }
         private ObservableCollection<C_T_Match> _BcpMatchs = new ObservableCollection<C_T_Match>();
         public ObservableCollection<C_T_Match> BcpMatchs
@@ -68,7 +68,7 @@ namespace ClubDeFootWPF.ViewModel
 
         public VM_Match()
         {
-            UneMatch = new VM_UneMatch();
+            UnMatch = new VM_UnMatch();
             BcpMatchs = ChargerMatchs(chConnexion);
             ActiverUneFiche = false;
             cConfirmer = new BaseCommande(Confirmer);
@@ -92,13 +92,13 @@ namespace ClubDeFootWPF.ViewModel
         {
             if (nAjout == -1)
             {
-                UneMatch.ID_Match = new G_T_Match(chConnexion).Ajouter(UneMatch.Score_Domicile, UneMatch.Score_Adversaire, UneMatch.DateM, UneMatch.ID_Domicile, UneMatch.ID_Deplacement, UneMatch.ID_Terrain);
-                BcpMatchs.Add(new C_T_Match(UneMatch.ID_Match, UneMatch.Score_Domicile, UneMatch.Score_Adversaire, UneMatch.DateM, UneMatch.ID_Domicile, UneMatch.ID_Deplacement, UneMatch.ID_Terrain));
+                UnMatch.ID_Match = new G_T_Match(chConnexion).Ajouter(UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain);
+                BcpMatchs.Add(new C_T_Match(UnMatch.ID_Match, UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain));
             }
             else
             {
-                new G_T_Match(chConnexion).Modifier(UneMatch.ID_Match, UneMatch.Score_Domicile, UneMatch.Score_Adversaire, UneMatch.DateM, UneMatch.ID_Domicile, UneMatch.ID_Deplacement, UneMatch.ID_Terrain);
-                BcpMatchs[nAjout] = new C_T_Match(UneMatch.ID_Match, UneMatch.Score_Domicile, UneMatch.Score_Adversaire, UneMatch.DateM, UneMatch.ID_Domicile, UneMatch.ID_Deplacement, UneMatch.ID_Terrain);
+                new G_T_Match(chConnexion).Modifier(UnMatch.ID_Match, UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain);
+                BcpMatchs[nAjout] = new C_T_Match(UnMatch.ID_Match, UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain);
             }
             ActiverUneFiche = false;
         }
@@ -110,7 +110,7 @@ namespace ClubDeFootWPF.ViewModel
 
         public void Ajouter()
         {
-            UneMatch = new VM_UneMatch();
+            UnMatch = new VM_UnMatch();
             nAjout = -1;
             ActiverUneFiche = true;
         }
@@ -120,14 +120,14 @@ namespace ClubDeFootWPF.ViewModel
             if (MatchSelectionnee != null)
             {
                 C_T_Match Tmp = new G_T_Match(chConnexion).Lire_ID(MatchSelectionnee.ID_Match);
-                UneMatch = new VM_UneMatch();
-                UneMatch.ID_Match = Tmp.ID_Match;
-                UneMatch.ID_Domicile = Tmp.ID_Domicile;
-                UneMatch.ID_Deplacement = Tmp.ID_Deplacement;
-                UneMatch.ID_Terrain = Tmp.ID_Terrain;
-                UneMatch.Score_Domicile = (int)Tmp.Score_Domicile;
-                UneMatch.Score_Adversaire = (int)Tmp.Score_Adversaire;
-                UneMatch.DateM = Tmp.DateM;
+                UnMatch = new VM_UnMatch();
+                UnMatch.ID_Match = Tmp.ID_Match;
+                UnMatch.ID_Domicile = Tmp.ID_Domicile;
+                UnMatch.ID_Deplacement = Tmp.ID_Deplacement;
+                UnMatch.ID_Terrain = Tmp.ID_Terrain;
+                UnMatch.Score_Domicile = (int)Tmp.Score_Domicile;
+                UnMatch.Score_Adversaire = (int)Tmp.Score_Adversaire;
+                UnMatch.DateM = Tmp.DateM;
                 nAjout = BcpMatchs.IndexOf(MatchSelectionnee);
                 ActiverUneFiche = true;
             }
@@ -152,18 +152,18 @@ namespace ClubDeFootWPF.ViewModel
 
         public void MatchSelectionnee2UneMatch()
         {
-            UneMatch.ID_Match = MatchSelectionnee.ID_Match;
-            UneMatch.ID_Domicile = MatchSelectionnee.ID_Domicile;
-            UneMatch.ID_Deplacement = MatchSelectionnee.ID_Deplacement;
-            UneMatch.ID_Terrain = MatchSelectionnee.ID_Terrain;
-            UneMatch.Score_Domicile = (int)MatchSelectionnee.Score_Domicile;
-            UneMatch.Score_Adversaire = (int)MatchSelectionnee.Score_Adversaire;
-            UneMatch.DateM = MatchSelectionnee.DateM;
+            UnMatch.ID_Match = MatchSelectionnee.ID_Match;
+            UnMatch.ID_Domicile = MatchSelectionnee.ID_Domicile;
+            UnMatch.ID_Deplacement = MatchSelectionnee.ID_Deplacement;
+            UnMatch.ID_Terrain = MatchSelectionnee.ID_Terrain;
+            UnMatch.Score_Domicile = (int)MatchSelectionnee.Score_Domicile;
+            UnMatch.Score_Adversaire = (int)MatchSelectionnee.Score_Adversaire;
+            UnMatch.DateM = MatchSelectionnee.DateM;
         }
     }
 
 
-    public class VM_UneMatch : BasePropriete
+    public class VM_UnMatch : BasePropriete
     {
         private int _ID_Match, _ID_Domicile, _ID_Deplacement, _ID_Terrain, _Score_Domicile, _Score_Adversaire;
         private DateTime _DateM;

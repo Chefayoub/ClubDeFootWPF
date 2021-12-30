@@ -5,89 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClubDeFootWPF.View"
         mc:Ignorable="d"
-        Title="Match" Height="400" Width="600">
-    <Grid>
+        Title="Match" Height="450" Width="800" MaxWidth="800" MaxHeight="450">
+
+    <Grid Background="White" RenderTransformOrigin="0.475,0.53">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="707*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <TextBox AcceptsReturn="True" Grid.ColumnSpan="2" />
-        <Grid Name="UneFiche" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Name="tIDMatch" Text="ID Match" VerticalAlignment="Center" />
-            <TextBox Name="tbIDMatch" Grid.Column="1" Margin="3" Text="{Binding Path=UneMatch.ID_Match, Mode=TwoWay}" />
-
-            <TextBlock Name="tIDDomicile" Text="ID Domicile" Grid.Row="1" VerticalAlignment="Center" />
-            <TextBox Name="tbIDDomicile" Grid.Row="1" Grid.Column="1" Margin="3" Text="{Binding Path=UneMatch.ID_Domicile, Mode=TwoWay}" />
-
-            <TextBlock Name="tIDDeplacement" Text="ID Deplacement" Grid.Row="2" VerticalAlignment="Center" />
-            <TextBox Name="tbIDDeplacement" Grid.Row="2" Grid.Column="1" Margin="3" Text="{Binding Path=UneMatch.ID_Deplacement, Mode=TwoWay}" />
-
-            <TextBlock Name="tIDTerrain" Text="ID Terrain" Grid.Row="3" VerticalAlignment="Center" />
-            <TextBox Name="tbTerrain" Grid.Row="3" Grid.Column="1" Margin="3" Text="{Binding Path=UneMatch.ID_Terrain, Mode=TwoWay}" />
-
-            <TextBlock Name="tScoreDomicile" Text="Score Domicile" Grid.Row="4" VerticalAlignment="Center" />
-            <TextBox Name="tbScoreDomicile" Grid.Row="4" Grid.Column="1" Margin="3" Text="{Binding Path=UneMatch.Score_Domicile, Mode=TwoWay}" />
-
-            <TextBlock Name="tScoreAdversaire" Text="Score Adversaire" Grid.Row="5" VerticalAlignment="Center" />
-            <TextBox Name="tbScoreAdversaire" Grid.Row="5" Grid.Column="1" Margin="3" Text="{Binding Path=UneMatch.Score_Adversaire, Mode=TwoWay}" />
-
-            <TextBlock Name="tDateM" Text="Date" Grid.Row="6" VerticalAlignment="Center" />
-            <DatePicker HorizontalAlignment="Right" Margin="0,3,2.8,0" Grid.Row="6" VerticalAlignment="Top" Text="{Binding Path=UneMatch.DateM, Mode=TwoWay}" Grid.Column="1" Width="196" Height="24"/>
-        </Grid>
-
-        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="30,3" >
-            <Button Name="bConfirmer" Content="Confirmer" Margin="3" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"
-           Command="{Binding cConfirmer}" />
-            <Button Name="bAnnuler" Content="Annuler" Margin="3" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"
-           Command="{Binding cAnnuler}" />
+        <StackPanel VerticalAlignment="Center" Margin="0,0,618,0" Height="421" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="#FF0B9142">
+            <Image Source="/ClubDeFootWPF;component/BallonFoot.png" Height="76" Margin="0, 10, 0, 0">
+            </Image>
+            <Label Content="Football club manager" Margin="0, 10, 0, 50" Foreground="White" FontFamily="Century" FontSize="14" HorizontalAlignment="Center"/>
+            <Button Name="bAjouter" Content="Ajouter" Margin="10,10,10,20" IsEnabled="{Binding Path=ActiverBcpFiche, Mode=OneWay}"
+                Command="{Binding cAjouter}" Height="38" Background="#FF012FFF" Foreground="White" FontFamily="Century" FontSize="16" />
+            <Button Name="bModifier" Content="Modifier" Margin="10,10,10,20" IsEnabled="{Binding Path=ActiverBcpFiche, Mode=OneWay}"
+                Command="{Binding cModifier}" Background="#FFFF7400" Foreground="White" FontFamily="Century" FontSize="16" Height="40" />
+            <Button Name="bSupprimer" Content="Supprimer" Margin="10,10,10,20" IsEnabled="{Binding Path=ActiverBcpFiche, Mode=OneWay}"
+                Command="{Binding cSupprimer}" Background="Red" Foreground="White" FontFamily="Century" FontSize="16" Height="35" />
         </StackPanel>
 
+        <TextBlock Name="tIDMatch" Text="ID Match" VerticalAlignment="Center" Margin="94,207,524,194" Height="20" Grid.Column="1" />
+        <TextBox Name="tbIDMatch" Margin="188,201,365,194" Grid.Column="1" Text="{Binding Path=UnMatch.ID_Match, Mode=TwoWay}"/>
+
+        <TextBlock Name="tIDDomicile" Text="ID Domicile" VerticalAlignment="Center" Margin="94,244,524,158" Height="19" Grid.Column="1" />
+        <TextBox Name="tbIDDomicile" Margin="188,237,364,158" Grid.Column="1" Text="{Binding Path=UnMatch.ID_Domicile, Mode=TwoWay}" />
+
+        <TextBlock Name="tIDDeplacement" Text="ID Deplacement" VerticalAlignment="Center" Margin="94,272,524,127" Height="22" Grid.Column="1" />
+        <TextBox Name="tbIDDeplacement" Margin="188,268,364,127" Grid.Column="1" Text="{Binding Path=UnMatch.ID_Deplacement, Mode=TwoWay}" />
+
+        <TextBlock Name="tIDTerrain" Text="ID Terrain" VerticalAlignment="Center" Margin="94,308,524,92" Height="21" Grid.Column="1" />
+        <TextBox Name="tbTerrain" Margin="188,303,365,92" Grid.Column="1" Text="{Binding Path=UnMatch.ID_Terrain, Mode=TwoWay}" />
+
+        <TextBlock Name="tScoreDomicile" Text="Score Domicile" VerticalAlignment="Center" Margin="381,203,237,188" Height="30" Grid.Column="1" />
+        <TextBox Name="tbScoreDomicile" Margin="475,199,77,196" Grid.Column="1" Text="{Binding Path=UnMatch.Score_Domicile, Mode=TwoWay}" />
+
+        <TextBlock Name="tScoreAdversaire" Text="Score Adversaire" VerticalAlignment="Center" Margin="381,238,237,158" Grid.Column="1" Height="25" />
+        <TextBox Name="tbScoreAdversaire" Margin="475,237,77,158" Grid.Column="1" Text="{Binding Path=UnMatch.Score_Adversaire, Mode=TwoWay}" />
+
+        <TextBlock Name="tDateM" Text="Date" VerticalAlignment="Center" Height="26" Margin="381,277,274,118" Grid.Column="1" />
+        <DatePicker HorizontalAlignment="Right" Margin="0,277,77,0" VerticalAlignment="Top" Text="{Binding Path=UnMatch.DateM, Mode=TwoWay}" Grid.Column="1" Width="155" Height="24"/>
+
+        <Button Name="bConfirmer" Content="Confirmer" Margin="242,375,383,10" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"
+           Command="{Binding cConfirmer}" Grid.Column="1" Background="#FF1ECB5D" />
+        <Button x:Name="bAnnuler" Content="Annuler" Margin="535,375,90,10" IsEnabled="{Binding ActiverUneFiche, Mode=OneWay}"
+           Command="{Binding cAnnuler}" Grid.Column="1" Background="#FFF00D0D" />
+
+
         <DataGrid Name="dgMatch" ItemsSource="{Binding Path=BcpMatchs}" Grid.Row="2" VerticalScrollBarVisibility="Visible"
-            IsReadOnly="True" AutoGenerateColumns="False" IsEnabled="{Binding Path=ActiverBcpFiche, Mode=OneWay}"
-            SelectedItem="{Binding MatchSelectionnee, Mode=TwoWay}" SelectionChanged="dgMatchs_SelectionChanged" >
+        IsReadOnly="True" AutoGenerateColumns="False" IsEnabled="{Binding Path=ActiverBcpFiche, Mode=OneWay}"
+        SelectedItem="{Binding MatchSelectionnee, Mode=TwoWay}" SelectionChanged="dgMatchs_SelectionChanged" Margin="94,49,10,233" Grid.Column="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID_Match" Binding="{Binding Path=ID_Match}" Width="*" />
-                <DataGridTextColumn Header="ID_Domicile" Binding="{Binding Path=ID_Domicile}" Width="*" />
-                <DataGridTextColumn Header="ID_Deplacement" Binding="{Binding Path=ID_Deplacement}" Width="*" />
-                <DataGridTextColumn Header="ID_Terrain" Binding="{Binding Path=ID_Terrain}" Width="*" />
-                <DataGridTextColumn Header="Score_Domicile" Binding="{Binding Path=Score_Domicile}" Width="*" />
-                <DataGridTextColumn Header="Score_Adversaire" Binding="{Binding Path=Score_Adversaire}" Width="*" />
+                <DataGridTextColumn Header="ID Match" Binding="{Binding Path=ID_Match}" Width="*" />
+                <DataGridTextColumn Header="ID Domicile" Binding="{Binding Path=ID_Domicile}" Width="*" />
+                <DataGridTextColumn Header="ID Deplacement" Binding="{Binding Path=ID_Deplacement}" Width="*" />
+                <DataGridTextColumn Header="ID Terrain" Binding="{Binding Path=ID_Terrain}" Width="*" />
+                <DataGridTextColumn Header="Score Domicile" Binding="{Binding Path=Score_Domicile}" Width="*" />
+                <DataGridTextColumn Header="Score Adversaire" Binding="{Binding Path=Score_Adversaire}" Width="*" />
                 <DataGridTextColumn Header="Date" Binding="{Binding Path=DateM}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" Margin="34,3" >
-            <Button Name="bAjouter" Content="Ajouter" Margin="3" IsEnabled="{Binding Path=ActiverBcpFiche, Mode=OneWay}"
-           Command="{Binding cAjouter}" />
-            <Button Name="bModifier" Content="Modifier" Margin="3" IsEnabled="{Binding Path=ActiverBcpFiche, Mode=OneWay}"
-           Command="{Binding cModifier}" />
-            <Button Name="bSupprimer" Content="Supprimer" Margin="3" IsEnabled="{Binding Path=ActiverBcpFiche, Mode=OneWay}"
-           Command="{Binding cSupprimer}" />
-            <Button x:Name="bEssaiSelMult" Content="Sél. Mult." Margin="3" IsEnabled="{Binding ActiverBcpFiche, Mode=OneWay}"
-           Command="{Binding cEssaiSelMult}"
-           CommandParameter="{Binding ElementName=dgMatchs, Path=SelectedItems}" />
-        </StackPanel>
-        <RichTextBox Name="rtbDoc" Grid.Column="1" Grid.RowSpan="4" />
+        <TextBlock x:Name="tMatchName" Text="Match" VerticalAlignment="Center" Margin="344.8,10,257.6,376" Height="34" Grid.Column="1" FontFamily="Century" FontSize="22" />
     </Grid>
+
+
+
+
 </Window>

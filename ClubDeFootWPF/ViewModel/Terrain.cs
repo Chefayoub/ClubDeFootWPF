@@ -43,11 +43,11 @@ namespace ClubDeFootWPF.ViewModel
         #endregion
 
         #region Données extérieures
-        private VM_UneTerrain _UneTerrain;
-        public VM_UneTerrain UneTerrain
+        private VM_UnTerrain _UnTerrain;
+        public VM_UnTerrain UnTerrain
         {
-            get { return _UneTerrain; }
-            set { AssignerChamp<VM_UneTerrain>(ref _UneTerrain, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
+            get { return _UnTerrain; }
+            set { AssignerChamp<VM_UnTerrain>(ref _UnTerrain, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
         }
         private ObservableCollection<C_T_Terrain> _BcpTerrains = new ObservableCollection<C_T_Terrain>();
         public ObservableCollection<C_T_Terrain> BcpTerrains
@@ -68,7 +68,7 @@ namespace ClubDeFootWPF.ViewModel
 
         public VM_Terrain()
         {
-            UneTerrain = new VM_UneTerrain();
+            UnTerrain = new VM_UnTerrain();
             BcpTerrains = ChargerTerrains(chConnexion);
             ActiverUneFiche = false;
             cConfirmer = new BaseCommande(Confirmer);
@@ -92,13 +92,13 @@ namespace ClubDeFootWPF.ViewModel
         {
             if (nAjout == -1)
             {
-                UneTerrain.ID_Terrain = new G_T_Terrain(chConnexion).Ajouter(UneTerrain.Nom);
-                BcpTerrains.Add(new C_T_Terrain(UneTerrain.ID_Terrain, UneTerrain.Nom));
+                UnTerrain.ID_Terrain = new G_T_Terrain(chConnexion).Ajouter(UnTerrain.Nom);
+                BcpTerrains.Add(new C_T_Terrain(UnTerrain.ID_Terrain, UnTerrain.Nom));
             }
             else
             {
-                new G_T_Terrain(chConnexion).Modifier(UneTerrain.ID_Terrain, UneTerrain.Nom);
-                BcpTerrains[nAjout] = new C_T_Terrain(UneTerrain.ID_Terrain, UneTerrain.Nom);
+                new G_T_Terrain(chConnexion).Modifier(UnTerrain.ID_Terrain, UnTerrain.Nom);
+                BcpTerrains[nAjout] = new C_T_Terrain(UnTerrain.ID_Terrain, UnTerrain.Nom);
             }
             ActiverUneFiche = false;
         }
@@ -110,7 +110,7 @@ namespace ClubDeFootWPF.ViewModel
 
         public void Ajouter()
         {
-            UneTerrain = new VM_UneTerrain();
+            UnTerrain = new VM_UnTerrain();
             nAjout = -1;
             ActiverUneFiche = true;
         }
@@ -120,9 +120,9 @@ namespace ClubDeFootWPF.ViewModel
             if (TerrainSelectionnee != null)
             {
                 C_T_Terrain Tmp = new G_T_Terrain(chConnexion).Lire_ID(TerrainSelectionnee.ID_Terrain);
-                UneTerrain = new VM_UneTerrain();
-                UneTerrain.ID_Terrain = Tmp.ID_Terrain;
-                UneTerrain.Nom = Tmp.Nom;
+                UnTerrain = new VM_UnTerrain();
+                UnTerrain.ID_Terrain = Tmp.ID_Terrain;
+                UnTerrain.Nom = Tmp.Nom;
                 nAjout = BcpTerrains.IndexOf(TerrainSelectionnee);
                 ActiverUneFiche = true;
             }
@@ -147,12 +147,12 @@ namespace ClubDeFootWPF.ViewModel
 
         public void TerrainSelectionnee2UneTerrain()
         {
-            UneTerrain.ID_Terrain = TerrainSelectionnee.ID_Terrain;
-            UneTerrain.Nom = TerrainSelectionnee.Nom;
+            UnTerrain.ID_Terrain = TerrainSelectionnee.ID_Terrain;
+            UnTerrain.Nom = TerrainSelectionnee.Nom;
         }
     }
 
-    public class VM_UneTerrain : BasePropriete
+    public class VM_UnTerrain : BasePropriete
     {
         private int _ID_Terrain;
         private string _Nom;

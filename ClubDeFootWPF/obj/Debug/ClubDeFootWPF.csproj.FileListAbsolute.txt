@@ -18,12 +18,10 @@ C:\Users\ayoub\Desktop\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Equipe.baml
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\ClubDeFootWPF.exe.config
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\ClubDeFootWPF.exe
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\ClubDeFootWPF.pdb
-D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\MainWindow.g.cs
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Equipe.g.cs
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\App.g.cs
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF_MarkupCompile.cache
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF_MarkupCompile.lref
-D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\MainWindow.baml
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Equipe.baml
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.g.resources
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.Properties.Resources.resources
@@ -41,7 +39,6 @@ D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\V
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Entrainement.baml
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Match.baml
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Terrain.baml
-D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.csproj.AssemblyReference.cache
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\System.Buffers.dll
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\System.Memory.dll
@@ -61,3 +58,6 @@ D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\S
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\bin\Debug\System.ValueTuple.xml
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.csproj.CopyComplete
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\Accueil.g.cs
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\Accueil.baml
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.csproj.AssemblyReference.cache

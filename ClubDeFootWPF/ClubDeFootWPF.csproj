@@ -129,7 +129,7 @@
     <Compile Include="View\Terrain.xaml.cs">
       <DependentUpon>Terrain.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Accueil.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -137,8 +137,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Accueil.xaml.cs">
+      <DependentUpon>Accueil.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Club.xaml">
@@ -193,6 +193,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="BallonFoot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\BallonFoot.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
