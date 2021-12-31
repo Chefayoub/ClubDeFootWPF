@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Projet_BD_ClubDeSportWPF.Classes;
 using Projet_BD_ClubDeSportWPF.Gestion;
 
@@ -49,6 +50,7 @@ namespace ClubDeFootWPF.ViewModel
             get { return _UneEquipe; }
             set { AssignerChamp<VM_UneEquipe>(ref _UneEquipe, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
         }
+
         private ObservableCollection<C_T_Equipe> _BcpEquipes = new ObservableCollection<C_T_Equipe>();
         public ObservableCollection<C_T_Equipe> BcpEquipes
         {
@@ -63,7 +65,7 @@ namespace ClubDeFootWPF.ViewModel
         public BaseCommande cAjouter { get; set; }
         public BaseCommande cModifier { get; set; }
         public BaseCommande cSupprimer { get; set; }
-        public BaseCommande cEssaiSelMult { get; set; }
+        //public BaseCommande cEssaiSelMult { get; set; }
         #endregion
 
         public VM_Equipe()
@@ -76,7 +78,7 @@ namespace ClubDeFootWPF.ViewModel
             cAjouter = new BaseCommande(Ajouter);
             cModifier = new BaseCommande(Modifier);
             cSupprimer = new BaseCommande(Supprimer);
-            cEssaiSelMult = new BaseCommande(EssaiSelMult);
+            //cEssaiSelMult = new BaseCommande(EssaiSelMult);
         }
 
         private ObservableCollection<C_T_Equipe> ChargerEquipes(string chConn)
@@ -94,11 +96,13 @@ namespace ClubDeFootWPF.ViewModel
             {
                 UneEquipe.ID_Equipe = new G_T_Equipe(chConnexion).Ajouter(UneEquipe.Nom, UneEquipe.ID_Club);
                 BcpEquipes.Add(new C_T_Equipe(UneEquipe.ID_Equipe, UneEquipe.Nom, UneEquipe.ID_Club));
+                MessageBox.Show("Equipe ajouté avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             else
             {
                 new G_T_Equipe(chConnexion).Modifier(UneEquipe.ID_Equipe, UneEquipe.Nom, UneEquipe.ID_Club);
                 BcpEquipes[nAjout] = new C_T_Equipe(UneEquipe.ID_Equipe, UneEquipe.Nom, UneEquipe.ID_Club);
+                MessageBox.Show("Equipe modifié avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             ActiverUneFiche = false;
         }
@@ -135,16 +139,17 @@ namespace ClubDeFootWPF.ViewModel
             {
                 new G_T_Equipe(chConnexion).Supprimer(EquipeSelectionnee.ID_Equipe);
                 BcpEquipes.Remove(EquipeSelectionnee);
+                MessageBox.Show("Equipe supprimé avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
         }
 
-        public void EssaiSelMult(object lListe)
-        {
-            System.Collections.IList lTmp = (System.Collections.IList)lListe;
-            foreach (C_T_Equipe p in lTmp)
-            { string s = p.Nom; }
-            int nTmp = lTmp.Count;
-        }
+        //public void EssaiSelMult(object lListe)
+        //{
+        //    System.Collections.IList lTmp = (System.Collections.IList)lListe;
+        //    foreach (C_T_Equipe p in lTmp)
+        //    { string s = p.Nom; }
+        //    int nTmp = lTmp.Count;
+        //}
 
         public void EquipeSelectionnee2UneEquipe()
         {

@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Projet_BD_ClubDeSportWPF.Classes;
 using Projet_BD_ClubDeSportWPF.Gestion;
 
@@ -94,11 +95,13 @@ namespace ClubDeFootWPF.ViewModel
             {
                 UnTerrain.ID_Terrain = new G_T_Terrain(chConnexion).Ajouter(UnTerrain.Nom);
                 BcpTerrains.Add(new C_T_Terrain(UnTerrain.ID_Terrain, UnTerrain.Nom));
+                MessageBox.Show("Terrain ajouté avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             else
             {
                 new G_T_Terrain(chConnexion).Modifier(UnTerrain.ID_Terrain, UnTerrain.Nom);
                 BcpTerrains[nAjout] = new C_T_Terrain(UnTerrain.ID_Terrain, UnTerrain.Nom);
+                MessageBox.Show("Terrain modifié avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             ActiverUneFiche = false;
         }
@@ -134,6 +137,7 @@ namespace ClubDeFootWPF.ViewModel
             {
                 new G_T_Terrain(chConnexion).Supprimer(TerrainSelectionnee.ID_Terrain);
                 BcpTerrains.Remove(TerrainSelectionnee);
+                MessageBox.Show("Terrain supprimé avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
         }
 

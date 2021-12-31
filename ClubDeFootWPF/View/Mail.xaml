@@ -1,0 +1,18 @@
+﻿<Window x:Class="ClubDeFootWPF.View.Mail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClubDeFootWPF.View"
+        mc:Ignorable="d"
+        Title="Mail" Height="450" Width="421.223">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="151" Margin="10,173,0,0" TextWrapping="Wrap" Text="{Binding Message2send, Mode=TwoWay}" VerticalAlignment="Top" Width="376"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="10,107,0,0" TextWrapping="Wrap" Text="{Binding Object2send, Mode=TwoWay}" VerticalAlignment="Top" Width="376"/>
+        <Button Content="Envoyer" HorizontalAlignment="Left" Height="45" Margin="114,347,0,0" VerticalAlignment="Top" Width="166" FontSize="18" FontFamily="Century" Background="#FF2D9B27" Foreground="White" Command="{Binding SendCommand}"/>
+        <Label Content="Mail à tous les Membres" HorizontalAlignment="Left" Height="43" Margin="46,21,0,0" VerticalAlignment="Top" Width="320" FontSize="22" FontFamily="Arial Black" FontWeight="Bold" FontStyle="Italic"/>
+        <Label Content="Titre" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
+        <Label Content="Message" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
+
+    </Grid>
+</Window>

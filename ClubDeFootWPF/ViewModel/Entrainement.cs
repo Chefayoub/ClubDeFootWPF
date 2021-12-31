@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Projet_BD_ClubDeSportWPF.Classes;
 using Projet_BD_ClubDeSportWPF.Gestion;
 
@@ -101,11 +102,13 @@ namespace ClubDeFootWPF.ViewModel
             {
                 UnEntrainement.ID_Entrainement = new G_T_Entrainement(chConnexion).Ajouter(UnEntrainement.DateE, UnEntrainement.ID_Terrain, UnEntrainement.ID_Equipe);
                 BcpEntrainements.Add(new C_T_Entrainement(UnEntrainement.ID_Entrainement, UnEntrainement.DateE, UnEntrainement.ID_Terrain, UnEntrainement.ID_Equipe));
+                MessageBox.Show("Entrainement ajouté avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             else
             {
                 new G_T_Entrainement(chConnexion).Modifier(UnEntrainement.ID_Entrainement, UnEntrainement.DateE, UnEntrainement.ID_Terrain, UnEntrainement.ID_Equipe);
                 BcpEntrainements[nAjout] = new C_T_Entrainement(UnEntrainement.ID_Entrainement, UnEntrainement.DateE, UnEntrainement.ID_Terrain, UnEntrainement.ID_Equipe);
+                MessageBox.Show("Entrainement modifié avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             ActiverUneFiche = false;
         }
@@ -140,6 +143,7 @@ namespace ClubDeFootWPF.ViewModel
             {
                 new G_T_Entrainement(chConnexion).Supprimer(EntrainementSelectionnee.ID_Entrainement);
                 BcpEntrainements.Remove(EntrainementSelectionnee);
+                MessageBox.Show("Entrainement supprimé avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
         }
         public void EssaiSelMult(object lListe)

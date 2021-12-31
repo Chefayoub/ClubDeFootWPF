@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Projet_BD_ClubDeSportWPF.Classes;
 using Projet_BD_ClubDeSportWPF.Gestion;
 
@@ -96,11 +97,13 @@ namespace ClubDeFootWPF.ViewModel
             {
                 UnMembre.ID_Membre = new G_T_Membre(chConnexion).Ajouter(UnMembre.Nom, UnMembre.Prenom, UnMembre.Email, UnMembre.NumeroTel, UnMembre.DateDeNaissance, UnMembre.ID_Equipe);
                 BcpMembres.Add(new C_T_Membre(UnMembre.ID_Membre, UnMembre.Nom, UnMembre.Prenom, UnMembre.Email, UnMembre.NumeroTel, UnMembre.DateDeNaissance, UnMembre.ID_Equipe));
+                MessageBox.Show("Membre ajouté avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             else
             {
                 new G_T_Membre(chConnexion).Modifier(UnMembre.ID_Membre, UnMembre.Nom, UnMembre.Prenom, UnMembre.Email, UnMembre.NumeroTel, UnMembre.DateDeNaissance, UnMembre.ID_Equipe);
                 BcpMembres[nAjout] = new C_T_Membre(UnMembre.ID_Membre, UnMembre.Nom, UnMembre.Prenom, UnMembre.Email, UnMembre.NumeroTel, UnMembre.DateDeNaissance, UnMembre.ID_Equipe);
+                MessageBox.Show("Membre modifié avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             ActiverUneFiche = false;
         }
@@ -141,6 +144,7 @@ namespace ClubDeFootWPF.ViewModel
             {
                 new G_T_Membre(chConnexion).Supprimer(MembreSelectionnee.ID_Membre);
                 BcpMembres.Remove(MembreSelectionnee);
+                MessageBox.Show("Membre supprimé avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
         }
 

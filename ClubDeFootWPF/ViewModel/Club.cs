@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Projet_BD_ClubDeSportWPF.Classes;
 using Projet_BD_ClubDeSportWPF.Gestion;
 
@@ -94,11 +95,13 @@ namespace ClubDeFootWPF.ViewModel
             {
                 UnClub.ID_Club = new G_T_Club(chConnexion).Ajouter(UnClub.Nom, UnClub.Rue, UnClub.Numero, UnClub.Code_Postal, UnClub.Localite, UnClub.Mon_Club);
                 BcpClubs.Add(new C_T_Club(UnClub.ID_Club, UnClub.Nom, UnClub.Rue, UnClub.Numero, UnClub.Code_Postal, UnClub.Localite, UnClub.Mon_Club));
+                MessageBox.Show("Club ajouté avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             else
             {
                 new G_T_Club(chConnexion).Modifier(UnClub.ID_Club, UnClub.Nom, UnClub.Rue, UnClub.Numero, UnClub.Code_Postal, UnClub.Localite, UnClub.Mon_Club);
                 BcpClubs[nAjout] = new C_T_Club(UnClub.ID_Club, UnClub.Nom, UnClub.Rue, UnClub.Numero, UnClub.Code_Postal, UnClub.Localite, UnClub.Mon_Club);
+                MessageBox.Show("Club modifié avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             ActiverUneFiche = false;
         }
@@ -139,6 +142,7 @@ namespace ClubDeFootWPF.ViewModel
             {
                 new G_T_Club(chConnexion).Supprimer(ClubSelectionnee.ID_Club);
                 BcpClubs.Remove(ClubSelectionnee);
+                MessageBox.Show("Club supprimé avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
         }
 

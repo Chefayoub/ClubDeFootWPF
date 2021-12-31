@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Projet_BD_ClubDeSportWPF.Classes;
 using Projet_BD_ClubDeSportWPF.Gestion;
 
@@ -94,11 +95,13 @@ namespace ClubDeFootWPF.ViewModel
             {
                 UnMatch.ID_Match = new G_T_Match(chConnexion).Ajouter(UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain);
                 BcpMatchs.Add(new C_T_Match(UnMatch.ID_Match, UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain));
+                MessageBox.Show("Match ajouté avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             else
             {
                 new G_T_Match(chConnexion).Modifier(UnMatch.ID_Match, UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain);
                 BcpMatchs[nAjout] = new C_T_Match(UnMatch.ID_Match, UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain);
+                MessageBox.Show("Match modifié avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             ActiverUneFiche = false;
         }
@@ -139,6 +142,7 @@ namespace ClubDeFootWPF.ViewModel
             {
                 new G_T_Match(chConnexion).Supprimer(MatchSelectionnee.ID_Match);
                 BcpMatchs.Remove(MatchSelectionnee);
+                MessageBox.Show("Match supprimé avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
         }
 

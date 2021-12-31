@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClubDeFootWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" MaxWidth="800" MaxHeight="450">
+        Title="Accueil" Height="638" Width="1044"  >
+    <!--MaxHeight="500" MaxWidth="800"-->
 
     <Window.Resources>
         <Style TargetType="Calendar"
@@ -17,31 +18,107 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
+    <Grid Margin="0,0,-6,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="87*"/>
             <ColumnDefinition Width="707*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="254*"/>
-            <RowDefinition Height="167*"/>
-        </Grid.RowDefinitions>
-        <StackPanel VerticalAlignment="Center" Margin="0,0,618,0" Height="421" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="#FF0B9142">
-            <Image Source="BallonFoot.png" Height="76" Margin="0, 10, 0, 0">
+
+        <!--Menu a gauche-->
+        <StackPanel VerticalAlignment="Center" Margin="0,-6,841,0" Height="615" Grid.ColumnSpan="2" Background="#FF0B9142">
+            <Image Source="BallonFoot.png" Height="84" Margin="0, 30, 0, 0">
                 <Image.OpacityMask>
                     <ImageBrush ImageSource="BallonFoot.png" Stretch="Uniform"/>
                 </Image.OpacityMask>
             </Image>
-            <Label Content="Football club manager" Margin="0, 10, 0, 50" Foreground="White" FontFamily="Century" FontSize="14" HorizontalAlignment="Center"/>
-            <Button Name="btnMembre" Content="Membre" Margin="5" Click="btnMembre_Click" Height="30" Foreground="White" FontFamily="Century" FontSize="14" Background="#FF042B04"/>
-            <Button Name="btnClub" Content="Club" Margin="5" Click="btnClub_Click" Height="30" Foreground="White" FontFamily="Century" FontSize="14" Background="#FF042B04"></Button>
-            <Button Name="btnEquipe" Content="Equipe" Margin="5" Click="btnEquipe_Click" Height="30" Foreground="White" FontFamily="Century" FontSize="14" Background="#FF042B04"></Button>
-            <Button Name="btnMatch" Content="Match" Margin="5" Click="btnMatch_Click" Height="30" Foreground="White" FontFamily="Century" FontSize="14" Background="#FF042B04"></Button>
-            <Button Name="btnEntrainement" Content="Entrainement" Margin="5" Click="btnEntrainement_Click" Height="30" Foreground="White" FontFamily="Century" FontSize="14" Background="#FF042B04"></Button>
-            <Button Name="btnTerrain" Content="Terrain" Margin="5" Click="btnTerrain_Click" Height="30" Foreground="White" FontFamily="Century" FontSize="14"  Background="#FF042B04">
-            </Button>
+            <Label Content="Football club manager" Margin="24,10,10,50" Foreground="White" FontFamily="Arial Black" HorizontalAlignment="Center" Height="30" Width="169"/>
+            <Button x:Name="btnEquipe" Content="Equipe" Margin="5,5,5.2,5" Click="btnEquipe_Click" Height="49" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"/>
+            <Button x:Name="btnMembre" Content="Membre" Margin="5,5,5.2,5" Click="btnMembre_Click" Height="51" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"/>
+            <Button Name="btnMatch" Content="Match" Margin="5" Click="btnMatch_Click" Height="46" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"></Button>
+            <Button x:Name="btnTerrain" Content="Terrain" Margin="5,5,5.2,5" Click="btnTerrain_Click" Height="46" Foreground="White" FontFamily="Arial Black" FontSize="14"  Background="#FF042B04"/>
+            <Button Name="btnEntrainement" Content="Entrainement" Margin="5" Click="btnEntrainement_Click" Height="41" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"></Button>
+            <Button x:Name="btnClub" Content="Club" Margin="5,5,5.2,5" Click="btnClub_Click" Height="41" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"/>
+            <Button x:Name="btnMail" Content="Mail" Margin="5,5,5.2,5" Click="btnMail_Click" Height="41" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"/>
         </StackPanel>
+        <!-- _____________ -->
+
+        <!--DGV equipe-->
+        <DataGrid x:Name="dgEquipe" ItemsSource="{Binding BcpEquipes}" VerticalScrollBarVisibility="Visible"
+            IsReadOnly="True" AutoGenerateColumns="False" IsEnabled="{Binding ActiverBcpFiche, Mode=OneWay}"
+            SelectedItem="{Binding EquipeSelectionnee, Mode=TwoWay}" SelectionChanged="dgEquipe_SelectionChanged"  Margin="94,84,597,372" Grid.Column="1" FontFamily="Arial">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Equipe" Binding="{Binding ID_Equipe}" Width="*" />
+                <DataGridTextColumn Header="ID Club" Binding="{Binding ID_Club}" Width="*" />
+                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock x:Name="tEquipeName" Text="Equipe" VerticalAlignment="Center" Margin="149,35,683,530" Height="44" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
+
+        <!--DGV Membre-->
+        <DataGrid x:Name="dgMembre" ItemsSource="{Binding BcpMembres}" VerticalScrollBarVisibility="Visible"
+            IsReadOnly="True" AutoGenerateColumns="False" IsEnabled="{Binding ActiverBcpFiche, Mode=OneWay}"
+            SelectedItem="{Binding MembreSelectionnee, Mode=TwoWay}" SelectionChanged="dgMembres_SelectionChanged" Margin="353,53,14,418" Grid.Column="1" FontFamily="Arial" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Membre" Binding="{Binding ID_Membre}" Width="*" />
+                <DataGridTextColumn Header="ID Equipe" Binding="{Binding ID_Equipe}" Width="*" />
+                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="*" />
+                <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}" Width="*" />
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
+                <DataGridTextColumn Header="Numero téléphone" Binding="{Binding NumeroTel}" Width="*" />
+                <DataGridTextColumn Header="Date de naissance" Binding="{Binding DateDeNaissance}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!--DGV Terrain-->
+        <TextBlock x:Name="tMembreName" Text="Membre" VerticalAlignment="Center" Margin="581,23,225,561" Height="25" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
+        <DataGrid x:Name="dgTerrain" ItemsSource="{Binding BcpTerrains}" VerticalScrollBarVisibility="Visible"
+            IsReadOnly="True" AutoGenerateColumns="False" IsEnabled="{Binding ActiverBcpFiche, Mode=OneWay}"
+            SelectedItem="{Binding TerrainSelectionnee, Mode=TwoWay}" SelectionChanged="dgTerrains_SelectionChanged"  Margin="90,280,601,187" Grid.Column="1" FontFamily="Arial">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Terrain" Binding="{Binding ID_Terrain}" Width="*" />
+                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock x:Name="tTerrainName" Text="Terrain" VerticalAlignment="Center" Margin="148,242,682,334" Height="33" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
+
+        <!--DGV Match-->
+        <DataGrid x:Name="dgMatch" ItemsSource="{Binding BcpMatchs}" VerticalScrollBarVisibility="Visible"
+            IsReadOnly="True" AutoGenerateColumns="False" IsEnabled="{Binding ActiverBcpFiche, Mode=OneWay}"
+            SelectedItem="{Binding MatchSelectionnee, Mode=TwoWay}" SelectionChanged="dgMatchs_SelectionChanged" Margin="353,235,14,226" Grid.Column="1" FontFamily="Arial">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Match" Binding="{Binding ID_Match}" Width="*" />
+                <DataGridTextColumn Header="ID Domicile" Binding="{Binding ID_Domicile}" Width="*" />
+                <DataGridTextColumn Header="ID Deplacement" Binding="{Binding ID_Deplacement}" Width="*" />
+                <DataGridTextColumn Header="ID Terrain" Binding="{Binding ID_Terrain}" Width="*" />
+                <DataGridTextColumn Header="Score Domicile" Binding="{Binding Score_Domicile}" Width="*" />
+                <DataGridTextColumn Header="Score Adversaire" Binding="{Binding Score_Adversaire}" Width="*" />
+                <DataGridTextColumn Header="Date" Binding="{Binding DateM}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock x:Name="tMatchName" Text="Match" VerticalAlignment="Center" Margin="581,203,225,374" Height="32" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
+
+        <!--DGV Entrainement-->
+        <DataGrid x:Name="dgEntrainement" ItemsSource="{Binding BcpEntrainements}" VerticalScrollBarVisibility="Visible"
+            IsReadOnly="True" AutoGenerateColumns="False" IsEnabled="{Binding ActiverBcpFiche, Mode=OneWay}"
+            SelectedItem="{Binding EntrainementSelectionnee, Mode=TwoWay}" SelectionChanged="dgEntrainements_SelectionChanged" Margin="353,445,14,21" Grid.Column="1" FontFamily="Arial" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Entrainement" Binding="{Binding ID_Entrainement}" Width="*" />
+                <DataGridTextColumn Header="ID Terrain" Binding="{Binding ID_Terrain}" Width="*" />
+                <DataGridTextColumn Header="ID Equipe" Binding="{Binding ID_Equipe}" Width="*" />
+                <DataGridTextColumn Header="Date" Binding="{Binding DateE}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock x:Name="tEntrainementName" Text="Entrainement" VerticalAlignment="Center" Margin="581,405,174,146" Height="58" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
+
+        <RichTextBox Name="rtbDoc" Grid.Column="1" HorizontalAlignment="Left" Height="130" Margin="94,458,0,0" VerticalAlignment="Top" Width="239" FontFamily="Arial">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+
 
     </Grid>
 

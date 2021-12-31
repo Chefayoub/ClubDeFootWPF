@@ -33,21 +33,22 @@ namespace ClubDeFootWPF.View
             DataContext = LocalMatch;
             FlowDocument fd = new FlowDocument();
             Paragraph p = new Paragraph();
-            p.Inlines.Add(new Bold(new Run("Titre de document")));
+            p.Inlines.Add(new Bold(new Run("Programme de la semaine à venir")));
             p.Inlines.Add(new LineBreak());
-            p.Inlines.Add(new Run("Liste des personnes encodées"));
+            p.Inlines.Add(new Run("Liste des match"));
             fd.Blocks.Add(p);
+
             List l = new List();
             foreach (C_T_Match cp in LocalMatch.BcpMatchs)
             {
-                Paragraph pl = new Paragraph(new Run(cp.ID_Match + " " + cp.DateM));
+                Paragraph pl = new Paragraph(new Run("Equipe domicile : " + cp.ID_Domicile + " - Equipe deplacement : " + cp.ID_Deplacement + " - Terrain : " + cp.ID_Terrain + " - Score domicile : " + cp.Score_Domicile + " - Score adversaire : " + cp.Score_Adversaire + " - Date et heure du match : " + cp.DateM));
                 l.ListItems.Add(new ListItem(pl));
             }
             fd.Blocks.Add(l);
-            //rtbDoc.Document = fd;
-            //FileStream fs = new FileStream(@"D:\BD_ClubDeSportWPF\DocAppWPF\Match.rtf", FileMode.Create);
-            //TextRange tr = new TextRange(rtbDoc.Document.ContentStart, rtbDoc.Document.ContentEnd);
-            //tr.Save(fs, System.Windows.DataFormats.Rtf);
+            rtbDoc.Document = fd;
+            FileStream fs = new FileStream(@"D:\BD_ClubDeSportWPF\DocAppWPF\Match.doc", FileMode.Create);
+            TextRange tr = new TextRange(rtbDoc.Document.ContentStart, rtbDoc.Document.ContentEnd);
+            tr.Save(fs, System.Windows.DataFormats.Rtf);
         }
 
         private void dgMatchs_SelectionChanged(object sender, SelectionChangedEventArgs e)
