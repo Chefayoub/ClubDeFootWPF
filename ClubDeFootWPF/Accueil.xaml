@@ -32,14 +32,15 @@
                     <ImageBrush ImageSource="BallonFoot.png" Stretch="Uniform"/>
                 </Image.OpacityMask>
             </Image>
-            <Label Content="Football club manager" Margin="24,10,10,50" Foreground="White" FontFamily="Arial Black" HorizontalAlignment="Center" Height="30" Width="169"/>
-            <Button x:Name="btnEquipe" Content="Equipe" Margin="5,5,5.2,5" Click="btnEquipe_Click" Height="49" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"/>
-            <Button x:Name="btnMembre" Content="Membre" Margin="5,5,5.2,5" Click="btnMembre_Click" Height="51" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"/>
-            <Button Name="btnMatch" Content="Match" Margin="5" Click="btnMatch_Click" Height="46" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"></Button>
-            <Button x:Name="btnTerrain" Content="Terrain" Margin="5,5,5.2,5" Click="btnTerrain_Click" Height="46" Foreground="White" FontFamily="Arial Black" FontSize="14"  Background="#FF042B04"/>
-            <Button Name="btnEntrainement" Content="Entrainement" Margin="5" Click="btnEntrainement_Click" Height="41" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"></Button>
-            <Button x:Name="btnClub" Content="Club" Margin="5,5,5.2,5" Click="btnClub_Click" Height="41" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"/>
-            <Button x:Name="btnMail" Content="Mail" Margin="5,5,5.2,5" Click="btnMail_Click" Height="41" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"/>
+            <Label Content="Football club manager" Margin="24,10,10,30" Foreground="White" FontFamily="Arial Black" HorizontalAlignment="Center" Height="30" Width="169"/>
+            <Button x:Name="btnEquipe" Content="Equipe" Margin="5,5,5.2,5" Click="btnEquipe_Click" Height="40" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"/>
+            <Button x:Name="btnMembre" Content="Membre" Margin="5,5,5.2,5" Click="btnMembre_Click" Height="40" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"/>
+            <Button Name="btnMatch" Content="Match" Margin="5" Click="btnMatch_Click" Height="40" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"></Button>
+            <Button x:Name="btnTerrain" Content="Terrain" Margin="5,5,5.2,5" Click="btnTerrain_Click" Height="40" Foreground="White" FontFamily="Arial Black" FontSize="14"  Background="#FF042B04"/>
+            <Button Name="btnEntrainement" Content="Entrainement" Margin="5" Click="btnEntrainement_Click" Height="40" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"></Button>
+            <Button x:Name="btnClub" Content="Club" Margin="5,5,5.2,5" Click="btnClub_Click" Height="40" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"/>
+            <Button x:Name="btnMail" Content="Mail" Margin="5,5,5.2,5" Click="btnMail_Click" Height="40" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"/>
+            <Button x:Name="btnHTML" Content="HTML" Margin="5,5,5.2,5" Click="btnHTML_Click" Height="40" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"/>
         </StackPanel>
         <!-- _____________ -->
 
@@ -66,12 +67,12 @@
                 <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}" Width="*" />
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
                 <DataGridTextColumn Header="Numero téléphone" Binding="{Binding NumeroTel}" Width="*" />
-                <DataGridTextColumn Header="Date de naissance" Binding="{Binding DateDeNaissance}" Width="*" />
+                <DataGridTextColumn Header="Date de naissance" Binding="{Binding DateDeNaissance, StringFormat=dd/MM/yyyy}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
+        <TextBlock x:Name="tMembreName" Text="Membre" VerticalAlignment="Center" Margin="581,23,225,561" Height="25" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
 
         <!--DGV Terrain-->
-        <TextBlock x:Name="tMembreName" Text="Membre" VerticalAlignment="Center" Margin="581,23,225,561" Height="25" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
         <DataGrid x:Name="dgTerrain" ItemsSource="{Binding BcpTerrains}" VerticalScrollBarVisibility="Visible"
             IsReadOnly="True" AutoGenerateColumns="False" IsEnabled="{Binding ActiverBcpFiche, Mode=OneWay}"
             SelectedItem="{Binding TerrainSelectionnee, Mode=TwoWay}" SelectionChanged="dgTerrains_SelectionChanged"  Margin="90,280,601,187" Grid.Column="1" FontFamily="Arial">
@@ -93,7 +94,7 @@
                 <DataGridTextColumn Header="ID Terrain" Binding="{Binding ID_Terrain}" Width="*" />
                 <DataGridTextColumn Header="Score Domicile" Binding="{Binding Score_Domicile}" Width="*" />
                 <DataGridTextColumn Header="Score Adversaire" Binding="{Binding Score_Adversaire}" Width="*" />
-                <DataGridTextColumn Header="Date" Binding="{Binding DateM}" Width="*" />
+                <DataGridTextColumn Header="Date" Binding="{Binding DateM, StringFormat='dd/MM/yyyy HH:mm'}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock x:Name="tMatchName" Text="Match" VerticalAlignment="Center" Margin="581,203,225,374" Height="32" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
@@ -106,7 +107,7 @@
                 <DataGridTextColumn Header="ID Entrainement" Binding="{Binding ID_Entrainement}" Width="*" />
                 <DataGridTextColumn Header="ID Terrain" Binding="{Binding ID_Terrain}" Width="*" />
                 <DataGridTextColumn Header="ID Equipe" Binding="{Binding ID_Equipe}" Width="*" />
-                <DataGridTextColumn Header="Date" Binding="{Binding DateE}" Width="*" />
+                <DataGridTextColumn Header="Date" Binding="{Binding DateE, StringFormat='dd/MM/yyyy HH:mm'}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock x:Name="tEntrainementName" Text="Entrainement" VerticalAlignment="Center" Margin="581,405,174,146" Height="58" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
@@ -114,7 +115,7 @@
         <RichTextBox Name="rtbDoc" Grid.Column="1" HorizontalAlignment="Left" Height="130" Margin="94,458,0,0" VerticalAlignment="Top" Width="239" FontFamily="Arial">
             <FlowDocument>
                 <Paragraph>
-                    <Run Text="RichTextBox"/>
+                    <Run Text=""/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>

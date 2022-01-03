@@ -29,6 +29,15 @@ namespace ClubDeFootWPF.ViewModel
                 ActiverBcpFiche = !ActiverUneFiche;
             }
         }
+        public bool ActiverUneFiche2
+        {
+            get { return _ActiverUneFiche; }
+            set
+            {
+                AssignerChamp<bool>(ref _ActiverUneFiche, value, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                ActiverBcpFiche = !ActiverUneFiche;
+            }
+        }
         private bool _ActiverBcpFiche;
         public bool ActiverBcpFiche
         {
@@ -64,7 +73,6 @@ namespace ClubDeFootWPF.ViewModel
         public BaseCommande cAjouter { get; set; }
         public BaseCommande cModifier { get; set; }
         public BaseCommande cSupprimer { get; set; }
-        public BaseCommande cEssaiSelMult { get; set; }
         #endregion
 
         public VM_Match()
@@ -77,7 +85,6 @@ namespace ClubDeFootWPF.ViewModel
             cAjouter = new BaseCommande(Ajouter);
             cModifier = new BaseCommande(Modifier);
             cSupprimer = new BaseCommande(Supprimer);
-            cEssaiSelMult = new BaseCommande(EssaiSelMult);
         }
 
         private ObservableCollection<C_T_Match> ChargerMatchs(string chConn)
@@ -116,6 +123,7 @@ namespace ClubDeFootWPF.ViewModel
             UnMatch = new VM_UnMatch();
             nAjout = -1;
             ActiverUneFiche = true;
+            ActiverUneFiche2 = true;
         }
 
         public void Modifier()
@@ -146,13 +154,7 @@ namespace ClubDeFootWPF.ViewModel
             }
         }
 
-        public void EssaiSelMult(object lListe)
-        {
-            System.Collections.IList lTmp = (System.Collections.IList)lListe;
-            foreach (C_T_Match p in lTmp)
-            { int s = p.ID_Match; }
-            int nTmp = lTmp.Count;
-        }
+
 
         public void MatchSelectionnee2UneMatch()
         {

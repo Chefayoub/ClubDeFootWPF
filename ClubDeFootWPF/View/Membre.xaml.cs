@@ -15,6 +15,8 @@ using System.IO;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using Projet_BD_ClubDeSportWPF.Classes;
+using System.Configuration;
+using Projet_BD_ClubDeSportWPF.Gestion;
 
 namespace ClubDeFootWPF.View
 {
@@ -24,6 +26,7 @@ namespace ClubDeFootWPF.View
     public partial class Membre : Window
     {
         private ViewModel.VM_Membre LocalMembre;
+        private string chConnexion = ConfigurationManager.ConnectionStrings["ClubDeFootWPF.Properties.Settings.BDConnexion"].ConnectionString;
 
         public Membre()
         {
@@ -53,6 +56,15 @@ namespace ClubDeFootWPF.View
         private void dgMembres_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dgMembre.SelectedIndex >= 0) LocalMembre.MembreSelectionnee2UneMembre();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<C_T_Equipe> lTmp = new G_T_Equipe(chConnexion).Lire("ID_Equipe");
+            foreach (C_T_Equipe cp in lTmp)
+            {
+                cbEquipe.Items.Add(cp.ID_Equipe);
+            }
         }
     }
 }

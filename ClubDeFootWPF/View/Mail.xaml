@@ -5,14 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClubDeFootWPF.View"
         mc:Ignorable="d"
-        Title="Mail" Height="450" Width="421.223">
-    <Grid>
-        <TextBox HorizontalAlignment="Left" Height="151" Margin="10,173,0,0" TextWrapping="Wrap" Text="{Binding Message2send, Mode=TwoWay}" VerticalAlignment="Top" Width="376"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="10,107,0,0" TextWrapping="Wrap" Text="{Binding Object2send, Mode=TwoWay}" VerticalAlignment="Top" Width="376"/>
-        <Button Content="Envoyer" HorizontalAlignment="Left" Height="45" Margin="114,347,0,0" VerticalAlignment="Top" Width="166" FontSize="18" FontFamily="Century" Background="#FF2D9B27" Foreground="White" Command="{Binding SendCommand}"/>
-        <Label Content="Mail à tous les Membres" HorizontalAlignment="Left" Height="43" Margin="46,21,0,0" VerticalAlignment="Top" Width="320" FontSize="22" FontFamily="Arial Black" FontWeight="Bold" FontStyle="Italic"/>
-        <Label Content="Titre" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
-        <Label Content="Message" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
+        Title="Mail" Height="378.947" Width="531.519">
+
+    <Grid Opacity="0.9">
+        <Label Content="Mail à tous les membres" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="177,10,146.8,0" Height="26" Width="201" FontFamily="Arial Black" FontSize="14"/>
+        <!--Information-->
+        <Label Content="Destinataire" HorizontalAlignment="Left" Margin="8,38,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="85" FontFamily="Arial"/>
+        <TextBox HorizontalAlignment="Left" Name="tbDestinataire"  Height="23" Margin="128,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350"/>
+
+        <Label Content="Subject" HorizontalAlignment="Left" Margin="8,79,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="85" FontFamily="Arial"/>
+        <TextBox Text="Message d'information !" HorizontalAlignment="Left" x:Name="tbSujet"  Height="23" Margin="128,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="350"/>
+
+        <Label Content="Contenu" HorizontalAlignment="Left" Margin="8,124,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="85" FontFamily="Arial"/>
+        <TextBox HorizontalAlignment="Left" x:Name="tbContenu"  Height="124" Margin="128,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350"/>
+        <!--Buttons envoyer-->
+        <Button Content="Envoyer" HorizontalAlignment="Left" Background="Blue" Foreground="White" Margin="128,294,0,0" VerticalAlignment="Top" Width="143" Name="bEnvoyer" Click="bEnvoyer_Click" Height="46" FontFamily="Arial Black"/>
+        <CheckBox Name="cbProgramme" Content="Voulez-vous ajouter le programme de la semaine ?" HorizontalAlignment="Left" Margin="128,260,0,0" VerticalAlignment="Top" />
 
     </Grid>
 </Window>

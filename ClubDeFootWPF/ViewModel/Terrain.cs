@@ -29,6 +29,15 @@ namespace ClubDeFootWPF.ViewModel
                 ActiverBcpFiche = !ActiverUneFiche;
             }
         }
+        public bool ActiverUneFiche2
+        {
+            get { return _ActiverUneFiche; }
+            set
+            {
+                AssignerChamp<bool>(ref _ActiverUneFiche, value, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                ActiverBcpFiche = !ActiverUneFiche;
+            }
+        }
         private bool _ActiverBcpFiche;
         public bool ActiverBcpFiche
         {
@@ -116,6 +125,7 @@ namespace ClubDeFootWPF.ViewModel
             UnTerrain = new VM_UnTerrain();
             nAjout = -1;
             ActiverUneFiche = true;
+            ActiverUneFiche2 = true;
         }
 
         public void Modifier()

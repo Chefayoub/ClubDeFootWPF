@@ -22,31 +22,16 @@ namespace ClubDeFootWPF
     /// </summary>
     public partial class Accueil : Window
     {
-        private ViewModel.VM_Accueil LocalEquipe;
-        private ViewModel.VM_Accueil LocalMembre;
-        private ViewModel.VM_Terrain LocalTerrain;
-        private ViewModel.VM_Match LocalMatch;
-        private ViewModel.VM_Entrainement LocalEntrainement;
+        private ViewModel.VM_Accueil LocalAccueil;
+
 
         public Accueil()
         {
             InitializeComponent();
 
-            //Table equipe
-            LocalEquipe = new ViewModel.VM_Accueil();
-            DataContext = LocalEquipe;
-            //Table Entrainement
-            LocalEntrainement = new ViewModel.VM_Entrainement();
-            DataContext = LocalEntrainement;
-            //Table Match
-            LocalMatch = new ViewModel.VM_Match();
-            DataContext = LocalMatch;
-            //Table Terrain
-            LocalTerrain = new ViewModel.VM_Terrain();
-            DataContext = LocalTerrain;
             //Table Membre
-            LocalMembre = new ViewModel.VM_Accueil();
-            DataContext = LocalMembre;
+            LocalAccueil = new ViewModel.VM_Accueil();
+            DataContext = LocalAccueil;
 
             //Generer un document
             FlowDocument fd = new FlowDocument();
@@ -54,31 +39,46 @@ namespace ClubDeFootWPF
             p.Inlines.Add(new Bold(new Run("Fiche de Match")));
             p.Inlines.Add(new LineBreak());
             p.Inlines.Add(new Run("Match"));
+            p.Inlines.Add(new LineBreak());
+
+            foreach (C_T_Equipe cp in LocalAccueil.BcpEquipes)
+            {
+                p.Inlines.Add(new LineBreak());
+                p.Inlines.Add("Equipe : " + cp.Nom);
+                p.Inlines.Add(new LineBreak());
+            }
+
+            foreach (C_T_Membre cp in LocalAccueil.BcpMembres)
+            {
+                p.Inlines.Add(new LineBreak());
+                p.Inlines.Add("Membre : " + cp.Nom + " " + cp.Prenom + " - " + cp.Email);
+                p.Inlines.Add(new LineBreak());
+
+
+                //foreach (C_T_Match cp2 in LocalAccueil.BcpMatchs)
+                //{
+                //    p.Inlines.Add(new LineBreak());
+                //    p.Inlines.Add("Match : ");
+                //    p.Inlines.Add(new LineBreak());
+                //    p.Inlines.Add("Equipe domicile : " + cp2.ID_Domicile + " - Equipe deplacement : " + cp2.ID_Deplacement + " - Terrain : " + cp2.ID_Terrain + " - Score domicile : " + cp2.Score_Domicile + " - Score adversaire : " + cp2.Score_Adversaire + " - Date et heure du match : " + cp2.DateM);
+                //    p.Inlines.Add(new LineBreak());
+                //}
+            }
+
+            foreach (C_T_Match cp in LocalAccueil.BcpMatchs)
+            {
+                p.Inlines.Add(new LineBreak());
+                p.Inlines.Add("Match : ");
+                p.Inlines.Add(new LineBreak());
+                p.Inlines.Add("Equipe domicile : " + cp.ID_Domicile + " - Equipe deplacement : " + cp.ID_Deplacement + " - Terrain : " + cp.ID_Terrain + " - Score domicile : " + cp.Score_Domicile + " - Score adversaire : " + cp.Score_Adversaire + " - Date et heure du match : " + cp.DateM);
+                p.Inlines.Add(new LineBreak());
+            }
+
+
+
+
+
             fd.Blocks.Add(p);
-
-            List lEquipe = new List();
-            foreach (C_T_Equipe cp in LocalEquipe.BcpEquipes)
-            {
-                Paragraph pl = new Paragraph(new Run(cp.Nom));
-                lEquipe.ListItems.Add(new ListItem(pl));
-            }
-
-            List lMembre = new List();
-            foreach (C_T_Membre cp in LocalMembre.BcpMembres)
-            {
-                Paragraph pl = new Paragraph(new Run(cp.Nom + " " + cp.Prenom + " - " + cp.Email));
-                lMembre.ListItems.Add(new ListItem(pl));
-            }
-
-            List lMatch = new List();
-            foreach (C_T_Match cp in LocalMatch.BcpMatchs)
-            {
-                Paragraph pl = new Paragraph(new Run("Equipe domicile : " + cp.ID_Domicile + " - Equipe deplacement : " + cp.ID_Deplacement + " - Terrain : " + cp.ID_Terrain + " - Score domicile : " + cp.Score_Domicile + " - Score adversaire : " + cp.Score_Adversaire + " - Date et heure du match : " + cp.DateM));
-                lMatch.ListItems.Add(new ListItem(pl));
-            }
-            fd.Blocks.Add(lEquipe);
-            fd.Blocks.Add(lMembre);
-            fd.Blocks.Add(lMatch);
             rtbDoc.Document = fd;
             FileStream fs = new FileStream(@"D:\BD_ClubDeSportWPF\DocAppWPF\Football.doc", FileMode.Create);
             TextRange tr = new TextRange(rtbDoc.Document.ContentStart, rtbDoc.Document.ContentEnd);
@@ -87,78 +87,96 @@ namespace ClubDeFootWPF
 
         private void btnMembre_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
             View.Membre f = new View.Membre();
+            Hide();
             f.ShowDialog();
+            Show();
         }
 
         private void btnClub_Click(object sender, RoutedEventArgs e)
         {
             View.Club f = new View.Club();
+            Hide();
             f.ShowDialog();
+            Show();
         }
 
         private void btnEquipe_Click(object sender, RoutedEventArgs e)
         {
             View.Equipe f = new View.Equipe();
+            Hide();
             f.ShowDialog();
+            Show();
         }
 
         private void btnMatch_Click(object sender, RoutedEventArgs e)
         {
             View.Match f = new View.Match();
+            Hide();
             f.ShowDialog();
+            Show();
         }
 
         private void btnEntrainement_Click(object sender, RoutedEventArgs e)
         {
             View.Entrainement f = new View.Entrainement();
+            Hide();
             f.ShowDialog();
+            Show();
         }
 
         private void btnTerrain_Click(object sender, RoutedEventArgs e)
         {
             View.Terrain f = new View.Terrain();
+            Hide();
             f.ShowDialog();
+            Show();
         }
         private void btnMail_Click(object sender, RoutedEventArgs e)
         {
-            View.Entrainement f = new View.Entrainement();
+            View.Mail f = new View.Mail();
+            Hide();
             f.ShowDialog();
+            Show();
+        }
+        private void btnHTML_Click(object sender, RoutedEventArgs e)
+        {
+            View.Html f = new View.Html();
+            Hide();
+            f.ShowDialog();
+            Show();
         }
 
 
         //DGV equipe
         private void dgEquipe_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (dgEquipe.SelectedIndex >= 0) LocalEquipe.EquipeSelectionnee2UneEquipe();
+            if (dgEquipe.SelectedIndex >= 0) LocalAccueil.EquipeSelectionnee2UneEquipe();
         }
 
         //DGV Membre
         private void dgMembres_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (dgMembre.SelectedIndex >= 0) LocalMembre.MembreSelectionnee2UneMembre();
+            if (dgMembre.SelectedIndex >= 0) LocalAccueil.MembreSelectionnee2UneMembre();
         }
 
         //DGV Terrain
         private void dgTerrains_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (dgTerrain.SelectedIndex >= 0) LocalTerrain.TerrainSelectionnee2UneTerrain();
+            if (dgTerrain.SelectedIndex >= 0) LocalAccueil.TerrainSelectionnee2UneTerrain();
         }
 
         //DGV Match
         private void dgMatchs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (dgMatch.SelectedIndex >= 0) LocalMatch.MatchSelectionnee2UneMatch();
+            if (dgMatch.SelectedIndex >= 0) LocalAccueil.MatchSelectionnee2UneMatch();
         }
 
         //DGV Rntrainement
         private void dgEntrainements_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (dgEntrainement.SelectedIndex >= 0) LocalEntrainement.EntrainementSelectionnee2UneEntrainement();
+            if (dgEntrainement.SelectedIndex >= 0) LocalAccueil.EntrainementSelectionnee2UneEntrainement();
         }
-
-
     }
 
 

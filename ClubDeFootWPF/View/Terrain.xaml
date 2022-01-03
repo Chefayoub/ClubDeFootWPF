@@ -28,10 +28,10 @@
 
         <!--Données encodées table Terrain-->
         <TextBlock Name="tIDTerrain" Text="ID Terrain" VerticalAlignment="Center" Margin="113,256,518,127" Height="38" Grid.Column="1"  />
-        <TextBox Name="tbIDTerrain" Grid.Column="1" Margin="195,256,358,131" Text="{Binding Path=UnTerrain.ID_Terrain, Mode=TwoWay}" />
+        <TextBox Name="tbIDTerrain" Grid.Column="1" Margin="195,256,358,131" Text="{Binding Path=UnTerrain.ID_Terrain, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche2, Mode=OneWay}"/>
 
         <TextBlock Name="tNom" Text="Nom" VerticalAlignment="Center" Margin="406,256,225,129" Height="36" Grid.Column="1" />
-        <TextBox Name="tbNom" Margin="487,256,68,133" Grid.Column="1" Text="{Binding Path=UnTerrain.Nom, Mode=TwoWay}" />
+        <TextBox Name="tbNom" Margin="487,256,68,133" Grid.Column="1" Text="{Binding Path=UnTerrain.Nom, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
 
         <!--Boutons-->
         <Button Name="bConfirmer" Content="Confirmer" Margin="242,375,383,10" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"

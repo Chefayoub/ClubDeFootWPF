@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClubDeFootWPF.View"
         mc:Ignorable="d"
-        Title="Equipe"  Height="450" Width="800" MaxWidth="800" MaxHeight="450">
+        Title="Equipe"  Height="450" Width="800" MaxWidth="800" MaxHeight="450" Loaded="Window_Loaded">
 
     <Grid Background="White" RenderTransformOrigin="0.475,0.53">
         <Grid.ColumnDefinitions>
@@ -28,13 +28,13 @@
 
         <!--Inormattions tables-->
         <TextBlock Name="tIDEquipe" Text="ID Equipe" VerticalAlignment="Center" Margin="113,256,518,127" Height="38" Grid.Column="1" />
-        <TextBox Name="tbIDEquipe" Grid.Column="1" Margin="195,256,358,131" Text="{Binding Path=UneEquipe.ID_Equipe, Mode=TwoWay}" />
+        <TextBox Name="tbIDEquipe" Grid.Column="1" Margin="195,256,358,131" Text="{Binding Path=UneEquipe.ID_Equipe, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche2, Mode=OneWay}"/>
 
         <TextBlock Name="tIDClub" Text="ID Club" VerticalAlignment="Center" Margin="113,298,518,87" Height="36" Grid.Column="1" />
-        <TextBox Name="tbIDClub" Margin="195,298,360,91" Grid.Column="1" Text="{Binding Path=UneEquipe.ID_Club, Mode=TwoWay}" />
-
+        <ComboBox Name="cbClub" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="195,299,0,0" VerticalAlignment="Top" Width="154" SelectedValue="{Binding Path=UneEquipe.ID_Club, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
+        
         <TextBlock Name="tNom" Text="Nom" VerticalAlignment="Center" Margin="423,254,208,131" Height="36" Grid.Column="1" />
-        <TextBox Name="tbNom" Grid.Column="1" Margin="503,254,50,131" Text="{Binding Path=UneEquipe.Nom, Mode=TwoWay}" />
+        <TextBox Name="tbNom" Grid.Column="1" Margin="503,254,50,131" Text="{Binding Path=UneEquipe.Nom, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
 
         <!--Boutons-->
         <Button Name="bConfirmer" Content="Confirmer" Margin="242,375,383,10" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"
@@ -54,5 +54,7 @@
         </DataGrid>
 
         <TextBlock x:Name="tEquipeName" Text="Equipe" VerticalAlignment="Center" Margin="348,10,208,377" Height="34" Grid.Column="1" FontFamily="Arial Black" FontSize="22" />
+
+       
     </Grid>
 </Window>

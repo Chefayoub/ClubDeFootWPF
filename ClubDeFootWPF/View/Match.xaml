@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClubDeFootWPF.View"
         mc:Ignorable="d"
-        Title="Match" Height="450" Width="800" MaxWidth="800" MaxHeight="450">
+        Title="Match" Height="450" Width="800" MaxWidth="800" MaxHeight="450" Loaded="Window_Loaded">
 
     <Grid Background="White" RenderTransformOrigin="0.475,0.53">
         <Grid.ColumnDefinitions>
@@ -28,25 +28,28 @@
 
         <!--Données encodées table Match-->
         <TextBlock Name="tIDMatch" Text="ID Match" VerticalAlignment="Center" Margin="94,207,524,194" Height="20" Grid.Column="1" />
-        <TextBox Name="tbIDMatch" Margin="188,201,365,194" Grid.Column="1" Text="{Binding Path=UnMatch.ID_Match, Mode=TwoWay}"/>
+        <TextBox Name="tbIDMatch" Margin="188,201,365,194" Grid.Column="1" Text="{Binding Path=UnMatch.ID_Match, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche2, Mode=OneWay}"/>
 
         <TextBlock Name="tIDDomicile" Text="ID Domicile" VerticalAlignment="Center" Margin="94,244,524,158" Height="19" Grid.Column="1" />
-        <TextBox Name="tbIDDomicile" Margin="188,237,364,158" Grid.Column="1" Text="{Binding Path=UnMatch.ID_Domicile, Mode=TwoWay}" />
+        <ComboBox Name="cbIDDomicile" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="187.8,237,0,0" VerticalAlignment="Top" Width="154" SelectedValue="{Binding Path=UnMatch.ID_Domicile, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
+
 
         <TextBlock Name="tIDDeplacement" Text="ID Deplacement" VerticalAlignment="Center" Margin="94,272,524,127" Height="22" Grid.Column="1" />
-        <TextBox Name="tbIDDeplacement" Margin="188,268,364,127" Grid.Column="1" Text="{Binding Path=UnMatch.ID_Deplacement, Mode=TwoWay}" />
+        <ComboBox Name="cbIDDeplacement" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="187.8,272,0,0" VerticalAlignment="Top" Width="154" SelectedValue="{Binding Path=UnMatch.ID_Deplacement, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
 
         <TextBlock Name="tIDTerrain" Text="ID Terrain" VerticalAlignment="Center" Margin="94,308,524,92" Height="21" Grid.Column="1" />
-        <TextBox Name="tbTerrain" Margin="188,303,365,92" Grid.Column="1" Text="{Binding Path=UnMatch.ID_Terrain, Mode=TwoWay}" />
+        <ComboBox Name="cbIDTerrain" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="187.8,305,0,0" VerticalAlignment="Top" Width="154" SelectedValue="{Binding Path=UnMatch.ID_Terrain, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
+
 
         <TextBlock Name="tScoreDomicile" Text="Score Domicile" VerticalAlignment="Center" Margin="381,203,237,188" Height="30" Grid.Column="1" />
-        <TextBox Name="tbScoreDomicile" Margin="475,199,77,196" Grid.Column="1" Text="{Binding Path=UnMatch.Score_Domicile, Mode=TwoWay}" />
+        <TextBox Name="tbScoreDomicile" Margin="475,199,77,196" Grid.Column="1" Text="{Binding Path=UnMatch.Score_Domicile, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
 
         <TextBlock Name="tScoreAdversaire" Text="Score Adversaire" VerticalAlignment="Center" Margin="381,238,237,158" Grid.Column="1" Height="25" />
-        <TextBox Name="tbScoreAdversaire" Margin="475,237,77,158" Grid.Column="1" Text="{Binding Path=UnMatch.Score_Adversaire, Mode=TwoWay}" />
+        <TextBox Name="tbScoreAdversaire" Margin="475,237,77,158" Grid.Column="1" Text="{Binding Path=UnMatch.Score_Adversaire, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
 
         <TextBlock Name="tDateM" Text="Date" VerticalAlignment="Center" Height="26" Margin="381,277,274,118" Grid.Column="1" />
-        <DatePicker HorizontalAlignment="Right" Margin="0,277,77,0" VerticalAlignment="Top" Text="{Binding Path=UnMatch.DateM, Mode=TwoWay}" Grid.Column="1" Width="155" Height="24"/>
+        <TextBox x:Name="tDateMm" Margin="475,277,77,118" Grid.Column="1" Text="{Binding Path=UnMatch.DateM, Mode=TwoWay, StringFormat='dd/MM/yyyy HH:mm'}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
+
 
         <!--Boutons-->
         <Button Name="bConfirmer" Content="Confirmer" Margin="242,375,383,10" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"
@@ -65,7 +68,7 @@
                 <DataGridTextColumn Header="ID Terrain" Binding="{Binding Path=ID_Terrain}" Width="*" />
                 <DataGridTextColumn Header="Score Domicile" Binding="{Binding Path=Score_Domicile}" Width="*" />
                 <DataGridTextColumn Header="Score Adversaire" Binding="{Binding Path=Score_Adversaire}" Width="*" />
-                <DataGridTextColumn Header="Date" Binding="{Binding Path=DateM}" Width="*" />
+                <DataGridTextColumn Header="Date" Binding="{Binding Path=DateM, StringFormat='dd/MM/yyyy HH:mm'}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
 

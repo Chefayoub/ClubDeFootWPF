@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClubDeFootWPF.View"
         mc:Ignorable="d"
-        Title="Entrainement"  Height="450" Width="800" MaxWidth="800" MaxHeight="450">
+        Title="Entrainement"  Height="450" Width="800" MaxWidth="800" MaxHeight="450" Loaded="Window_Loaded">
 
     <Grid Background="White" RenderTransformOrigin="0.475,0.53">
         <Grid.ColumnDefinitions>
@@ -28,16 +28,16 @@
 
         <!--Données encodées table Entrainement-->
         <TextBlock Name="tIDEntrainement" Text="ID Entrainement" VerticalAlignment="Center" Margin="113,256,500,127" Height="38" Grid.Column="1" />
-        <TextBox Name="tbIDEntrainement" Grid.Column="1" Margin="212,256,341,131" Text="{Binding Path=UnEntrainement.ID_Entrainement, Mode=TwoWay}" />
+        <TextBox Name="tbIDEntrainement" Grid.Column="1" Margin="212,256,341,131" Text="{Binding Path=UnEntrainement.ID_Entrainement, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche2, Mode=OneWay}"/>
 
         <TextBlock Name="tIDTerrain" Text="ID Terrain" VerticalAlignment="Center" Margin="113,298,518,87" Height="36" Grid.Column="1" />
-        <TextBox Name="tbIDTerrain" Margin="212,298,343,91" Grid.Column="1" Text="{Binding Path=UnEntrainement.ID_Terrain, Mode=TwoWay}" />
+        <ComboBox Name="cbIDTerrain" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="212,298,0,0" VerticalAlignment="Top" Width="154" SelectedValue="{Binding Path=UnEntrainement.ID_Terrain, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
 
         <TextBlock Name="tIDEquipe" Text="ID Equipe" VerticalAlignment="Center" Margin="423,254,208,131" Height="36" Grid.Column="1" />
-        <TextBox Name="tbEquipe" Grid.Column="1" Margin="503,254,50,131" Text="{Binding Path=UnEntrainement.ID_Equipe, Mode=TwoWay}" />
+        <ComboBox Name="cbEquipe" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="503,254,0,0" VerticalAlignment="Top" Width="154" SelectedValue="{Binding Path=UnEntrainement.ID_Equipe, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
 
         <TextBlock Name="tDateE" Text="Date" VerticalAlignment="Center" Margin="423,296,208,89" Height="36" Grid.Column="1" />
-        <DatePicker HorizontalAlignment="Right" Margin="0,296,50,0" VerticalAlignment="Top" Text="{Binding Path=UnEntrainement.DateE, Mode=TwoWay}" Grid.Column="1" Width="154"/>
+        <TextBox x:Name="tDateEe" Margin="503,296,50,99" Grid.Column="1" Text="{Binding Path=UnEntrainement.DateE, Mode=TwoWay, StringFormat='dd/MM/yyyy HH:mm'}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
 
         <!--Boutons-->
         <Button Name="bConfirmer" Content="Confirmer" Margin="242,375,383,10" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"
@@ -53,7 +53,7 @@
                 <DataGridTextColumn Header="ID Entrainement" Binding="{Binding Path=ID_Entrainement}" Width="*" />
                 <DataGridTextColumn Header="ID Terrain" Binding="{Binding Path=ID_Terrain}" Width="*" />
                 <DataGridTextColumn Header="ID Equipe" Binding="{Binding Path=ID_Equipe}" Width="*" />
-                <DataGridTextColumn Header="Date" Binding="{Binding Path=DateE}" Width="*" />
+                <DataGridTextColumn Header="Date" Binding="{Binding Path=DateE, StringFormat='dd/MM/yyyy HH:mm'}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
 

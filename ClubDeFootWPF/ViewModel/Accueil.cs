@@ -85,29 +85,7 @@ namespace ClubDeFootWPF.ViewModel
             UneEquipe.ID_Club = EquipeSelectionnee.ID_Club;
             UneEquipe.Nom = EquipeSelectionnee.Nom;
         }
-        public class VM_UneEquipe : BasePropriete
-        {
-            private int _ID_Equipe, _ID_Club;
-            private string _Nom;
 
-            public int ID_Equipe
-            {
-                get { return _ID_Equipe; }
-                set { AssignerChamp<int>(ref _ID_Equipe, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-
-            public int ID_Club
-            {
-                get { return _ID_Club; }
-                set { AssignerChamp<int>(ref _ID_Club, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-
-            public string Nom
-            {
-                get { return _Nom; }
-                set { AssignerChamp<string>(ref _Nom, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-        }
         #endregion
 
         #region MEMBRE
@@ -151,48 +129,6 @@ namespace ClubDeFootWPF.ViewModel
             UnMembre.DateDeNaissance = MembreSelectionnee.DateDeNaissance;
         }
 
-        public class VM_UnMembre : BasePropriete
-        {
-            private int _ID_Membre, _ID_Equipe;
-            private string _Nom, _Prenom, _Email, _NumeroTel;
-            private DateTime _DateDeNaissance;
-
-            public int ID_Membre
-            {
-                get { return _ID_Membre; }
-                set { AssignerChamp<int>(ref _ID_Membre, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-            public int ID_Equipe
-            {
-                get { return _ID_Equipe; }
-                set { AssignerChamp<int>(ref _ID_Equipe, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-            public string NumeroTel
-            {
-                get { return _NumeroTel; }
-                set { AssignerChamp<string>(ref _NumeroTel, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-            public string Nom
-            {
-                get { return _Nom; }
-                set { AssignerChamp<string>(ref _Nom, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-            public string Prenom
-            {
-                get { return _Prenom; }
-                set { AssignerChamp<string>(ref _Prenom, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-            public string Email
-            {
-                get { return _Email; }
-                set { AssignerChamp<string>(ref _Email, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-            public DateTime DateDeNaissance
-            {
-                get { return _DateDeNaissance; }
-                set { AssignerChamp<DateTime>(ref _DateDeNaissance, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-        }
         #endregion
 
         #region Entrainement
@@ -230,32 +166,7 @@ namespace ClubDeFootWPF.ViewModel
             UnEntrainement.ID_Equipe = (int)EntrainementSelectionnee.ID_Equipe;
             UnEntrainement.DateE = EntrainementSelectionnee.DateE;
         }
-        public class VM_UnEntrainement : BasePropriete
-        {
-            private int _ID_Entrainement, _ID_Terrain, _ID_Equipe;
-            private DateTime _DateE;
 
-            public int ID_Entrainement
-            {
-                get { return _ID_Entrainement; }
-                set { AssignerChamp<int>(ref _ID_Entrainement, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-            public int ID_Terrain
-            {
-                get { return _ID_Terrain; }
-                set { AssignerChamp<int>(ref _ID_Terrain, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-            public int ID_Equipe
-            {
-                get { return _ID_Equipe; }
-                set { AssignerChamp<int>(ref _ID_Equipe, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-            public DateTime DateE
-            {
-                get { return _DateE; }
-                set { AssignerChamp<DateTime>(ref _DateE, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-        }
         #endregion
 
         #region MATCH
@@ -285,53 +196,17 @@ namespace ClubDeFootWPF.ViewModel
                 rep.Add(Tmp);
             return rep;
         }
-        public class VM_UnMatch : BasePropriete
+        public void MatchSelectionnee2UneMatch()
         {
-            private int _ID_Match, _ID_Domicile, _ID_Deplacement, _ID_Terrain, _Score_Domicile, _Score_Adversaire;
-            private DateTime _DateM;
-
-            public int ID_Match
-            {
-                get { return _ID_Match; }
-                set { AssignerChamp<int>(ref _ID_Match, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-
-            public int ID_Domicile
-            {
-                get { return _ID_Domicile; }
-                set { AssignerChamp<int>(ref _ID_Domicile, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-
-            public int ID_Deplacement
-            {
-                get { return _ID_Deplacement; }
-                set { AssignerChamp<int>(ref _ID_Deplacement, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-
-            public int ID_Terrain
-            {
-                get { return _ID_Terrain; }
-                set { AssignerChamp<int>(ref _ID_Terrain, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-
-            public int Score_Domicile
-            {
-                get { return _Score_Domicile; }
-                set { AssignerChamp<int>(ref _Score_Domicile, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-
-            public int Score_Adversaire
-            {
-                get { return _Score_Adversaire; }
-                set { AssignerChamp<int>(ref _Score_Adversaire, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-
-            public DateTime DateM
-            {
-                get { return _DateM; }
-                set { AssignerChamp<DateTime>(ref _DateM, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
+            UnMatch.ID_Match = MatchSelectionnee.ID_Match;
+            UnMatch.ID_Domicile = MatchSelectionnee.ID_Domicile;
+            UnMatch.ID_Deplacement = MatchSelectionnee.ID_Deplacement;
+            UnMatch.ID_Terrain = MatchSelectionnee.ID_Terrain;
+            UnMatch.Score_Domicile = (int)MatchSelectionnee.Score_Domicile;
+            UnMatch.Score_Adversaire = (int)MatchSelectionnee.Score_Adversaire;
+            UnMatch.DateM = MatchSelectionnee.DateM;
         }
+
         #endregion
 
         #region Terrain
@@ -361,24 +236,12 @@ namespace ClubDeFootWPF.ViewModel
                 rep.Add(Tmp);
             return rep;
         }
-        public class VM_UnTerrain : BasePropriete
+        public void TerrainSelectionnee2UneTerrain()
         {
-            private int _ID_Terrain;
-            private string _Nom;
-
-            public int ID_Terrain
-            {
-                get { return _ID_Terrain; }
-                set { AssignerChamp<int>(ref _ID_Terrain, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-
-            public string Nom
-            {
-                get { return _Nom; }
-                set { AssignerChamp<string>(ref _Nom, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
-            }
-
+            UnTerrain.ID_Terrain = TerrainSelectionnee.ID_Terrain;
+            UnTerrain.Nom = TerrainSelectionnee.Nom;
         }
+
         #endregion
     }
 }

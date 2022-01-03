@@ -1,0 +1,18 @@
+create view vueMatch
+as
+(
+	select * from [D:\BD_CLUBDESPORTWPF\BD_CLUBDESPORTWPF.MDF].dbo.T_Match
+)
+
+alter view vueMatch
+as
+(
+select * from T_Match where ID_Deplacement like '%0%'
+)
+
+select * from vueMatch
+
+
+
+SET DATEFIRST 1 -- Define beginning of week as Monday
+Select * From vueMatch2 Where DateM >= dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate())) AND DateM <  dateadd(day, 8-datepart(dw, getdate()), CONVERT(date,getdate()))
