@@ -35,10 +35,11 @@ namespace ClubDeFootWPF.View
             LocalMatch = new ViewModel.VM_Match();
             DataContext = LocalMatch;
 
-            //Generer un document qui vont ce jouer
+            //Generer un document qui donne : le programme de la semaine à venir, pour toutes les équipes
             FlowDocument fd = new FlowDocument();
             Paragraph p = new Paragraph();
             p.Inlines.Add(new Bold(new Run("Fiche de Match")));
+            p.Inlines.Add(new LineBreak());
             p.Inlines.Add(new LineBreak());
             p.Inlines.Add(new Run("Match"));
             p.Inlines.Add(new LineBreak());
@@ -73,42 +74,42 @@ namespace ClubDeFootWPF.View
             tr.Save(fs, System.Windows.DataFormats.Rtf);
 
 
-            //Generer un document match deja jouer
+            //Generer un document qui donne : les résultats de la semaine écoulée, pour toutes les équipes
             FlowDocument fd2 = new FlowDocument();
             Paragraph p1 = new Paragraph();
-            p.Inlines.Add(new Bold(new Run("Fiche de Match")));
-            p.Inlines.Add(new LineBreak());
-            p.Inlines.Add(new Run("Match"));
-            p.Inlines.Add(new LineBreak());
+            p1.Inlines.Add(new Bold(new Run("Fiche de Match")));
+            p1.Inlines.Add(new LineBreak());
+            p1.Inlines.Add(new LineBreak());
+            p1.Inlines.Add(new Run("Match"));
+            p1.Inlines.Add(new LineBreak());
 
             List<C_T_Match> match2 = new G_T_Match(chConnexion).Lire("DateM");
             foreach (C_T_Match m in match2)
             {
-                if ((m.DateM - DateTime.Now).TotalDays >= 7 && (m.DateM - DateTime.Now).TotalDays <= 0)
+                //if ((m.DateM - DateTime.Now).TotalDays <= 7 && (m.DateM - DateTime.Now).TotalDays >= 0)
+                if (m.DateM < DateTime.Now && m.DateM > DateTime.Now.AddDays(-7))
                 {
-                    p.Inlines.Add(new LineBreak());
-                    p.Inlines.Add("ID Match : " + m.ID_Match.ToString());
-                    p.Inlines.Add(new LineBreak());
-                    p.Inlines.Add("ID Domicile : " + m.ID_Domicile.ToString());
-                    p.Inlines.Add("  ID Deplacement : " + m.ID_Domicile.ToString());
-                    p.Inlines.Add(new LineBreak());
-                    p.Inlines.Add("Score Domicile : " + m.Score_Domicile.Value.ToString());
-                    p.Inlines.Add("  Score Deplacement : " + m.Score_Domicile.Value.ToString());
-                    p.Inlines.Add(new LineBreak());
-                    p.Inlines.Add("Date et heure : " + m.DateM.ToString());
-                    p.Inlines.Add(new LineBreak());
-                    p.Inlines.Add("Terrain : " + m.ID_Terrain.ToString());
-                    p.Inlines.Add(new LineBreak());
+                    p1.Inlines.Add(new LineBreak());
+                    p1.Inlines.Add("ID Match : " + m.ID_Match.ToString());
+                    p1.Inlines.Add(new LineBreak());
+                    p1.Inlines.Add("ID Domicile : " + m.ID_Domicile.ToString());
+                    p1.Inlines.Add("  ID Deplacement : " + m.ID_Domicile.ToString());
+                    p1.Inlines.Add(new LineBreak());
+                    p1.Inlines.Add("Score Domicile : " + m.Score_Domicile.Value.ToString());
+                    p1.Inlines.Add("  Score Deplacement : " + m.Score_Domicile.Value.ToString());
+                    p1.Inlines.Add(new LineBreak());
+                    p1.Inlines.Add("Date et heure : " + m.DateM.ToString());
+                    p1.Inlines.Add(new LineBreak());
+                    p1.Inlines.Add("Terrain : " + m.ID_Terrain.ToString());
+                    p1.Inlines.Add(new LineBreak());
                 }
             }
 
-            fd2.Blocks.Add(p);
+            fd2.Blocks.Add(p1);
             rtbDoc.Document = fd2;
             FileStream fs1 = new FileStream(@"D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\Fichier_Match\MatchPasser.doc", FileMode.Create);
             TextRange tr1 = new TextRange(rtbDoc.Document.ContentStart, rtbDoc.Document.ContentEnd);
             tr1.Save(fs1, System.Windows.DataFormats.Rtf);
-
-
         }
 
         private void dgMatchs_SelectionChanged(object sender, SelectionChangedEventArgs e)

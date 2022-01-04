@@ -215,5 +215,11 @@
   <ItemGroup>
     <Resource Include="View\BallonFoot.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\floppy-disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="email.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -62,6 +62,6 @@ D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\A
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\Accueil.baml
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Mail.g.cs
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Mail.baml
-D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.csproj.AssemblyReference.cache
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Html.g.cs
 D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\View\Html.baml
+D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\ClubDeFootWPF\obj\Debug\ClubDeFootWPF.csproj.AssemblyReference.cache

@@ -16,6 +16,9 @@ using System.Windows.Shapes;
 using System.Configuration;
 using System.Net.Mail;
 using System.Net;
+using Projet_BD_ClubDeSportWPF.Classes;
+using Projet_BD_ClubDeSportWPF.Gestion;
+
 
 namespace ClubDeFootWPF.View
 {
@@ -26,12 +29,15 @@ namespace ClubDeFootWPF.View
     /// 
     public partial class Mail : Window
     {
+        private string chConnexion = ConfigurationManager.ConnectionStrings["ClubDeFootWPF.Properties.Settings.BDConnexion"].ConnectionString;
+
         public Mail()
         {
             InitializeComponent();
+
         }
 
-        //Conditions pour un bon envoie
+        //Envoier un message a tous les membres
         private void bEnvoyer_Click(object sender, RoutedEventArgs e)
         {
             int flag = 0;
@@ -72,7 +78,7 @@ namespace ClubDeFootWPF.View
                     SmtpClient mailServer = new SmtpClient("smtp.office365.com", 587);
                     mailServer.EnableSsl = true;
 
-                    mailServer.Credentials = new System.Net.NetworkCredential("ayoub.allachi@student.hel.be", "Maroco4020");
+                    mailServer.Credentials = new System.Net.NetworkCredential("ayoub.allachi@student.hel.be", "x");
 
                     string from = "ayoub.allachi@student.hel.be";
                     MailMessage msg = new MailMessage(from, tbDestinataire.Text);
@@ -81,7 +87,7 @@ namespace ClubDeFootWPF.View
 
                     if (cbProgramme.IsChecked == true)
                     {
-                        msg.Attachments.Add(new Attachment("D:\\BD_ClubDeSportWPF\\DocAppWPF\\Football.doc"));
+                        msg.Attachments.Add(new Attachment(@"D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\Fichier_Match\ProgrammePersonnel.doc"));
                     }
                     //msg.Attachments.Add(new Attachment("D:\\BD_ClubDeSportWPF\\DocAppWPF\\Football.doc"));
                     mailServer.Send(msg);
@@ -96,6 +102,36 @@ namespace ClubDeFootWPF.View
                     MessageBox.Show("Impossible d'envoyer le mail ! " + ex, "Erreur !", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
+        }
+
+        private void bEnvoyer_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            List<C_T_Membre> membre = new G_T_Membre(chConnexion).Lire("ID_Membre");
+            foreach (C_T_Membre m in membre)
+            {
+                SmtpClient mailServer = new SmtpClient("smtp.office365.com", 587);
+                mailServer.EnableSsl = true;
+
+                mailServer.Credentials = new System.Net.NetworkCredential("ayoub.allachi@student.hel.be", "Maroco4020");
+
+                string from = "ayoub.allachi@student.hel.be";
+                MailMessage msg = new MailMessage(from, m.Email);
+                msg.Subject = tbSujet.Text;
+                msg.Body = tbContenu.Text;
+
+                if (cbProgramme.IsChecked == true)
+                {
+                    msg.Attachments.Add(new Attachment(@"D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\Fichier_Match\MatchAVenir.HTML"));
+                }
+                //msg.Attachments.Add(new Attachment("D:\\BD_ClubDeSportWPF\\DocAppWPF\\Football.doc"));
+                mailServer.Send(msg);
+
+                tbDestinataire.Text = "";
+                tbSujet.Text = "";
+                tbContenu.Text = "";
+                tbDestinataire.Focus();
+            }
+            MessageBox.Show("Message envoyé avec succès", "Envoyé", MessageBoxButton.OK);
         }
     }
 }

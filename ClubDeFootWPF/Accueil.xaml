@@ -47,14 +47,14 @@
         <!--DGV equipe-->
         <DataGrid x:Name="dgEquipe" ItemsSource="{Binding BcpEquipes}" VerticalScrollBarVisibility="Visible"
             IsReadOnly="True" AutoGenerateColumns="False" IsEnabled="{Binding ActiverBcpFiche, Mode=OneWay}"
-            SelectedItem="{Binding EquipeSelectionnee, Mode=TwoWay}" SelectionChanged="dgEquipe_SelectionChanged"  Margin="94,84,597,372" Grid.Column="1" FontFamily="Arial">
+            SelectedItem="{Binding EquipeSelectionnee, Mode=TwoWay}" SelectionChanged="dgEquipe_SelectionChanged"  Margin="93.6,261,597,194.8" Grid.Column="1" FontFamily="Arial">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID Equipe" Binding="{Binding ID_Equipe}" Width="*" />
                 <DataGridTextColumn Header="ID Club" Binding="{Binding ID_Club}" Width="*" />
                 <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
-        <TextBlock x:Name="tEquipeName" Text="Equipe" VerticalAlignment="Center" Margin="149,35,683,530" Height="44" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
+        <TextBlock x:Name="tEquipeName" Text="Equipe" VerticalAlignment="Center" Margin="148.6,213,683,351.8" Height="44" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
 
         <!--DGV Membre-->
         <DataGrid x:Name="dgMembre" ItemsSource="{Binding BcpMembres}" VerticalScrollBarVisibility="Visible"
@@ -75,13 +75,13 @@
         <!--DGV Terrain-->
         <DataGrid x:Name="dgTerrain" ItemsSource="{Binding BcpTerrains}" VerticalScrollBarVisibility="Visible"
             IsReadOnly="True" AutoGenerateColumns="False" IsEnabled="{Binding ActiverBcpFiche, Mode=OneWay}"
-            SelectedItem="{Binding TerrainSelectionnee, Mode=TwoWay}" SelectionChanged="dgTerrains_SelectionChanged"  Margin="90,280,601,187" Grid.Column="1" FontFamily="Arial">
+            SelectedItem="{Binding TerrainSelectionnee, Mode=TwoWay}" SelectionChanged="dgTerrains_SelectionChanged"  Margin="89.6,457,601,9.8" Grid.Column="1" FontFamily="Arial">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID Terrain" Binding="{Binding ID_Terrain}" Width="*" />
                 <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
-        <TextBlock x:Name="tTerrainName" Text="Terrain" VerticalAlignment="Center" Margin="148,242,682,334" Height="33" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
+        <TextBlock x:Name="tTerrainName" Text="Terrain" VerticalAlignment="Center" Margin="147.6,419,682,156.8" Height="33" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
 
         <!--DGV Match-->
         <DataGrid x:Name="dgMatch" ItemsSource="{Binding BcpMatchs}" VerticalScrollBarVisibility="Visible"
@@ -112,13 +112,28 @@
         </DataGrid>
         <TextBlock x:Name="tEntrainementName" Text="Entrainement" VerticalAlignment="Center" Margin="581,405,174,146" Height="58" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
 
-        <RichTextBox Name="rtbDoc" Grid.Column="1" HorizontalAlignment="Left" Height="130" Margin="94,458,0,0" VerticalAlignment="Top" Width="239" FontFamily="Arial">
+        <RichTextBox Name="rtbDoc" HorizontalAlignment="Left" Height="37" Margin="352.6,393,0,0" VerticalAlignment="Top" Width="56" FontFamily="Arial" Grid.Column="1" IsEnabled="False" BorderBrush="{x:Null}">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
+        <Button x:Name="bGenererFichierID" Margin="187.6,65,686,504.8" Grid.Column="1" FontFamily="Arial Black" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="bGenererFichierID_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="View/floppy-disk.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <TextBox x:Name="tbGenererFichierID" Margin="126.6,64,747,504.8" Grid.Column="1"/>
+        <Button x:Name="bGenererFichierIDEnvoyer" Margin="128.6,135,752,425.8" Grid.Column="1" FontFamily="Arial Black" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="bGenererFichierIDEnvoyer_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="email.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Sauvegarder le programme de la semaine" Grid.Column="1" HorizontalAlignment="Left" Margin="89.6,39,0,0" VerticalAlignment="Top" Width="245" FontStyle="Italic"/>
+        <Label Content="Envoyer le programme de la semaine" Grid.Column="1" HorizontalAlignment="Left" Margin="88.6,109,0,0" VerticalAlignment="Top" Width="245" FontStyle="Italic"/>
+        <TextBox x:Name="tbGenererFichierID_Copy" Margin="187.6,140,686,430.8" Grid.Column="1"/>
+        <Label Content="Veuillez indiquer l'ID de l'équipe déterminée :" Grid.Column="1" HorizontalAlignment="Left" Margin="89.6,13,0,0" VerticalAlignment="Top" Width="266" FontWeight="Bold"/>
 
 
     </Grid>

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Projet_BD_ClubDeSportWPF.Classes;
+using Projet_BD_ClubDeSportWPF.Gestion;
 
 namespace ClubDeFootWPF
 {
@@ -23,67 +26,15 @@ namespace ClubDeFootWPF
     public partial class Accueil : Window
     {
         private ViewModel.VM_Accueil LocalAccueil;
-
+        private string chConnexion = ConfigurationManager.ConnectionStrings["ClubDeFootWPF.Properties.Settings.BDConnexion"].ConnectionString;
 
         public Accueil()
         {
             InitializeComponent();
-
-            //Table Membre
             LocalAccueil = new ViewModel.VM_Accueil();
             DataContext = LocalAccueil;
-
-            //Generer un document
-            FlowDocument fd = new FlowDocument();
-            Paragraph p = new Paragraph();
-            p.Inlines.Add(new Bold(new Run("Fiche de Match")));
-            p.Inlines.Add(new LineBreak());
-            p.Inlines.Add(new Run("Match"));
-            p.Inlines.Add(new LineBreak());
-
-            foreach (C_T_Equipe cp in LocalAccueil.BcpEquipes)
-            {
-                p.Inlines.Add(new LineBreak());
-                p.Inlines.Add("Equipe : " + cp.Nom);
-                p.Inlines.Add(new LineBreak());
-            }
-
-            foreach (C_T_Membre cp in LocalAccueil.BcpMembres)
-            {
-                p.Inlines.Add(new LineBreak());
-                p.Inlines.Add("Membre : " + cp.Nom + " " + cp.Prenom + " - " + cp.Email);
-                p.Inlines.Add(new LineBreak());
-
-
-                //foreach (C_T_Match cp2 in LocalAccueil.BcpMatchs)
-                //{
-                //    p.Inlines.Add(new LineBreak());
-                //    p.Inlines.Add("Match : ");
-                //    p.Inlines.Add(new LineBreak());
-                //    p.Inlines.Add("Equipe domicile : " + cp2.ID_Domicile + " - Equipe deplacement : " + cp2.ID_Deplacement + " - Terrain : " + cp2.ID_Terrain + " - Score domicile : " + cp2.Score_Domicile + " - Score adversaire : " + cp2.Score_Adversaire + " - Date et heure du match : " + cp2.DateM);
-                //    p.Inlines.Add(new LineBreak());
-                //}
-            }
-
-            foreach (C_T_Match cp in LocalAccueil.BcpMatchs)
-            {
-                p.Inlines.Add(new LineBreak());
-                p.Inlines.Add("Match : ");
-                p.Inlines.Add(new LineBreak());
-                p.Inlines.Add("Equipe domicile : " + cp.ID_Domicile + " - Equipe deplacement : " + cp.ID_Deplacement + " - Terrain : " + cp.ID_Terrain + " - Score domicile : " + cp.Score_Domicile + " - Score adversaire : " + cp.Score_Adversaire + " - Date et heure du match : " + cp.DateM);
-                p.Inlines.Add(new LineBreak());
-            }
-
-
-
-
-
-            fd.Blocks.Add(p);
-            rtbDoc.Document = fd;
-            FileStream fs = new FileStream(@"D:\BD_ClubDeSportWPF\DocAppWPF\Football.doc", FileMode.Create);
-            TextRange tr = new TextRange(rtbDoc.Document.ContentStart, rtbDoc.Document.ContentEnd);
-            tr.Save(fs, System.Windows.DataFormats.Rtf);
         }
+
 
         private void btnMembre_Click(object sender, RoutedEventArgs e)
         {
@@ -177,7 +128,104 @@ namespace ClubDeFootWPF
         {
             if (dgEntrainement.SelectedIndex >= 0) LocalAccueil.EntrainementSelectionnee2UneEntrainement();
         }
+
+        // Le programme de la semaine, pour une équipe déterminée, pourra être envoyé par mail à chacun de ses membres disposant d'une adresse email
+        private void bGenererFichierID_Click(object sender, RoutedEventArgs e)
+        {
+            //Generer un document qui donne : Le programme de la semaine
+            FlowDocument fd = new FlowDocument();
+            Paragraph p = new Paragraph();
+            p.Inlines.Add(new Bold(new Run("Programme de la semaine")));
+            p.Inlines.Add(new LineBreak());
+            //p.Inlines.Add(new Run("Entrainement"));
+            p.Inlines.Add(new LineBreak());
+
+            if (tbGenererFichierID.Text == "")
+            {
+                MessageBox.Show("Veuillez remplir le texte box avec l'id souhaiter !");
+            }
+            else
+            {
+                List<C_T_Match> match = new G_T_Match(chConnexion).Lire("ID_Match");
+                p.Inlines.Add(new Bold(new Run("ID equipe en question : " + tbGenererFichierID.Text)));
+                p.Inlines.Add(new LineBreak());
+                foreach (C_T_Match m in match)
+                {
+                    if (m.ID_Deplacement == Int32.Parse(tbGenererFichierID.Text) || m.ID_Domicile == Int32.Parse(tbGenererFichierID.Text))
+                    {
+                        tbGenererFichierID.Text.ToString();
+                        p.Inlines.Add(new LineBreak());
+                        p.Inlines.Add(new Bold(new Run("MATCH")));
+                        p.Inlines.Add(new LineBreak());
+                        p.Inlines.Add("ID Match : " + m.ID_Match.ToString());
+                        p.Inlines.Add(new LineBreak());
+                        p.Inlines.Add("ID Domicile : " + m.ID_Domicile.ToString());
+                        p.Inlines.Add("  ID Deplacement : " + m.ID_Deplacement.ToString());
+                        p.Inlines.Add(new LineBreak());
+                        p.Inlines.Add("ID Terrain : " + m.ID_Terrain.ToString());
+                        p.Inlines.Add(new LineBreak());
+                        p.Inlines.Add("Date et heure : " + m.DateM.ToString());
+                        p.Inlines.Add(new LineBreak());
+                    }
+
+                }
+                List<C_T_Entrainement> entrainement = new G_T_Entrainement(chConnexion).Lire("ID_Entrainement");
+                foreach (C_T_Entrainement ent in entrainement)
+                {
+
+                    if (ent.ID_Equipe == Int32.Parse(tbGenererFichierID.Text))
+                    {
+                        tbGenererFichierID.Text.ToString();
+                        p.Inlines.Add(new LineBreak());
+                        p.Inlines.Add(new Bold(new Run("ENTRAINEMENT")));
+                        p.Inlines.Add(new LineBreak());
+                        p.Inlines.Add("ID Entrainement : " + ent.ID_Entrainement.ToString());
+                        p.Inlines.Add(new LineBreak());
+                        p.Inlines.Add("ID Equipe : " + ent.ID_Equipe.ToString());
+                        p.Inlines.Add(new LineBreak());
+                        p.Inlines.Add("ID Terrain : " + ent.ID_Terrain.ToString());
+                        p.Inlines.Add(new LineBreak());
+                        p.Inlines.Add("Date et heure : " + ent.DateE.ToString());
+
+                        p.Inlines.Add(new LineBreak());
+                    }
+                }
+                fd.Blocks.Add(p);
+                rtbDoc.Document = fd;
+                FileStream fs = new FileStream(@"D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\Fichier_Match\ProgrammePersonnel.doc", FileMode.Create);
+                TextRange tr = new TextRange(rtbDoc.Document.ContentStart, rtbDoc.Document.ContentEnd);
+                tr.Save(fs, System.Windows.DataFormats.Rtf);
+                MessageBox.Show("Le fichier Entrainement.doc a bien été créer !");
+            }
+        }
+
+        //Envoyer le fichier de programme de la semaine a des memebres qui appartiennent a une certaines equipe
+        private void bGenererFichierIDEnvoyer_Click(object sender, RoutedEventArgs e)
+        {
+            List<C_T_Membre> membre = new G_T_Membre(chConnexion).Lire("ID_Membre");
+            foreach (C_T_Membre m in membre)
+            {
+                if (m.ID_Equipe == Int32.Parse(tbGenererFichierID_Copy.Text))
+                {
+                    SmtpClient mailServer = new SmtpClient("smtp.office365.com", 587);
+                    mailServer.EnableSsl = true;
+
+                    mailServer.Credentials = new System.Net.NetworkCredential("ayoub.allachi@student.hel.be", "Maroco4020");
+
+                    string from = "ayoub.allachi@student.hel.be";
+                    MailMessage msg = new MailMessage(from, m.Email);
+                    msg.Subject = "Programme de la semaine";
+                    msg.Body = "Bonjour, Voici votre programme de la semaine. Cordialement";
+
+                    //if (cbProgramme.IsChecked == true)
+                    //{
+                    //    msg.Attachments.Add(new Attachment("D:\\BD_ClubDeSportWPF\\DocAppWPF\\Football.doc"));
+                    //}
+                    msg.Attachments.Add(new Attachment(@"D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\Fichier_Match\ProgrammePersonnel.doc"));
+                    mailServer.Send(msg);
+                }
+            }
+            MessageBox.Show("Message envoyé avec succès", "Envoyé", MessageBoxButton.OK);
+        }
     }
-
-
 }

@@ -20,7 +20,8 @@
         <TextBox HorizontalAlignment="Left" x:Name="tbContenu"  Height="124" Margin="128,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350"/>
         <!--Buttons envoyer-->
         <Button Content="Envoyer" HorizontalAlignment="Left" Background="Blue" Foreground="White" Margin="128,294,0,0" VerticalAlignment="Top" Width="143" Name="bEnvoyer" Click="bEnvoyer_Click" Height="46" FontFamily="Arial Black"/>
-        <CheckBox Name="cbProgramme" Content="Voulez-vous ajouter le programme de la semaine ?" HorizontalAlignment="Left" Margin="128,260,0,0" VerticalAlignment="Top" />
+        <CheckBox Name="cbProgramme" Content="Voulez-vous ajouter le programme de la semaine à venir?" HorizontalAlignment="Left" Margin="128,260,0,0" VerticalAlignment="Top" />
+        <Button Content="Envoyer à tous les membres" HorizontalAlignment="Left" Background="Blue" Foreground="White" Margin="335,294,0,0" VerticalAlignment="Top" Width="143" x:Name="bEnvoyer_Copy" Click="bEnvoyer_Copy_Click" Height="46" FontFamily="Arial Black" FontSize="9"/>
 
     </Grid>
 </Window>
