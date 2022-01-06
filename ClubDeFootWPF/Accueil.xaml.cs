@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
@@ -18,6 +20,7 @@ using System.Windows.Shapes;
 using Projet_BD_ClubDeSportWPF.Classes;
 using Projet_BD_ClubDeSportWPF.Gestion;
 
+
 namespace ClubDeFootWPF
 {
     /// <summary>
@@ -27,6 +30,9 @@ namespace ClubDeFootWPF
     {
         private ViewModel.VM_Accueil LocalAccueil;
         private string chConnexion = ConfigurationManager.ConnectionStrings["ClubDeFootWPF.Properties.Settings.BDConnexion"].ConnectionString;
+
+        public BaseCommande remplirTableEntrainement { get; set; }
+        
 
         public Accueil()
         {
@@ -219,13 +225,39 @@ namespace ClubDeFootWPF
 
                     //if (cbProgramme.IsChecked == true)
                     //{
-                    //    msg.Attachments.Add(new Attachment("D:\\BD_ClubDeSportWPF\\DocAppWPF\\Football.doc"));
+                    //    msg.Attachments.Add(new Attachment(""));
                     //}
                     msg.Attachments.Add(new Attachment(@"D:\Documents\BLOC_3\WPF MVVM\Application\ClubDeFootWPF\Fichier_Match\ProgrammePersonnel.doc"));
                     mailServer.Send(msg);
                 }
             }
             MessageBox.Show("Message envoyé avec succès", "Envoyé", MessageBoxButton.OK);
+        }
+
+
+
+
+
+        //Pour le refresh
+        private ObservableCollection<C_T_Equipe> _BcpEquipes = new ObservableCollection<C_T_Equipe>();
+        public ObservableCollection<C_T_Equipe> BcpEquipes
+        {
+            get { return _BcpEquipes; }
+            set { _BcpEquipes = value; }
+        }
+
+        private ObservableCollection<C_T_Equipe> ChargerEquipes(string chConn)
+        {
+            ObservableCollection<C_T_Equipe> rep = new ObservableCollection<C_T_Equipe>();
+            List<C_T_Equipe> lTmp = new G_T_Equipe(chConn).Lire("ID_Equipe");
+            foreach (C_T_Equipe Tmp in lTmp)
+                rep.Add(Tmp);
+            return rep;
+        }
+
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            LocalAccueil.Refresh();
         }
     }
 }

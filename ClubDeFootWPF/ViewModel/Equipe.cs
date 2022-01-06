@@ -106,12 +106,14 @@ namespace ClubDeFootWPF.ViewModel
                 UneEquipe.ID_Equipe = new G_T_Equipe(chConnexion).Ajouter(UneEquipe.Nom, UneEquipe.ID_Club);
                 BcpEquipes.Add(new C_T_Equipe(UneEquipe.ID_Equipe, UneEquipe.Nom, UneEquipe.ID_Club));
                 MessageBox.Show("Equipe ajouté avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                BcpEquipes = ChargerEquipes(chConnexion);
             }
             else
             {
                 new G_T_Equipe(chConnexion).Modifier(UneEquipe.ID_Equipe, UneEquipe.Nom, UneEquipe.ID_Club);
                 BcpEquipes[nAjout] = new C_T_Equipe(UneEquipe.ID_Equipe, UneEquipe.Nom, UneEquipe.ID_Club);
                 MessageBox.Show("Equipe modifié avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                BcpEquipes = ChargerEquipes(chConnexion);
             }
             ActiverUneFiche = false;
         }

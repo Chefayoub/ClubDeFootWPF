@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Projet_BD_ClubDeSportWPF.Classes;
 using Projet_BD_ClubDeSportWPF.Gestion;
 
@@ -15,6 +16,8 @@ namespace ClubDeFootWPF.ViewModel
         //@"Data Source=MSI\SQLEXPRESS;AttachDbFilename=D:\BD_ClubDeFootball\BD_ClubDeSport.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
         private string chConnexion = ConfigurationManager.ConnectionStrings["ClubDeFootWPF.Properties.Settings.BDConnexion"].ConnectionString;
         private bool _ActiverUneFiche;
+
+        public BaseCommande remplirTableEntrainement { get; set; }
 
         public VM_Accueil()
         {
@@ -34,7 +37,17 @@ namespace ClubDeFootWPF.ViewModel
             UnTerrain = new VM_UnTerrain();
             BcpTerrains = ChargerTerrains(chConnexion);
             ActiverUneFiche = false;
+
+            remplirTableEntrainement = new BaseCommande(EncoderEntrainement);
         }
+
+        private DateTime _DateEntrainement;
+        public DateTime DateEntrainement
+        {
+            get { return _DateEntrainement; }
+            set { AssignerChamp<DateTime>(ref _DateEntrainement, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
+        }
+
         public bool ActiverUneFiche
         {
             get { return _ActiverUneFiche; }
@@ -74,6 +87,7 @@ namespace ClubDeFootWPF.ViewModel
         private ObservableCollection<C_T_Equipe> ChargerEquipes(string chConn)
         {
             ObservableCollection<C_T_Equipe> rep = new ObservableCollection<C_T_Equipe>();
+            rep.Clear();
             List<C_T_Equipe> lTmp = new G_T_Equipe(chConn).Lire("ID_Equipe");
             foreach (C_T_Equipe Tmp in lTmp)
                 rep.Add(Tmp);
@@ -112,6 +126,7 @@ namespace ClubDeFootWPF.ViewModel
         private ObservableCollection<C_T_Membre> ChargerMembres(string chConn)
         {
             ObservableCollection<C_T_Membre> rep = new ObservableCollection<C_T_Membre>();
+            rep.Clear();
             List<C_T_Membre> lTmp = new G_T_Membre(chConn).Lire("ID_Membre");
             foreach (C_T_Membre Tmp in lTmp)
                 rep.Add(Tmp);
@@ -154,6 +169,7 @@ namespace ClubDeFootWPF.ViewModel
         private ObservableCollection<C_T_Entrainement> ChargerEntrainements(string chConn)
         {
             ObservableCollection<C_T_Entrainement> rep = new ObservableCollection<C_T_Entrainement>();
+            rep.Clear();
             List<C_T_Entrainement> lTmp = new G_T_Entrainement(chConn).Lire("ID_Entrainement");
             foreach (C_T_Entrainement Tmp in lTmp)
                 rep.Add(Tmp);
@@ -191,6 +207,7 @@ namespace ClubDeFootWPF.ViewModel
         private ObservableCollection<C_T_Match> ChargerMatchs(string chConn)
         {
             ObservableCollection<C_T_Match> rep = new ObservableCollection<C_T_Match>();
+            rep.Clear();
             List<C_T_Match> lTmp = new G_T_Match(chConn).Lire("ID_Match");
             foreach (C_T_Match Tmp in lTmp)
                 rep.Add(Tmp);
@@ -231,6 +248,7 @@ namespace ClubDeFootWPF.ViewModel
         private ObservableCollection<C_T_Terrain> ChargerTerrains(string chConn)
         {
             ObservableCollection<C_T_Terrain> rep = new ObservableCollection<C_T_Terrain>();
+            rep.Clear();
             List<C_T_Terrain> lTmp = new G_T_Terrain(chConn).Lire("ID_Terrain");
             foreach (C_T_Terrain Tmp in lTmp)
                 rep.Add(Tmp);
@@ -242,6 +260,23 @@ namespace ClubDeFootWPF.ViewModel
             UnTerrain.Nom = TerrainSelectionnee.Nom;
         }
 
+        //Partie pour remplir une nouvelle table entrainement
+        public void EncoderEntrainement()
+        {
+           new G_T_Entrainement(chConnexion).Ajouter(DateEntrainement, TerrainSelectionnee.ID_Terrain, EquipeSelectionnee.ID_Equipe);
+            BcpEntrainements.Add(new C_T_Entrainement(DateEntrainement, TerrainSelectionnee.ID_Terrain, EquipeSelectionnee.ID_Equipe));
+            MessageBox.Show("L'entrainement a bien été ajouté !");
+
+        }
+
+        public void Refresh()
+        {
+            BcpEquipes = ChargerEquipes(chConnexion);
+            BcpEntrainements = ChargerEntrainements(chConnexion);
+            BcpMatchs = ChargerMatchs(chConnexion);
+            BcpMembres = ChargerMembres(chConnexion);
+            BcpTerrains = ChargerTerrains(chConnexion);
+        }
         #endregion
     }
 }

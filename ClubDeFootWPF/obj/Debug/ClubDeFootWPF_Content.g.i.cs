@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("email.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("refresh.png")]
 
 

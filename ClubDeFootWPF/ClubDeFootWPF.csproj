@@ -221,5 +221,8 @@
   <ItemGroup>
     <Resource Include="email.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="refresh.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
