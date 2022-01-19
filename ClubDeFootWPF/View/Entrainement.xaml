@@ -50,7 +50,7 @@
         <!--DGV Entrainement-->
         <DataGrid Name="dgEntrainement" ItemsSource="{Binding Path=BcpEntrainements}" VerticalScrollBarVisibility="Visible"
             IsReadOnly="True" AutoGenerateColumns="False" IsEnabled="{Binding Path=ActiverBcpFiche, Mode=OneWay}"
-            SelectedItem="{Binding EntrainementSelectionnee, Mode=TwoWay}" SelectionChanged="dgEntrainements_SelectionChanged" Margin="94,70,10,189" Grid.Column="1" >
+            SelectedItem="{Binding EntrainementSelectionnee, Mode=TwoWay}" SelectionChanged="dgEntrainements_SelectionChanged" Margin="96,87,8,172" Grid.Column="1" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID Entrainement" Binding="{Binding Path=ID_Entrainement}" Width="*" />
                 <DataGridTextColumn Header="ID Terrain" Binding="{Binding Path=ID_Terrain}" Width="*" />
@@ -66,12 +66,14 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <Button x:Name="bGenererFichierID" Margin="150,10,500,380" Grid.Column="1" FontFamily="Arial Black" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="bGenererFichierID_Click_1">
+        <Button x:Name="bGenererFichierID" Margin="654,9,-4,381" Grid.Column="1" FontFamily="Arial Black" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="bGenererFichierID_Click">
             <Button.Background>
                 <ImageBrush ImageSource="floppy-disk.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <TextBox x:Name="tbGenererFichierID" Margin="94,13,557,380" Height="28" Grid.Column="1"/>
+        <TextBox x:Name="tbGenererFichierID" Margin="598,12,53,381" Height="28" Grid.Column="1"/>
+        <TextBlock x:Name="tIDTerrain_Copy" VerticalAlignment="Center" Margin="541,17,90,382" Height="22" Grid.Column="1" ><Run Text="ID "/><Run Text="Equipe"/></TextBlock>
+        <Label Content="L'horaire d'entraînement d'une équipe déterminée" Grid.Column="1" HorizontalAlignment="Left" Margin="423,39,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 

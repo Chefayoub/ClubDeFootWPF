@@ -19,9 +19,9 @@
         <Label Content="Contenu" HorizontalAlignment="Left" Margin="8,124,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="85" FontFamily="Arial"/>
         <TextBox HorizontalAlignment="Left" x:Name="tbContenu"  Height="124" Margin="128,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350"/>
         <!--Buttons envoyer-->
-        <Button Content="Envoyer" HorizontalAlignment="Left" Background="Blue" Foreground="White" Margin="128,294,0,0" VerticalAlignment="Top" Width="143" Name="bEnvoyer" Click="bEnvoyer_Click" Height="46" FontFamily="Arial Black"/>
+        <Button Content="Envoyer" HorizontalAlignment="Left" Background="Blue" Foreground="White" Margin="128,294,0,0" VerticalAlignment="Top" Width="143" Name="bEnvoyer" Click="bEnvoyer_Click" Height="46" FontFamily="Arial Black" BorderBrush="#FF11637C"/>
         <CheckBox Name="cbProgramme" Content="Voulez-vous ajouter le programme de la semaine à venir?" HorizontalAlignment="Left" Margin="128,260,0,0" VerticalAlignment="Top" />
-        <Button Content="Envoyer à tous les membres" HorizontalAlignment="Left" Background="Blue" Foreground="White" Margin="335,294,0,0" VerticalAlignment="Top" Width="143" x:Name="bEnvoyer_Copy" Click="bEnvoyer_Copy_Click" Height="46" FontFamily="Arial Black" FontSize="9"/>
+        <Button Content="Envoyer à tous les membres" HorizontalAlignment="Left" Background="Blue" Foreground="White" Margin="335,294,0,0" VerticalAlignment="Top" Width="143" x:Name="bEnvoyer_Copy" Click="bEnvoyer_Copy_Click" Height="46" FontFamily="Arial Black" FontSize="9" BorderBrush="#FF2E778D"/>
 
     </Grid>
 </Window>

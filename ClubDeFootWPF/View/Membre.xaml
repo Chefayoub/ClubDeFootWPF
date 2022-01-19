@@ -47,7 +47,7 @@
         <TextBox Name="tbNumeroTel" Margin="203,301,350,94" Grid.Column="1" Text="{Binding Path=UnMembre.NumeroTel, Mode=TwoWay}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
 
         <TextBlock Name="tDateDeNaissance" Text="Date de naissance"  VerticalAlignment="Center" Height="47" Margin="391,280,201,94" Grid.Column="1"  />
-        <TextBox Name="tbDate" Margin="510,275,42,120" Grid.Column="1" Text="{Binding Path=UnMembre.DateDeNaissance, StringFormat='dd/mm/yyyy'}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
+        <TextBox Name="tbDate" Margin="510,275,42,120" Grid.Column="1" Text="{Binding Path=UnMembre.DateDeNaissance, StringFormat='dd/MM/yyyy'}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>
 
         <!--Boutons-->
         <Button Name="bConfirmer" Content="Confirmer" Margin="242,375,383,10" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"
@@ -75,6 +75,8 @@
                 <Paragraph/>
             </FlowDocument>
         </RichTextBox>
+        <!--<DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="511,306,0,0" VerticalAlignment="Top" Text="{Binding Path=UnMembre.DateDeNaissance, StringFormat='dd/MM/yyyy'}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>-->
+        <!--<TextBox Name="tbDate" Margin="510,275,42,120" Grid.Column="1" Text="{Binding Path=UnMembre.DateDeNaissance, StringFormat='MM/dd/yyyy'}" IsEnabled="{Binding Path=ActiverUneFiche, Mode=OneWay}"/>-->
     </Grid>
 
 </Window>

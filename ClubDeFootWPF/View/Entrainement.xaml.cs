@@ -58,7 +58,7 @@ namespace ClubDeFootWPF.View
 
         private void bGenererFichierID_Click(object sender, RoutedEventArgs e)
         {
-            //Generer un document qui donne : L'horaire d'entraînement d'une équipe déterminée dans mon cas l'equipe avec l'ID_Equipe=20
+            //Generer un document qui donne : L'horaire d'entraînement d'une équipe déterminée
             FlowDocument fd = new FlowDocument();
             Paragraph p = new Paragraph();
             p.Inlines.Add(new Bold(new Run("Horaire d'entrainement")));
@@ -96,11 +96,6 @@ namespace ClubDeFootWPF.View
                 tr.Save(fs, System.Windows.DataFormats.Rtf);
                 MessageBox.Show("Le fichier Entrainement.doc a bien été créer !");
             }
-        }
-
-        private void bGenererFichierID_Click_1(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

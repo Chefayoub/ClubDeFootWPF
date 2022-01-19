@@ -32,10 +32,10 @@ namespace ClubDeFootWPF.View
             strHTMLBuilder.Append("<html>");
             strHTMLBuilder.Append("<head>");
             strHTMLBuilder.Append("</head>");
-            strHTMLBuilder.Append("<body>");
-            strHTMLBuilder.Append("<h1 style='text-align:center ; background - color: #65C509; font-family:arial; '>Football Club Managers</h1>");
-            strHTMLBuilder.Append("<h1 style='text-align:center ; background - color: #65C509; font-family:arial; '>Programme de la semaine a venir</h1>");
-            strHTMLBuilder.Append("<table align='center' border='3px' cellpadding='5' cellspacing='1' bgcolor='black'style='color:white; border: 1px solid #ccc;font-size: 12pt;font-family:arial'>");
+            strHTMLBuilder.Append("<body style=''>");
+            strHTMLBuilder.Append("<h1 style='text-align:center ; background - color: #37A674; font-family:arial; '>Football Club Managers</h1>");
+            strHTMLBuilder.Append("<h1 style='text-align:center ; background - color: #37A674; font-family:arial; '>Programme de la semaine a venir</h1>");
+            strHTMLBuilder.Append("<table background - color: #DDF3E9; align='center' border='3px' cellpadding='5' cellspacing='1' bgcolor='black'style='color:white; border: 1px solid #DDF3E9;font-size: 12pt;font-family:arial'>");
             strHTMLBuilder.Append("<tr>");
 
             foreach (DataColumn myColumn in dtHtml.Columns)

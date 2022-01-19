@@ -253,6 +253,7 @@ namespace ClubDeFootWPF.ViewModel
             foreach (C_T_Terrain Tmp in lTmp)
                 rep.Add(Tmp);
             return rep;
+
         }
         public void TerrainSelectionnee2UneTerrain()
         {
@@ -269,14 +270,6 @@ namespace ClubDeFootWPF.ViewModel
 
         }
 
-        public void Refresh()
-        {
-            BcpEquipes = ChargerEquipes(chConnexion);
-            BcpEntrainements = ChargerEntrainements(chConnexion);
-            BcpMatchs = ChargerMatchs(chConnexion);
-            BcpMembres = ChargerMembres(chConnexion);
-            BcpTerrains = ChargerTerrains(chConnexion);
-        }
         #endregion
     }
 }

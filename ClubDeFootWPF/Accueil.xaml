@@ -42,11 +42,11 @@
             <Button x:Name="btnHTML" Content="HTML" Margin="5,5,5.2,5" Click="btnHTML_Click" Height="40" Foreground="White" FontFamily="Arial Black" FontSize="14" Background="#FF042B04"/>
         </StackPanel>
         <!-- _____________ -->
-        <Button  x:Name="btnRefresh" Margin="376,45,502,526" Click="btnRefresh_Click" Foreground="White" FontFamily="Arial Black" FontSize="14" Grid.Column="1" BorderBrush="{x:Null}">
+        <!--<Button  x:Name="btnRefresh" Margin="376,45,502,526" Click="btnRefresh_Click" Foreground="White" FontFamily="Arial Black" FontSize="14" Grid.Column="1" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="refresh.png" Stretch="Uniform"/>
             </Button.Background>
-        </Button>
+        </Button>-->
         <!--DGV equipe-->
         <DataGrid x:Name="dgEquipe" ItemsSource="{Binding BcpEquipes}" VerticalScrollBarVisibility="Visible"
             IsReadOnly="True" AutoGenerateColumns="False" IsEnabled="{Binding ActiverBcpFiche, Mode=OneWay}"
@@ -115,7 +115,7 @@
         </DataGrid>
         <TextBlock x:Name="tEntrainementName" Text="Entrainement" VerticalAlignment="Center" Margin="581,428,174,157" Height="24" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />
 
-        <RichTextBox Name="rtbDoc" HorizontalAlignment="Left" Height="37" Margin="352.6,393,0,0" VerticalAlignment="Top" Width="56" FontFamily="Arial" Grid.Column="1" IsEnabled="False" BorderBrush="{x:Null}">
+        <RichTextBox Name="rtbDoc" HorizontalAlignment="Left" Height="0" Margin="58,609,0,0" VerticalAlignment="Top" Width="56" FontFamily="Arial" IsEnabled="False" BorderBrush="{x:Null}">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>
@@ -141,9 +141,9 @@
         <Label Content="Veuillez indiquer l'ID de l'équipe déterminée :" Grid.Column="1" HorizontalAlignment="Left" Margin="89,45,0,0" VerticalAlignment="Top" Width="266" FontWeight="Bold"/>
 
         <!--Remplir une table -->
-        <Button Content="Remplir" Grid.Column="1" HorizontalAlignment="Left" Margin="824,16,0,0" VerticalAlignment="Top" Width="75" Height="24" Command="{Binding remplirTableEntrainement}"/>
+        <Button Content="Remplir" Grid.Column="1" HorizontalAlignment="Left" Margin="824,16,0,0" VerticalAlignment="Top" Width="75" Height="24" Command="{Binding remplirTableEntrainement}" FontFamily="Arial Black" BorderBrush="#FF2075A6" Background="Blue" Foreground="White"/>
         <TextBox x:Name="tbRemplirTableDate" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="699,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Path=DateEntrainement, StringFormat='dd/MM/yyyy HH:mm'}"/>
-        <Label Content="Veuillez indiquer la date d'entrainement souhaiter :" Grid.Column="1" HorizontalAlignment="Left" Margin="402,16,0,0" VerticalAlignment="Top" Width="303" FontWeight="Bold" Height="33"/>
+        <Label Content="Selectionner une equipe , un terrain et indiquer la date d'entrainement souhaiter" Grid.Column="1" HorizontalAlignment="Left" Margin="221,11,0,0" VerticalAlignment="Top" Width="473" FontWeight="Bold" Height="29"/>
 
 
     </Grid>

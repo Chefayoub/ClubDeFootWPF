@@ -255,9 +255,5 @@ namespace ClubDeFootWPF
             return rep;
         }
 
-        private void btnRefresh_Click(object sender, RoutedEventArgs e)
-        {
-            LocalAccueil.Refresh();
-        }
     }
 }
