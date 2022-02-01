@@ -23,6 +23,7 @@ using Projet_BD_ClubDeSportWPF.Gestion;
 namespace ClubDeFootWPF.View
 {
     //info http://www.mukeshkumar.net/articles/wpf/send-an-email-in-csharp-with-wpf-application
+
     /// <summary>
     /// Logique d'interaction pour Mail.xaml
     /// </summary>
@@ -75,6 +76,7 @@ namespace ClubDeFootWPF.View
                 //Informations relative au mail avec le quel on envoie
                 try
                 {
+                    //Smtp du compte
                     SmtpClient mailServer = new SmtpClient("smtp.office365.com", 587);
                     mailServer.EnableSsl = true;
 

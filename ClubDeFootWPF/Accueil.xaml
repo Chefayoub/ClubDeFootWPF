@@ -25,7 +25,7 @@
 
 
         <!--Menu a gauche-->
-        <StackPanel Margin="0,-6,841,0" Grid.ColumnSpan="2" Background="#FF0B9142" Height="615" VerticalAlignment="Top">
+        <StackPanel Margin="0,0,841,-0.2" Grid.ColumnSpan="2" Background="#FF0B9142" Height="609" VerticalAlignment="Top">
             <Image x:Name="cli" Source="BallonFoot.png" Height="84" Margin="0, 30, 0, 0">
                 <Image.OpacityMask>
                     <ImageBrush ImageSource="BallonFoot.png" Stretch="Uniform"/>

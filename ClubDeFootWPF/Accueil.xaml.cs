@@ -33,7 +33,7 @@ namespace ClubDeFootWPF
 
         public BaseCommande remplirTableEntrainement { get; set; }
         
-
+        //Fenetre pour les differentes tables
         public Accueil()
         {
             InitializeComponent();
