@@ -1,0 +1,6 @@
+C:\Users\ayoub\Desktop\ClubDeSportWCF\ClubDeSportWCF\bin\ClubDeSportWCF.dll.config
+C:\Users\ayoub\Desktop\ClubDeSportWCF\ClubDeSportWCF\bin\ClubDeSportWCF.dll
+C:\Users\ayoub\Desktop\ClubDeSportWCF\ClubDeSportWCF\bin\ClubDeSportWCF.pdb
+C:\Users\ayoub\Desktop\ClubDeSportWCF\ClubDeSportWCF\obj\Debug\ClubDeSportWCF.csproj.CoreCompileInputs.cache
+C:\Users\ayoub\Desktop\ClubDeSportWCF\ClubDeSportWCF\obj\Debug\ClubDeSportWCF.dll
+C:\Users\ayoub\Desktop\ClubDeSportWCF\ClubDeSportWCF\obj\Debug\ClubDeSportWCF.pdb
