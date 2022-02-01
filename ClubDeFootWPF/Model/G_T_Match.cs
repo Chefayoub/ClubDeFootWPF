@@ -21,10 +21,10 @@ namespace Projet_BD_ClubDeSportWPF.Gestion
    : base(sChaineConnexion)
   { }
   #endregion
-  public int Ajouter(int? Score_Domicile, int? Score_Adversaire, DateTime DateM, int ID_Domicile, int ID_Deplacement, int ID_Terrain)
-  { return new A_T_Match(ChaineConnexion).Ajouter(Score_Domicile, Score_Adversaire, DateM, ID_Domicile, ID_Deplacement, ID_Terrain); }
-  public int Modifier(int ID_Match, int? Score_Domicile, int? Score_Adversaire, DateTime DateM, int ID_Domicile, int ID_Deplacement, int ID_Terrain)
-  { return new A_T_Match(ChaineConnexion).Modifier(ID_Match, Score_Domicile, Score_Adversaire, DateM, ID_Domicile, ID_Deplacement, ID_Terrain); }
+  public int Ajouter(int? Score_Domicile, int? Score_Adversaire, DateTime DateM, int ID_Domicile, int ID_Deplacement, int ID_Terrain, int? CarteJaune_Domicile, int? CarteRouge_Domicile, int? CarteJaune_Adversaire, int? CarteRouge_Adversaire)
+  { return new A_T_Match(ChaineConnexion).Ajouter(Score_Domicile, Score_Adversaire, DateM, ID_Domicile, ID_Deplacement, ID_Terrain, CarteJaune_Domicile, CarteRouge_Domicile, CarteJaune_Adversaire, CarteRouge_Adversaire); }
+  public int Modifier(int ID_Match, int? Score_Domicile, int? Score_Adversaire, DateTime DateM, int ID_Domicile, int ID_Deplacement, int ID_Terrain, int? CarteJaune_Domicile, int? CarteRouge_Domicile, int? CarteJaune_Adversaire, int? CarteRouge_Adversaire)
+        { return new A_T_Match(ChaineConnexion).Modifier(ID_Match, Score_Domicile, Score_Adversaire, DateM, ID_Domicile, ID_Deplacement, ID_Terrain, CarteJaune_Domicile, CarteRouge_Domicile, CarteJaune_Adversaire, CarteRouge_Adversaire); }
   public List<C_T_Match> Lire(string Index)
   { return new A_T_Match(ChaineConnexion).Lire(Index); }
   public C_T_Match Lire_ID(int ID_Match)

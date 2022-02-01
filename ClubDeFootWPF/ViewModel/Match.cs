@@ -100,14 +100,14 @@ namespace ClubDeFootWPF.ViewModel
         {
             if (nAjout == -1)
             {
-                UnMatch.ID_Match = new G_T_Match(chConnexion).Ajouter(UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain);
-                BcpMatchs.Add(new C_T_Match(UnMatch.ID_Match, UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain));
+                UnMatch.ID_Match = new G_T_Match(chConnexion).Ajouter(UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain, UnMatch.CarteJaune_Domicile, UnMatch.CarteRouge_Domicile, UnMatch.CarteJaune_Adversaire, UnMatch.CarteRouge_Adversaire);
+                BcpMatchs.Add(new C_T_Match(UnMatch.ID_Match, UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain, UnMatch.CarteJaune_Domicile, UnMatch.CarteRouge_Domicile, UnMatch.CarteJaune_Adversaire, UnMatch.CarteRouge_Adversaire));
                 MessageBox.Show("Match ajouté avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             else
             {
-                new G_T_Match(chConnexion).Modifier(UnMatch.ID_Match, UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain);
-                BcpMatchs[nAjout] = new C_T_Match(UnMatch.ID_Match, UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain);
+                new G_T_Match(chConnexion).Modifier(UnMatch.ID_Match, UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain, UnMatch.CarteJaune_Domicile, UnMatch.CarteRouge_Domicile, UnMatch.CarteJaune_Adversaire, UnMatch.CarteRouge_Adversaire);
+                BcpMatchs[nAjout] = new C_T_Match(UnMatch.ID_Match, UnMatch.Score_Domicile, UnMatch.Score_Adversaire, UnMatch.DateM, UnMatch.ID_Domicile, UnMatch.ID_Deplacement, UnMatch.ID_Terrain, UnMatch.CarteJaune_Domicile, UnMatch.CarteRouge_Domicile, UnMatch.CarteJaune_Adversaire, UnMatch.CarteRouge_Adversaire);
                 MessageBox.Show("Match modifié avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             ActiverUneFiche = false;
@@ -139,6 +139,10 @@ namespace ClubDeFootWPF.ViewModel
                 UnMatch.Score_Domicile = (int)Tmp.Score_Domicile;
                 UnMatch.Score_Adversaire = (int)Tmp.Score_Adversaire;
                 UnMatch.DateM = Tmp.DateM;
+                UnMatch.CarteJaune_Domicile = (int)Tmp.CarteJaune_Domicile;
+                UnMatch.CarteRouge_Domicile = (int)Tmp.CarteRouge_Domicile;
+                UnMatch.CarteJaune_Adversaire = (int)Tmp.CarteJaune_Adversaire;
+                UnMatch.CarteRouge_Adversaire = (int)Tmp.CarteJaune_Adversaire;
                 nAjout = BcpMatchs.IndexOf(MatchSelectionnee);
                 ActiverUneFiche = true;
             }
@@ -165,13 +169,17 @@ namespace ClubDeFootWPF.ViewModel
             UnMatch.Score_Domicile = (int)MatchSelectionnee.Score_Domicile;
             UnMatch.Score_Adversaire = (int)MatchSelectionnee.Score_Adversaire;
             UnMatch.DateM = MatchSelectionnee.DateM;
+            UnMatch.CarteJaune_Domicile = (int)MatchSelectionnee.CarteJaune_Domicile;
+            UnMatch.CarteRouge_Domicile = (int)MatchSelectionnee.CarteRouge_Domicile;
+            UnMatch.CarteJaune_Adversaire = (int)MatchSelectionnee.CarteJaune_Adversaire;
+            UnMatch.CarteRouge_Adversaire = (int)MatchSelectionnee.CarteRouge_Adversaire;
         }
     }
 
 
     public class VM_UnMatch : BasePropriete
     {
-        private int _ID_Match, _ID_Domicile, _ID_Deplacement, _ID_Terrain, _Score_Domicile, _Score_Adversaire;
+        private int _ID_Match, _ID_Domicile, _ID_Deplacement, _ID_Terrain, _Score_Domicile, _Score_Adversaire, _CarteJaune_Domicile, _CarteRouge_Domicile, _CarteJaune_Adversaire, _CarteRouge_Adversaire;
         private DateTime _DateM;
 
         public int ID_Match
@@ -214,6 +222,30 @@ namespace ClubDeFootWPF.ViewModel
         {
             get { return _DateM; }
             set { AssignerChamp<DateTime>(ref _DateM, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
+        }
+
+        public int CarteJaune_Domicile
+        {
+            get { return _CarteJaune_Domicile; }
+            set { AssignerChamp<int>(ref _CarteJaune_Domicile, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
+        }
+
+        public int CarteRouge_Domicile
+        {
+            get { return _CarteRouge_Domicile; }
+            set { AssignerChamp<int>(ref _CarteRouge_Domicile, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
+        }
+
+        public int CarteJaune_Adversaire
+        {
+            get { return _CarteJaune_Adversaire; }
+            set { AssignerChamp<int>(ref _CarteJaune_Adversaire, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
+        }
+
+        public int CarteRouge_Adversaire
+        {
+            get { return _CarteRouge_Adversaire; }
+            set { AssignerChamp<int>(ref _CarteRouge_Adversaire, value, System.Reflection.MethodBase.GetCurrentMethod().Name); }
         }
     }
 }

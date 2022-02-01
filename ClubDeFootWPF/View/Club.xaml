@@ -66,5 +66,6 @@
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock x:Name="tclubName" Text="Club" VerticalAlignment="Center" Margin="369,10,262,377" Height="34" Grid.Column="1" FontFamily="Century" FontSize="22" />
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="76" Margin="135,322,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" />
     </Grid>
 </Window>

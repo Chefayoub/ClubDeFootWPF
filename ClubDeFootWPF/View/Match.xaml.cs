@@ -96,7 +96,7 @@ namespace ClubDeFootWPF.View
                     p1.Inlines.Add("  ID Deplacement : " + m.ID_Domicile.ToString());
                     p1.Inlines.Add(new LineBreak());
                     p1.Inlines.Add("Score Domicile : " + m.Score_Domicile.Value.ToString());
-                    p1.Inlines.Add("  Score Deplacement : " + m.Score_Domicile.Value.ToString());
+                    p1.Inlines.Add("  Score Deplacement : " + m.Score_Adversaire.Value.ToString());
                     p1.Inlines.Add(new LineBreak());
                     p1.Inlines.Add("Date et heure : " + m.DateM.ToString());
                     p1.Inlines.Add(new LineBreak());

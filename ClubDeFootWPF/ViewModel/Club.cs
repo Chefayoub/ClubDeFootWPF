@@ -19,6 +19,7 @@ namespace ClubDeFootWPF.ViewModel
         private int nAjout;
         private bool _ActiverUneFiche;
 
+        
 
         public bool ActiverUneFiche
         {
@@ -98,8 +99,10 @@ namespace ClubDeFootWPF.ViewModel
             return rep;
         }
 
+
         public void Confirmer()
         {
+
             if (nAjout == -1)
             {
                 UnClub.ID_Club = new G_T_Club(chConnexion).Ajouter(UnClub.Nom, UnClub.Rue, UnClub.Numero, UnClub.Code_Postal, UnClub.Localite, UnClub.Mon_Club);

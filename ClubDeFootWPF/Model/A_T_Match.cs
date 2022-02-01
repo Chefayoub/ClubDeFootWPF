@@ -20,7 +20,7 @@ namespace Projet_BD_ClubDeSportWPF.Acces
   	: base(sChaineConnexion)
   { }
   #endregion
-  public int Ajouter(int? Score_Domicile, int? Score_Adversaire, DateTime DateM, int ID_Domicile, int ID_Deplacement, int ID_Terrain)
+  public int Ajouter(int? Score_Domicile, int? Score_Adversaire, DateTime DateM, int ID_Domicile, int ID_Deplacement, int ID_Terrain, int? CarteJaune_Domicile, int? CarteRouge_Domicile, int? CarteJaune_Adversaire, int? CarteRouge_Adversaire)
   {
    CreerCommande("AjouterT_Match");
    int res = 0;
@@ -34,14 +34,22 @@ namespace Projet_BD_ClubDeSportWPF.Acces
    Commande.Parameters.AddWithValue("@ID_Domicile", ID_Domicile);
    Commande.Parameters.AddWithValue("@ID_Deplacement", ID_Deplacement);
    Commande.Parameters.AddWithValue("@ID_Terrain", ID_Terrain);
+   if (CarteJaune_Domicile == null) Commande.Parameters.AddWithValue("@CarteJaune_Domicile", Convert.DBNull);
+   else Commande.Parameters.AddWithValue("@CarteJaune_Domicile", Score_Domicile);
+   if (CarteRouge_Domicile == null) Commande.Parameters.AddWithValue("@CarteRouge_Domicile", Convert.DBNull);
+   else Commande.Parameters.AddWithValue("@CarteRouge_Domicile", Score_Adversaire);
+   if (CarteJaune_Adversaire == null) Commande.Parameters.AddWithValue("@CarteJaune_Adversaire", Convert.DBNull);
+   else Commande.Parameters.AddWithValue("@CarteJaune_Adversaire", Score_Domicile);
+   if (CarteRouge_Adversaire == null) Commande.Parameters.AddWithValue("@CarteRouge_Adversaire", Convert.DBNull);
+   else Commande.Parameters.AddWithValue("@CarteRouge_Adversaire", Score_Adversaire);
    Commande.Connection.Open();
    Commande.ExecuteNonQuery();
    res = int.Parse(LireParametre("ID_Match"));
    Commande.Connection.Close();
    return res;
   }
-  public int Modifier(int ID_Match, int? Score_Domicile, int? Score_Adversaire, DateTime DateM, int ID_Domicile, int ID_Deplacement, int ID_Terrain)
-  {
+  public int Modifier(int ID_Match, int? Score_Domicile, int? Score_Adversaire, DateTime DateM, int ID_Domicile, int ID_Deplacement, int ID_Terrain, int? CarteJaune_Domicile, int? CarteRouge_Domicile, int? CarteJaune_Adversaire, int? CarteRouge_Adversaire)
+        {
    CreerCommande("ModifierT_Match");
    int res = 0;
    Commande.Parameters.AddWithValue("@ID_Match", ID_Match);
@@ -53,6 +61,14 @@ namespace Projet_BD_ClubDeSportWPF.Acces
    Commande.Parameters.AddWithValue("@ID_Domicile", ID_Domicile);
    Commande.Parameters.AddWithValue("@ID_Deplacement", ID_Deplacement);
    Commande.Parameters.AddWithValue("@ID_Terrain", ID_Terrain);
+   if (CarteJaune_Domicile == null) Commande.Parameters.AddWithValue("@CarteJaune_Domicile", Convert.DBNull);
+   else Commande.Parameters.AddWithValue("@CarteJaune_Domicile", Score_Domicile);
+   if (CarteRouge_Domicile == null) Commande.Parameters.AddWithValue("@CarteRouge_Domicile", Convert.DBNull);
+   else Commande.Parameters.AddWithValue("@CarteRouge_Domicile", Score_Adversaire);
+   if (CarteJaune_Adversaire == null) Commande.Parameters.AddWithValue("@CarteJaune_Adversaire", Convert.DBNull);
+   else Commande.Parameters.AddWithValue("@CarteJaune_Adversaire", Score_Domicile);
+   if (CarteRouge_Adversaire == null) Commande.Parameters.AddWithValue("@CarteRouge_Adversaire", Convert.DBNull);
+   else Commande.Parameters.AddWithValue("@CarteRouge_Adversaire", Score_Adversaire);
    Commande.Connection.Open();
    Commande.ExecuteNonQuery();
    Commande.Connection.Close();
@@ -75,6 +91,10 @@ namespace Projet_BD_ClubDeSportWPF.Acces
     tmp.ID_Domicile = int.Parse(dr["ID_Domicile"].ToString());
     tmp.ID_Deplacement = int.Parse(dr["ID_Deplacement"].ToString());
     tmp.ID_Terrain = int.Parse(dr["ID_Terrain"].ToString());
+   if(dr["CarteJaune_Domicile"] != DBNull.Value) tmp.CarteJaune_Domicile = int.Parse(dr["CarteJaune_Domicile"].ToString());
+   if(dr["CarteRouge_Domicile"] != DBNull.Value) tmp.CarteRouge_Domicile = int.Parse(dr["CarteJaune_Domicile"].ToString());
+   if(dr["CarteJaune_Adversaire"] != DBNull.Value) tmp.CarteJaune_Adversaire = int.Parse(dr["CarteJaune_Adversaire"].ToString());
+   if(dr["CarteRouge_Adversaire"] != DBNull.Value) tmp.CarteRouge_Adversaire = int.Parse(dr["CarteRouge_Adversaire"].ToString());
     res.Add(tmp);
 			}
 			dr.Close();
@@ -97,6 +117,10 @@ namespace Projet_BD_ClubDeSportWPF.Acces
     res.ID_Domicile = int.Parse(dr["ID_Domicile"].ToString());
     res.ID_Deplacement = int.Parse(dr["ID_Deplacement"].ToString());
     res.ID_Terrain = int.Parse(dr["ID_Terrain"].ToString());
+   if(dr["CarteJaune_Domicile"] != DBNull.Value) res.CarteJaune_Domicile = int.Parse(dr["CarteJaune_Domicile"].ToString());
+   if(dr["CarteRouge_Domicile"] != DBNull.Value) res.CarteRouge_Domicile = int.Parse(dr["CarteRouge_Domicile"].ToString());
+   if(dr["CarteJaune_Adversaire"] != DBNull.Value) res.CarteJaune_Adversaire = int.Parse(dr["CarteJaune_Adversaire"].ToString());
+   if(dr["CarteRouge_Adversaire"] != DBNull.Value) res.CarteRouge_Adversaire = int.Parse(dr["CarteRouge_Adversaire"].ToString());
    }
 			dr.Close();
 			Commande.Connection.Close();

@@ -25,7 +25,7 @@
 
 
         <!--Menu a gauche-->
-        <StackPanel VerticalAlignment="Center" Margin="0,-6,841,0" Height="615" Grid.ColumnSpan="2" Background="#FF0B9142">
+        <StackPanel Margin="0,-6,841,0" Grid.ColumnSpan="2" Background="#FF0B9142" Height="615" VerticalAlignment="Top">
             <Image x:Name="cli" Source="BallonFoot.png" Height="84" Margin="0, 30, 0, 0">
                 <Image.OpacityMask>
                     <ImageBrush ImageSource="BallonFoot.png" Stretch="Uniform"/>
@@ -98,6 +98,10 @@
                 <DataGridTextColumn Header="Score Domicile" Binding="{Binding Score_Domicile}" Width="*" />
                 <DataGridTextColumn Header="Score Adversaire" Binding="{Binding Score_Adversaire}" Width="*" />
                 <DataGridTextColumn Header="Date" Binding="{Binding DateM, StringFormat='dd/MM/yyyy HH:mm'}" Width="*" />
+                <DataGridTextColumn Header="CarteJaune_Domicile" Binding="{Binding Path=CarteJaune_Domicile}" Width="*" />
+                <DataGridTextColumn Header="CarteRouge_Domicile" Binding="{Binding Path=CarteRouge_Domicile}" Width="*" />
+                <DataGridTextColumn Header="CarteJaune_Adversaire" Binding="{Binding Path=CarteJaune_Adversaire}" Width="*" />
+                <DataGridTextColumn Header="CarteRouge_Adversaire" Binding="{Binding Path=CarteRouge_Adversaire}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock x:Name="tMatchName" Text="Match" VerticalAlignment="Center" Margin="581,236,262,348" Height="25" Grid.Column="1" FontFamily="Arial Black" FontSize="18" />

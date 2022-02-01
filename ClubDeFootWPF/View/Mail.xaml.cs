@@ -78,7 +78,7 @@ namespace ClubDeFootWPF.View
                     SmtpClient mailServer = new SmtpClient("smtp.office365.com", 587);
                     mailServer.EnableSsl = true;
 
-                    mailServer.Credentials = new System.Net.NetworkCredential("ayoub.allachi@student.hel.be", "x");
+                    mailServer.Credentials = new System.Net.NetworkCredential("ayoub.allachi@student.hel.be", "");
 
                     string from = "ayoub.allachi@student.hel.be";
                     MailMessage msg = new MailMessage(from, tbDestinataire.Text);
