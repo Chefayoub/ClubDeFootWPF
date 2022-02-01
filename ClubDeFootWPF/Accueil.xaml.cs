@@ -216,9 +216,9 @@ namespace ClubDeFootWPF
                     SmtpClient mailServer = new SmtpClient("smtp.office365.com", 587);
                     mailServer.EnableSsl = true;
 
-                    mailServer.Credentials = new System.Net.NetworkCredential("ayoub.allachi@student.hel.be", "Maroco4020");
+                    mailServer.Credentials = new System.Net.NetworkCredential("mail", "password");
 
-                    string from = "ayoub.allachi@student.hel.be";
+                    string from = "mail";
                     MailMessage msg = new MailMessage(from, m.Email);
                     msg.Subject = "Programme de la semaine";
                     msg.Body = "Bonjour, Voici votre programme de la semaine. Cordialement";
