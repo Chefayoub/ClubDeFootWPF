@@ -26,8 +26,9 @@ namespace ClubDeFootWPF.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSI\\SQLEXPRESS;AttachDbFilename=D:\\BD\\ClubDeFootWpf.mdf;Integrated Se" +
-            "curity=True;Connect Timeout=30;User Instance=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSI\\SQLEXPRESS;AttachDbFilename=D:\\Documents\\BLOC_3\\WPF MVVM\\Applicat" +
+            "ion\\ClubDeFootWPF\\Fichier_BD\\ClubDeFootWpf.mdf;Integrated Security=True;Connect " +
+            "Timeout=30;User Instance=True")]
         public string BDConnexion {
             get {
                 return ((string)(this["BDConnexion"]));
