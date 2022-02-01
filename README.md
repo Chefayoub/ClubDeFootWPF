@@ -1,5 +1,12 @@
-ClubDeFootWPF
+#Application that links a c# WPF MVVM interface with a database on Microsoft SQL server.
 
-RecupMembre1.Service1Client membre = new RecupMembre1.Service1Client();
+Subject :
 
-meembre.Recupmemebre();
+This is a football application. You can manage teams that are in clubs. 
+Managing different matches and training sessions that take place on different football fields
+
+Programming language : C# WPF MVVM, Microsoft SQL server
+
+Language : French
+
+Illustration :
